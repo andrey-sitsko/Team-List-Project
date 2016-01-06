@@ -1,0 +1,24 @@
+{
+  "name": "team-list",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrey-sitsko/team-list.git"
+  },
+  "author": "andrey.sitsko@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "bootstrap": "^3.3.6",
+    "bootstrap-social": "^4.11.0",
+    "express": "^4.13.3",
+    "font-awesome": "^4.5.0",
+    "jquery": "^2.1.4",
+    "path": "^0.12.7",
+    "webpack": "^1.12.9"
+  }
+}
