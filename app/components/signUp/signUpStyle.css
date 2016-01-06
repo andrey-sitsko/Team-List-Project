@@ -1,0 +1,50 @@
+.sign-up-modal {
+  text-align: center;
+}
+
+.modal-close-button {
+  color: rgb(204, 0, 153);
+  opacity: 1;
+}
+
+.modal-close-button:hover {
+  color: rgb(255, 153, 229);
+}
+
+.sign-up-modal-dialog {
+  color: rgb(204, 0, 153);
+  width: 400px;
+}
+
+.create-account-button {
+  font-size: 20px;
+  color: white;
+  background-color: rgb(204, 0, 153);
+  transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.create-account-button:hover {
+  background-color: rgb(255, 153, 229);
+}
+
+.sign-up-modal-dialog input::-webkit-input-placeholder {
+  color: rgb(204, 0, 153);
+}
+
+.sign-up-modal-dialog input {
+  color: rgb(204, 0, 153);
+}
+
+.social-container {
+  text-align: center;
+}
+
+.sign-up-modal-footer {
+  text-align: center;
+  padding-top: 0;
+}
+
+.sign-up-modal-footer h4 {
+  margin-bottom: 20px;
+}
