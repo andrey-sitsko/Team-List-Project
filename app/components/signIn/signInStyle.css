@@ -1,0 +1,40 @@
+.sign-in-form input::-webkit-input-placeholder {
+  color: rgb(204, 0, 153);
+}
+
+.sign-in-form input {
+  color: rgb(204, 0, 153);
+}
+
+.input-group .glyphicon {
+  color: rgb(204, 0, 153);
+}
+
+.login-container {
+  margin-right: 8px;
+}
+
+.sign-in-form {
+  display: inline-block;
+  padding: 0;
+}
+
+.or-span {
+  margin: 0 4px 0 4px;
+  font-size: 20px;
+  color: white;
+  font-style: italic;
+}
+
+.login-button {
+  padding: 2px 8px 2px 8px;
+  font-size: 20px;
+  color: rgb(204, 0, 153);
+  background-color: white;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: rgb(255, 153, 229);
+  color: white;
+}
