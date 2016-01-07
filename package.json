@@ -13,13 +13,18 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.4.8",
+    "body-parser": "^1.14.2",
     "bootstrap": "^3.3.6",
     "bootstrap-social": "^4.11.0",
     "css-loader": "^0.23.1",
+    "ejs": "^2.3.4",
     "express": "^4.13.3",
     "file-loader": "^0.8.5",
     "font-awesome": "^4.5.0",
     "jquery": "^2.1.4",
+    "mongoose": "^4.3.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "webpack": "^1.12.9"
   }
