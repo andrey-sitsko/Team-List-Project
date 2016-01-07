@@ -11,6 +11,8 @@ app.controller('styleController', ['$scope', function($scope) {
     '../components/signUp/signUpStyle.css',
     '../components/signIn/signInStyle.css',
     '../components/header/headerStyle.css',
-    '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+    '../../node_modules/bootstrap/dist/css/bootstrap.min.css',
+    '../../node_modules/bootstrap-social/bootstrap-social.css',
+    '../../node_modules/font-awesome/css/font-awesome.min.css'
   ];
 }]);
