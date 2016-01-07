@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html ng-app="loginApp">
+  <head ng-controller="styleController">
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" ng-href="{{stylesheet}}" ng-repeat="stylesheet in stylesheets">
   </head>
-  <body ng-app="loginApp">
-
+  <body>
+    <header>
+      <sign-in-form></sign-in-form>
+    </header>
+    <sign-up-modal-dialog></sign-up-modal-dialog>
   </body>
-  <script src="../cores/loginApp.js"></script>
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../public/loginApp.bundle.js"></script>
 </html>

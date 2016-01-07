@@ -1,4 +1,4 @@
-var app = angular.app('headerApp', []);
+var app = angular.module('headerApp', []);
 
 app.directive('header', function() {
   return {

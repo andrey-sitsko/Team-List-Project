@@ -1,4 +1,4 @@
-var app = angular.app('signUpApp', []);
+var app = angular.module('signUpApp', []);
 
 app.directive('signUpModalDialog', function() {
   return {

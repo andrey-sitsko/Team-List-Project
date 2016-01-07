@@ -1,4 +1,4 @@
-var app = angular.app('signInApp', []);
+var app = angular.module('signInApp', []);
 
 app.directive('signInForm', function() {
   return {
