@@ -1,9 +1,14 @@
 var express = require('express'),
     path = require('path'),
-    config = require('./config/serverConfig.js'),
-    app = express();
+    mongoose = require('mongoose'),
+    bodyParser = require('body-parser'),
+    serverConfig = require('./server/config/serverConfig.js'),
+    databaseConfig = require('./server/config/databaseConfig.js'),
+    app;
 
-app = config(app);
+app = express();
+app = serverConfig(app);
+mongoose.connect(databaseConfig.url);
 
 app.get('/', function(req, res) {
     res.render('loginView.html');
