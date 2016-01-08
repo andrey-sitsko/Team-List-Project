@@ -8,11 +8,11 @@ app.directive('signUpModalDialog', function() {
     restrict: 'E',
     templateUrl: 'signUpView.html',
     controller: ['$scope','loginService', function($scope, loginService) {
-      $scope.name = '';
-      $scope.password = '';
-      $scope.email = '';
+      $scope.signUpName = '';
+      $scope.signUpPassword = '';
+      $scope.signUpEmail = '';
       $scope.submitSignUp = function() {
-        loginService.signUp({name: $scope.name, password: $scope.password, email: $scope.email});
+        loginService.signUp({name: $scope.signUpName, password: $scope.signUpPassword, email: $scope.signUpEmail});
       };
     }]
   };

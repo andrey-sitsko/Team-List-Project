@@ -5,10 +5,10 @@ app.directive('signInForm', function() {
     restrict: 'E',
     templateUrl: 'signInView.html',
     controller: ['$scope','loginService', function($scope, loginService) {
-      $scope.password = '';
-      $scope.email = '';
+      $scope.signInPassword = '';
+      $scope.signInEmail = '';
       $scope.submitSignIn = function() {
-        loginService.signIn({email: $scope.email, password: $scope.password});
+        loginService.signIn({email: $scope.signInEmail, password: $scope.signInPassword});
       };
     }]
   };
