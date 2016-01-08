@@ -7,13 +7,13 @@ function loginRoutes(app) {
   });
 
   app.post('/signUp', function(req, res) {
-    var nick = new User({
-      name: 'Nick Cerminara',
-      password: 'password',
-      admin: true
+    var user = new User({
+      name: req.body.name,
+      password: req.body.password,
+      email: req.body.email
     });
 
-    nick.save(function(err) {
+    user.save(function(err) {
       if (err) throw err;
     });
 

@@ -8,8 +8,13 @@ var express = require('express'),
     app;
 
 app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app = serverConfig(app);
 app = loginRoutes(app);
+
 mongoose.connect(databaseConfig.url);
 
 app.listen(8080);
