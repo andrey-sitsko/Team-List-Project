@@ -1,12 +1,12 @@
 <div class="login-container pull-right">
-  <form class="sign-in-form navbar-form" ng-submit="submitsign-inForm()">
+  <form class="sign-in-form navbar-form" ng-submit="submitSignIn()">
      <div class="input-group">
        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-       <input type="email" class="form-control" ng-model="signInEmail" ng placeholder="Email Address" required>
+       <input type="email" class="form-control" ng-model="email" ng placeholder="Email Address" required>
      </div>
      <div class="input-group">
        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-       <input type="password" class="form-control" ng-model="signInPassword" placeholder="Password" required>
+       <input type="password" class="form-control" ng-model="password" placeholder="Password" required>
      </div>
      <button type="submit" class="login-button btn">Sign in</button>
   </form>
