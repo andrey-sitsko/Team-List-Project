@@ -1,5 +1,7 @@
 function config(app) {
-  var express = require('express');
+  var express = require('express'),
+      morgan = require('morgan');
+
   app.use('/share', express.static('./app/share'));
   app.use('/components', express.static('./app/share/components'));
   app.use('/builtApps', express.static('./app/builtApps'));
@@ -9,8 +11,9 @@ function config(app) {
   app.use('/headerView.html', express.static('./app/share/components/header/headerView.html'));
   app.use('/signInView.html', express.static('./app/share/components/signIn/signInView.html'));
   app.use('/signUpView.html', express.static('./app/share/components/signUp/signUpView.html'));
-
   app.set('views', './app/views');
+
+  app.use(morgan('dev'));
   app.engine('html', require('ejs').renderFile);
 
   return app;

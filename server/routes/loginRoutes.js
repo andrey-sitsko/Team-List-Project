@@ -6,8 +6,17 @@ function loginRoutes(app) {
     res.render('loginView.html');
   });
 
-  app.post('/api/signUp', function(req, res) {
-  
+  app.post('/signUp', function(req, res) {
+    var nick = new User({
+      name: 'Nick Cerminara',
+      password: 'password',
+      admin: true
+    });
+
+    nick.save(function(err) {
+      if (err) throw err;
+    });
+
   });
 
   return app;
