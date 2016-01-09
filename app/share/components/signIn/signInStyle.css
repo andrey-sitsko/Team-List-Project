@@ -1,13 +1,13 @@
 .sign-in-form input::-webkit-input-placeholder {
-  color: rgb(204, 0, 153);
+  color: rgb(0, 102, 204);
 }
 
 .sign-in-form input {
-  color: rgb(204, 0, 153);
+  color: rgb(0, 102, 204);
 }
 
 .input-group .glyphicon {
-  color: rgb(204, 0, 153);
+  color: rgb(0, 102, 204);
 }
 
 .login-container {
@@ -29,12 +29,12 @@
 .login-button {
   padding: 2px 8px 2px 8px;
   font-size: 20px;
-  color: rgb(204, 0, 153);
+  color: rgb(0, 102, 204);
   background-color: white;
   transition: background-color 0.3s;
 }
 
 .login-button:hover {
-  background-color: rgb(255, 153, 229);
+  background-color: rgb(153, 153, 255);
   color: white;
 }
