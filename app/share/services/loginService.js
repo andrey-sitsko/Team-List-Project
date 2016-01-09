@@ -1,16 +1,16 @@
 var app = angular.module('loginServiceApp', []);
 
-app.service('loginService', ['$http', function($http) {
-    this.signUp = function(authData) {
-      $http.post('/signUp', authData).then(
-          function(res) {
-              console.log('signUp success callback' + success);
-          }, function(error) {
-              console.log('signUp errr callback' + error);
-          });
+app.service('loginService', ['$http', '$window', function($http, $window) {
+    this.signUp = function(authData, successCallback) {
+        $http.post('/signUp', authData).then(successCallback);
     };
 
     this.signIn = function(authData) {
-      return $http.post('/signIn', authData);
+      $http.post('/signIn', authData).then(function(res) {
+          //console.dir(res.data);
+          if(res.data.success) {
+              $window.location.href = '/main';
+          }
+      });
     };
 }]);

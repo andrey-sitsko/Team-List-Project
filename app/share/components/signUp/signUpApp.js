@@ -7,13 +7,23 @@ app.directive('signUpModalDialog', function() {
   return {
     restrict: 'E',
     templateUrl: 'signUpView.html',
-    controller: ['$scope','loginService', function($scope, loginService) {
+    controller: ['$scope', '$window', 'loginService', function($scope, $window, loginService) {
       $scope.signUpName = '';
       $scope.signUpPassword = '';
       $scope.signUpEmail = '';
+      $scope.alreadyExistWarning = false;
       $scope.submitSignUp = function() {
-        loginService.signUp({name: $scope.signUpName, password: $scope.signUpPassword, email: $scope.signUpEmail});
+        loginService.signUp({name: $scope.signUpName, password: $scope.signUpPassword, email: $scope.signUpEmail},
+          successSignUp);
       };
+      function successSignUp(res) {
+        if(res.data.success) {
+          $window.location.href = '/main';
+        } else {
+          $scope.alreadyExistWarning = true;
+          $scope.signUpPassword = '';
+        }
+      }
     }]
   };
 });
