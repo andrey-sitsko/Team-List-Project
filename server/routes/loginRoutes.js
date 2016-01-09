@@ -1,5 +1,8 @@
 var User = require('../models/userModel.js'),
-    jwt = require('jsonwebtoken');
+    passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    signIn = require('../controllers/userAuth/signIn'),
+    signUp = require('../controllers/userAuth/signUp');
 
 function loginRoutes(app) {
 
@@ -7,46 +10,24 @@ function loginRoutes(app) {
     res.render('loginView.html');
   });
 
-  app.post('/signUp', function(req, res) {
-    var user = new User({
-      name: req.body.name,
-      password: req.body.password,
-      email: req.body.email
-    });
-    user.save(function(err) {
-      if (err) throw err;
-    });
+  app.get('/main', function(req, res) {
+    res.render('mainView.html');
   });
 
-  app.post('/signIn', function(req, res) {
-    User.findOne({
-      email: req.body.email
-    },
-    function(err, user) {
-      if (err) {
-        throw err;
-      }
-      if (!user || req.body.password != user.password) {
-        res.json({ success: false, error: 'notFound' });
-      } else {
-        var token = jwt.sign(user, 'shhhhh', {
-          expiresIn: '1d'
-        });
-        res.json({
-          success: true,
-          token: token
-        });
-      }
-    });
-  });
+  app.post('/signUp', signUp);
 
-  app.get('/users', function(req, res) {
+  app.post('/signIn', passport.authenticate('local', {
+    successRedirect: '/main',
+    failureRedirect: '/'
+  }));
+
+  app.get('/api/users', function(req, res) {
     User.find({}, function(err, users) {
       res.send(users);
     });
   });
 
-  app.get('/deleteAll', function(req, res) {
+  app.get('/api/deleteAll', function(req, res) {
     User.remove({}, function(err) {});
   });
 
