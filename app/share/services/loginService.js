@@ -5,12 +5,7 @@ app.service('loginService', ['$http', '$window', function($http, $window) {
         $http.post('/signUp', authData).then(successCallback);
     };
 
-    this.signIn = function(authData) {
-      $http.post('/signIn', authData).then(function(res) {
-          //console.dir(res.data);
-          if(res.data.success) {
-              $window.location.href = '/main';
-          }
-      });
+    this.signIn = function(authData, successCallback) {
+      $http.post('/signIn', authData).then(successCallback);
     };
 }]);

@@ -1,14 +1,17 @@
 <div class="login-container pull-right">
   <form class="sign-in-form navbar-form" ng-submit="submitSignIn()">
-     <div class="input-group">
+     <div class="input-group" id="sign-in-email">
        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
        <input type="email" class="form-control" ng-model="signInEmail" ng placeholder="Email Address" required>
      </div>
-     <div class="input-group">
+     <div class="input-group" id="sign-in-password">
        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
        <input type="password" class="form-control" ng-model="signInPassword" placeholder="Password" required>
      </div>
      <button type="submit" class="login-button btn">Sign in</button>
+     <div id="wrong-login-credetians-message" class="wrong-login-credetians-message">
+       wrong email or password
+     </div>
   </form>
   <span class="or-span">or</span>
   <button class="login-button btn" data-toggle="modal" data-target="#myModal">Sign up</button>

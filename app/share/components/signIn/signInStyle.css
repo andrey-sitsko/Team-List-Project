@@ -15,6 +15,7 @@
 }
 
 .navbar-form.sign-in-form {
+  position: relative;
   display: inline-block;
   padding: 0;
 }
@@ -37,4 +38,53 @@
 .login-button:hover {
   background-color: rgb(153, 153, 255);
   color: white;
+}
+
+.input-group.wrong-login-credetians {
+  border: 2px solid rgb(255, 51, 51);
+  border-radius: 6px;
+}
+
+.input-group {
+  border: 2px solid transparent;
+}
+
+.wrong-login-credetians-message {
+  position: absolute;
+  z-index: -1;
+  background-color: rgb(255, 51, 51);
+  color: white;
+  font-size: 21px;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  transform: translateY(-26px);
+}
+
+.show-login-tooltip {
+  transform: translateY(14px);
+  animation: show-login-tooltip 3s;
+}
+
+@keyframes show-login-tooltip {
+    0%   {
+      transform: translateY(-26px);
+    }
+    25%  {
+      transform: translateY(14px);
+    }
+}
+
+.hide-login-tooltip {
+  animation: hide-login-tooltip 0.7s;
+}
+
+@keyframes hide-login-tooltip {
+  0%   {
+    transform: translateY(14px);
+  }
+  100%  {
+    transform: translateY(-26px);
+  }
 }
