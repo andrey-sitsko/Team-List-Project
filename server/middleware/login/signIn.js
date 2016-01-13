@@ -2,7 +2,7 @@ var User = require('../../models/userModel.js'),
     passport = require('passport');
 
 module.exports = function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
+  passport.authenticate('local', function(err, user) {
     if (err) {
       return next(err);
     }
@@ -11,10 +11,10 @@ module.exports = function(req, res, next) {
     } else {
       req.login(user, function(err) {
         if (err) {
-          return next(err);
+          throw err;
         }
       });
       res.send({success: true, user: user});
     }
-  })(req, res, next);
+  })(req, res);
 };

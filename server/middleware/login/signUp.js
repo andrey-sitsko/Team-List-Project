@@ -1,4 +1,5 @@
-var User = require('../../models/userModel.js');
+var User = require('../../models/userModel.js'),
+    passport = require('passport');
 
 module.exports = function(req, res) {
   var newUser = new User({
@@ -18,7 +19,21 @@ module.exports = function(req, res) {
           throw err;
         }
       });
-      res.send({success: true, status: 'user created'});
+      passport.authenticate('local', function(err, user) {
+        if (err) {
+          return next(err);
+        }
+        if (!user) {
+          res.send({success: false, status: 'auth error'});
+        } else {
+          req.login(user, function(err) {
+            if (err) {
+              throw err;
+            }
+          });
+          res.send({success: true, user: user});
+        }
+      })(req, res);
     }
   });
 };
