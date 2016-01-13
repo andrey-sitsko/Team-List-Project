@@ -28,4 +28,4 @@ app.use(passport.session());
 app = serverConfig(app);
 app = loginRoutes(app);
 
-app.listen(8080);
+app.listen(8000);

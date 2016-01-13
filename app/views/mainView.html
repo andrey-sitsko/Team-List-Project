@@ -5,9 +5,12 @@
     <title>Team-list</title>
     <link rel="stylesheet" type="text/css" ng-href="{{stylesheet}}" ng-repeat="stylesheet in stylesheets">
   </head>
-  <body ng-app="mainApp">
-    <header></header>
+  <body>
+    <header>
+      <user-info></user-info>
+    </header>
     <h1>Congrats, home page!</h1>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../builtApps/mainApp.bundle.js"></script>
   </body>
 </html>

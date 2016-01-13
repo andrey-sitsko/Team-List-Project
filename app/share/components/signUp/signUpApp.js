@@ -1,7 +1,6 @@
 require('../../services/loginService.js');
-require('../../routes/loginRoutes.js');
 
-var app = angular.module('signUpApp', ['loginRoutes', 'loginServiceApp']);
+var app = angular.module('signUpApp', ['loginServiceApp']);
 
 app.directive('signUpModalDialog', function() {
   return {

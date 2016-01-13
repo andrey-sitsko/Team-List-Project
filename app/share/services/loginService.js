@@ -6,6 +6,12 @@ app.service('loginService', ['$http', '$window', function($http, $window) {
     };
 
     this.signIn = function(authData, successCallback) {
-      $http.post('/signIn', authData).then(successCallback);
+        $http.post('/signIn', authData).then(successCallback);
+    };
+
+    this.signOut = function() {
+        $http.get('/logout').then(function(res) {
+            $window.location.href = '/';
+        });
     };
 }]);

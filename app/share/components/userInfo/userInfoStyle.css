@@ -1,0 +1,26 @@
+.user-info-container {
+  height: 53px;
+}
+
+.btn.logout-button {
+  margin: 0 15px 12px 0;
+  padding: 1px 12px 1px 12px;
+  font-size: 22px;
+  color: rgb(0, 102, 204);
+  background-color: white;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: rgb(153, 153, 255);
+  color: white;
+}
+
+.username {
+  height: 53px;
+  line-height: 53px;
+  display: inline-block;
+  margin-right: 25px;
+  color: white;
+  font-size: 30px;
+}

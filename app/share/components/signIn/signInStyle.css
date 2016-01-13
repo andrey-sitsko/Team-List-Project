@@ -27,9 +27,9 @@
   font-style: italic;
 }
 
-.login-button {
-  padding: 2px 8px 2px 8px;
-  font-size: 20px;
+.btn.login-button {
+  padding: 1px 12px 1px 12px;
+  font-size: 22px;
   color: rgb(0, 102, 204);
   background-color: white;
   transition: background-color 0.3s;
