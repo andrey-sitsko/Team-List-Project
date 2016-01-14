@@ -1,5 +1,5 @@
-require('../../services/loginService.js');
-require('../../services/storageService.js');
+require('../../../services/loginService.js');
+require('../../../services/storageService.js');
 
 var app = angular.module('userInfoApp', ['loginServiceApp', 'storageServiceApp']);
 

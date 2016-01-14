@@ -1,4 +1,4 @@
-require('../../services/loginService.js');
+require('../../../services/loginService.js');
 
 var app = angular.module('signUpApp', ['loginServiceApp']);
 
