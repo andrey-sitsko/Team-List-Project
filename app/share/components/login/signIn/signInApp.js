@@ -19,13 +19,9 @@ app.directive('signInForm', function() {
             $('#sign-in-password').addClass('wrong-login-credetians');
             $('#wrong-login-credetians-message').addClass('show-login-tooltip');
             $('#wrong-login-credetians-message').on("animationend", function() {
+              $('#sign-in-email').removeClass('wrong-login-credetians');
+              $('#sign-in-password').removeClass('wrong-login-credetians');
               $('#wrong-login-credetians-message').removeClass('show-login-tooltip');
-              $('#wrong-login-credetians-message').addClass('hide-login-tooltip');
-              $('#wrong-login-credetians-message').on("animationend", function() {
-                $('#sign-in-email').removeClass('wrong-login-credetians');
-                $('#sign-in-password').removeClass('wrong-login-credetians');
-                $('#wrong-login-credetians-message').removeClass('hide-login-tooltip');
-              });
             });
           }
         });

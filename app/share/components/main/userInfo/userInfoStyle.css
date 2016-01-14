@@ -16,7 +16,7 @@
   transition: background-color 0.3s;
 }
 
-.logout-button:hover {
+.btn.logout-button:hover {
   background-color: rgb(57, 158, 90);;
   color: white;
 }

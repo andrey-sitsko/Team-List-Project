@@ -49,8 +49,13 @@
   border: 2px solid transparent;
 }
 
+.input-group:first-child {
+  margin-left: -2px
+}
+
 .wrong-login-credetians-message {
   position: absolute;
+  opacity: 0;
   z-index: -1;
   background-color: rgb(255, 51, 51);
   color: white;
@@ -64,27 +69,22 @@
 
 .show-login-tooltip {
   transform: translateY(14px);
-  animation: show-login-tooltip 3s;
+  animation: show-login-tooltip 2.5s;
 }
 
 @keyframes show-login-tooltip {
     0%   {
+      opacity: 0;
       transform: translateY(-26px);
     }
     25%  {
+      opacity: 1;
       transform: translateY(14px);
     }
-}
-
-.hide-login-tooltip {
-  animation: hide-login-tooltip 0.7s;
-}
-
-@keyframes hide-login-tooltip {
-  0%   {
-    transform: translateY(14px);
-  }
-  100%  {
-    transform: translateY(-26px);
-  }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
 }
