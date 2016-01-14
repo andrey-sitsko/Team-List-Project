@@ -23,16 +23,17 @@
 .fa.new-list-plus-icon {
   position: absolute;
   top: 50%;
-  margin-top: -13.5px;
+  margin-top: -13px;
   right: 5px;
   color: white;
   font-size: 30px;
 }
 
 .add-list-form {
-  position: relative;
+  position: absolute;;
+  bottom: 0;
   width: 100%;
-  border-bottom: 1px solid white;
+  border-top: 1px solid white;
 }
 
 .submit-list-add {
@@ -47,4 +48,21 @@
 
 .add-list-form input::-webkit-input-placeholder {
   color: white;
+}
+
+.lists-container .list-group li {
+  text-align: center;
+  padding-left: 0;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+  color: white;
+  background-color: rgb(195, 60, 84);
+  cursor: pointer;
+}
+
+.lists-container .list-group li:first-child {
+  border-top: none;
 }
