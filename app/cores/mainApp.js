@@ -7,7 +7,7 @@ require('../share/components/main/taskSettings/taskSettingsApp.js');
 require('../share/components/main/currentList/currentListApp.js');
 
 
-var app = angular.module('mainApp',  ['headerApp', 'userInfoApp']);
+var app = angular.module('mainApp',  ['headerApp', 'userInfoApp', 'listsApp', 'currentListApp', 'taskSettingsApp']);
 
 app.controller('styleController', ['$scope', function($scope) {
   $scope.stylesheets = [
@@ -16,6 +16,8 @@ app.controller('styleController', ['$scope', function($scope) {
     '../share/components/main/lists/listsStyle.css',
     '../share/components/main/taskSettings/taskSettingsStyle.css',
     '../share/components/main/currentList/currentListStyle.css',
+    '../share/assets/stylesheets/mainStyle.css',
     '../../node_modules/bootstrap/dist/css/bootstrap.min.css',
+    '../../node_modules/font-awesome/css/font-awesome.min.css'
   ];
 }]);

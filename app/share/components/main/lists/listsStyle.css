@@ -1,0 +1,50 @@
+.col-md-2.lists-container {
+  height: 100%;
+  padding: 67px 0;
+  border-right: 1px solid rgb(178, 178, 204);
+  background-color: rgb(195, 60, 84);
+  margin: 0;
+}
+
+.add-list-input {
+  border: none;
+  width: 100%;
+  color: white;
+  font-size: 17px;
+  padding: 0 30px 0 5px;
+  height: 35px;
+  background-color: rgb(195, 60, 84);
+}
+
+.add-list-input:focus {
+  outline: none;
+}
+
+.fa.new-list-plus-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -13.5px;
+  right: 5px;
+  color: white;
+  font-size: 30px;
+}
+
+.add-list-form {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid white;
+}
+
+.submit-list-add {
+  position: absolute;
+  opacity: 0;
+  right: 5px;
+  top: 50%;
+  margin-top: -13.5px;
+  width: 25px;
+  height: 30px;
+}
+
+.add-list-form input::-webkit-input-placeholder {
+  color: white;
+}

@@ -11,6 +11,10 @@ function config(app) {
   app.use('/signInView.html', express.static('./app/share/components/login/signIn/signInView.html'));
   app.use('/signUpView.html', express.static('./app/share/components/login/signUp/signUpView.html'));
   app.use('/userInfoView.html', express.static('./app/share/components/main/userInfo/userInfoView.html'));
+  app.use('/listsView.html', express.static('./app/share/components/main/lists/listsView.html'));
+  app.use('/taskSettingsView.html', express.static('./app/share/components/main/taskSettings/taskSettingsView.html'));
+  app.use('/currentListView.html', express.static('./app/share/components/main/currentList/currentListView.html'));
+
   app.set('views', './app/views');
 
   return app;

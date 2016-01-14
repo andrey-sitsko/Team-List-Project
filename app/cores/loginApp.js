@@ -11,6 +11,7 @@ app.controller('styleController', ['$scope', function($scope) {
     '../share/components/login/signUp/signUpStyle.css',
     '../share/components/login/signIn/signInStyle.css',
     '../share/components/common/header/headerStyle.css',
+    '../share/assets/stylesheets/loginStyle.css',
     '../../node_modules/bootstrap/dist/css/bootstrap.min.css',
     '../../node_modules/bootstrap-social/bootstrap-social.css',
     '../../node_modules/font-awesome/css/font-awesome.min.css'
