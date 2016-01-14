@@ -18,6 +18,10 @@ function loginRoutes(app) {
     res.render('loginView.html');
   });
 
+  app.get('/currentUser', function(req, res) {
+    res.send(req.user);
+  });
+
   app.get('/main', isAuthenticated, function(req, res) {
     res.render('mainView.html');
   });

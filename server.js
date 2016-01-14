@@ -18,7 +18,7 @@ app = express();
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false}));
+app.use(session({ secret: 'keyboard cat'}));
 app.engine('html', require('ejs').renderFile);
 
 passport = passportConfig(passport);

@@ -1,19 +1,17 @@
-var app = angular.module('signInApp', []);
+require('../../services/loginService.js');
+
+var app = angular.module('signInApp', ['loginServiceApp']);
 
 app.directive('signInForm', function() {
   return {
     restrict: 'E',
     templateUrl: 'signInView.html',
-    controller: ['$scope','$window','loginService', function($scope, $window, loginService) {
+    controller: ['$scope','$window', 'loginService', function($scope, $window, loginService) {
       $scope.signInPassword = '';
       $scope.signInEmail = '';
       $scope.submitSignIn = function() {
         loginService.signIn({email: $scope.signInEmail, password: $scope.signInPassword}, function (res) {
           if(res.data.success) {
-            $('#sign-in-email').removeClass('wrong-login-credetians');
-            $('#sign-in-password').removeClass('wrong-login-credetians');
-            $scope.signInPassword = '';
-            $scope.signInEmail = '';
             $window.location.href = '/main';
           } else {
             $scope.signInPassword = '';

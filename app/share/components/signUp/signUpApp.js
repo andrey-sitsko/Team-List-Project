@@ -12,17 +12,15 @@ app.directive('signUpModalDialog', function() {
       $scope.signUpEmail = '';
       $scope.alreadyExistWarning = false;
       $scope.submitSignUp = function() {
-        loginService.signUp({name: $scope.signUpName, password: $scope.signUpPassword, email: $scope.signUpEmail},
-          successSignUp);
+        loginService.signUp({name: $scope.signUpName, password: $scope.signUpPassword, email: $scope.signUpEmail}, function(res) {
+          if(res.data.success) {
+            $window.location.href = '/main';
+          } else {
+            $scope.alreadyExistWarning = true;
+            $scope.signUpPassword = '';
+          }
+        });
       };
-      function successSignUp(res) {
-        if(res.data.success) {
-          $window.location.href = '/main';
-        } else {
-          $scope.alreadyExistWarning = true;
-          $scope.signUpPassword = '';
-        }
-      }
     }]
   };
 });
