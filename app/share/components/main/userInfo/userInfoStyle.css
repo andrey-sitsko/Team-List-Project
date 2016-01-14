@@ -11,13 +11,13 @@
   margin: -17.5px 15px 12px 0;
   padding: 1px 12px 1px 12px;
   font-size: 22px;
-  color: rgb(0, 102, 204);
+  color: rgb(38, 83, 43);
   background-color: white;
   transition: background-color 0.3s;
 }
 
 .logout-button:hover {
-  background-color: rgb(153, 153, 255);
+  background-color: rgb(57, 158, 90);;
   color: white;
 }
 

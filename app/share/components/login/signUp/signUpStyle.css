@@ -3,37 +3,37 @@
 }
 
 .close.modal-close-button {
-  color: rgb(0, 102, 204);
+  color: rgb(38, 83, 43);
   opacity: 1;
 }
 
 .close.modal-close-button:hover {
-  color: rgb(153, 153, 255);
+  color: rgb(57, 158, 90);;
 }
 
 .modal-dialog.sign-up-dialog {
-  color: rgb(0, 102, 204);
+  color: rgb(38, 83, 43);
   width: 400px;
 }
 
 .btn.create-account-button {
   font-size: 20px;
   color: white;
-  background-color: rgb(0, 102, 204);
-  transition: background-color 0.3s;
+  background-color: rgb(38, 83, 43);
   transition: background-color 0.3s;
 }
 
 .btn.create-account-button:hover {
-  background-color: rgb(153, 153, 255);
+  background-color: rgb(57, 158, 90);
+  color: white;
 }
 
 .modal-dialog.sign-up-dialog input::-webkit-input-placeholder {
-  color: rgb(0, 102, 204);
+  color: rgb(38, 83, 43);
 }
 
 .modal-dialog.sign-up-dialog input {
-  color: rgb(0, 102, 204);
+  color: rgb(38, 83, 43);
 }
 
 .social-container {

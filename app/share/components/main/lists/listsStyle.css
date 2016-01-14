@@ -2,7 +2,7 @@
   height: 100%;
   padding: 67px 0;
   border-right: 1px solid rgb(178, 178, 204);
-  background-color: rgb(195, 60, 84);
+  background-color: rgb(57, 158, 90);
   margin: 0;
 }
 
@@ -13,7 +13,7 @@
   font-size: 17px;
   padding: 0 30px 0 5px;
   height: 35px;
-  background-color: rgb(195, 60, 84);
+  background-color: rgb(38, 83, 43);
 }
 
 .add-list-input:focus {
@@ -33,7 +33,6 @@
   position: absolute;;
   bottom: 0;
   width: 100%;
-  border-top: 1px solid white;
 }
 
 .submit-list-add {
@@ -41,7 +40,7 @@
   opacity: 0;
   right: 5px;
   top: 50%;
-  margin-top: -13.5px;
+  margin-top: -13px;
   width: 25px;
   height: 30px;
 }
@@ -59,8 +58,13 @@
   border-bottom: 1px solid white;
   border-radius: 0;
   color: white;
-  background-color: rgb(195, 60, 84);
+  background-color: rgb(57, 158, 90);
+  transition: background-color 0.3s;
   cursor: pointer;
+}
+
+.lists-container .list-group li:hover {
+  background-color: rgb(44, 234, 163);
 }
 
 .lists-container .list-group li:first-child {
