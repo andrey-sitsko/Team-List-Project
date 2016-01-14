@@ -9,7 +9,6 @@ app.service('userStorageService', ['$http', function($http) {
       if(callback) {
         callback(res.data);
       }
-      user = newUser;
     });
   };
 
