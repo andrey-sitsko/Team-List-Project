@@ -1,17 +1,19 @@
 require('../../../services/loginService.js');
+require('../../../services/userStorageService.js');
 
-var app = angular.module('signInApp', ['loginServiceApp']);
+var app = angular.module('signInApp', ['loginServiceApp', 'userStorageServiceApp']);
 
 app.directive('signInForm', function() {
   return {
     restrict: 'E',
     templateUrl: 'signInView.html',
-    controller: ['$scope','$window', 'loginService', function($scope, $window, loginService) {
+    controller: ['$scope','$window', 'loginService', 'userStorageService', function($scope, $window, loginService, userStorageService) {
       $scope.signInPassword = '';
       $scope.signInEmail = '';
       $scope.submitSignIn = function() {
         loginService.signIn({email: $scope.signInEmail, password: $scope.signInPassword}, function (res) {
           if(res.data.success) {
+            userStorageService.set(res.data.user);
             $window.location.href = '/main';
           } else {
             $scope.signInPassword = '';

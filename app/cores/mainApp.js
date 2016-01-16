@@ -6,7 +6,6 @@ require('../share/components/main/lists/listsApp.js');
 require('../share/components/main/taskSettings/taskSettingsApp.js');
 require('../share/components/main/currentList/currentListApp.js');
 
-
 var app = angular.module('mainApp',  ['headerApp', 'userInfoApp', 'listsApp', 'currentListApp', 'taskSettingsApp']);
 
 app.controller('styleController', ['$scope', function($scope) {
