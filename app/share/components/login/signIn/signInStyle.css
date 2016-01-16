@@ -72,6 +72,10 @@
   animation: show-login-tooltip 2.5s;
 }
 
+.btn.sign-up-button {
+  background-color: rgb(132, 242, 16);
+}
+
 @keyframes show-login-tooltip {
     0%   {
       opacity: 0;
