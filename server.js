@@ -10,6 +10,7 @@ var express = require('express'),
     databaseConfig = require('./server/config/databaseConfig.js'),
     passportConfig = require('./server/config/passportConfig.js'),
     loginRoutes = require('./server/routes/loginRoutes'),
+    listsRoutes = require('./server/routes/listsRoutes'),
     app;
 
 mongoose.connect(databaseConfig.url);
@@ -27,5 +28,6 @@ app.use(passport.session());
 
 app = serverConfig(app);
 app = loginRoutes(app);
+app = listsRoutes(app);
 
 app.listen(8000);

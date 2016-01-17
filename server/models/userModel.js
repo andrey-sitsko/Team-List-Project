@@ -6,7 +6,20 @@ var mongoose = require('mongoose'),
 userSchema = new Schema({
   name: String,
   email: String,
-  password: String
+  password: String,
+  lists: [{
+    title: String,
+    id: String,
+    tasks: [{
+      title: String,
+      dueDate: Date,
+      done: Boolean,
+      subtask: [{
+        title: String,
+        done: Boolean
+      }]
+    }]
+  }]
 });
 
 userModel = mongoose.model('User', userSchema);
