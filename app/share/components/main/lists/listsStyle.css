@@ -50,8 +50,9 @@
 }
 
 .lists-container .list-group li {
-  text-align: center;
-  padding-left: 0;
+  position: relative;
+  padding-left: 8px;
+  padding-right: 38px;
   border-left: none;
   border-right: none;
   border-top: 1px solid white;
@@ -60,13 +61,34 @@
   color: white;
   background-color: rgb(57, 158, 90);
   transition: background-color 0.3s;
-  cursor: pointer;
+  cursor: default;
 }
 
 .lists-container .list-group li:hover {
-  background-color: rgb(44, 234, 163);
+  background-color: rgb(0, 204, 122);
 }
 
 .lists-container .list-group li:first-child {
   border-top: none;
+}
+
+.lists-container .list-group li i {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  margin-top: -10px;
+  font-size: 20px;
+}
+
+.trash-icon-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  height: 100%;
+  width: 36px;
+}
+
+.trash-icon-container:hover {
+  color: rgb(255, 51, 51);
 }
