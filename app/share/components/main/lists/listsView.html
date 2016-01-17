@@ -7,7 +7,7 @@
   <ul class="list-group">
     <li class="list-group-item" ng-repeat="list in lists">
         {{list.title}}
-      <div class="trash-icon-container">
+      <div class="trash-icon-container" ng-click="deleteList(list)">
         <i class="fa fa-trash-o"></i>
       </div>
     </li>

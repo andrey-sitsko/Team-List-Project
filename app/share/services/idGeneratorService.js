@@ -16,5 +16,5 @@ app.service('idGeneratorService', function() {
 });
 
 function getMiliseconds() {
-  return Date.parse(new Date()).toString().slice(0, -3);
+  return (new Date()).valueOf().toString();
 }

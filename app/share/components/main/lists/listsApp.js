@@ -11,9 +11,13 @@ app.directive('lists', function() {
       var user = userStorageService.get();
       $scope.lists = user.lists;
       $scope.addList = function(title) {
-        listsService.createList(title, user);
-        $scope.lists.push({title: title});
+        var id = listsService.createList(title, user);
+        $scope.lists.push({title: title, id: id});
         $scope.newListTitle = '';
+      };
+      $scope.deleteList = function(list) {
+        listsService.deleteList(list);
+        $scope.lists.splice($scope.lists.indexOf(list), 1);
       };
     }]
   };
