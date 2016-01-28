@@ -12,17 +12,14 @@ app.directive('signUpModalDialog', function() {
       $scope.signUpName = '';
       $scope.signUpPassword = '';
       $scope.signUpEmail = '';
-      $scope.alreadyExistWarning = false;
+      $('.sign-up-modal .alert-danger').hide();
+      $('#signUpModal').on('hidden.bs.modal', function () {
+        $('.sign-up-modal .alert-danger').hide();
+        $('.sign-up-modal .form-group input').val('');
+      });
       $scope.submitSignUp = function() {
-        loginService.signUp({name: $scope.signUpName, password: $scope.signUpPassword, email: $scope.signUpEmail}, function(res) {
-          if(res.data.success) {
-            userStorageService.set(res.data.user);
-            $window.location.href = '/main';
-          } else {
-            $scope.alreadyExistWarning = true;
-            $scope.signUpPassword = '';
-          }
-        });
+        loginService.signUp({name: $scope.signUpName, password: $scope.signUpPassword, email: $scope.signUpEmail},
+          loginService.processSignUpResults);
       };
     }]
   };

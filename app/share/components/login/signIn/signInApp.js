@@ -10,7 +10,7 @@ app.directive('signInForm', function() {
       $scope.signInPassword = '';
       $scope.signInEmail = '';
       $scope.submitSignIn = function() {
-        loginService.signIn({email: $scope.signInEmail, password: $scope.signInPassword}, loginService.processLoginResults);
+        loginService.signIn({email: $scope.signInEmail, password: $scope.signInPassword}, loginService.processSignInResults);
       };
     }]
   };

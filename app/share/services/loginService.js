@@ -3,20 +3,30 @@ require('./userStorageService');
 var app = angular.module('loginServiceApp', ['userStorageServiceApp']);
 
 app.service('loginService', ['$http', '$window', 'userStorageService', function($http, $window, userStorageService) {
-    
+
+    this.signOut = function(successCallback) {
+        $http.get('/logout').then(successCallback);
+    };
+
     this.signUp = function(authData, successCallback) {
         $http.post('/signUp', authData).then(successCallback);
+    };
+
+    this.processSignUpResults = function(res) {
+        if(res.data.success) {
+          userStorageService.set(res.data.user);
+          $window.location.href = '/main';
+        } else {
+          $('.sign-up-modal .alert-danger').show();
+          $('#sign-up-password-group input').val('');
+        }
     };
 
     this.signIn = function(authData, successCallback) {
         $http.post('/signIn', authData).then(successCallback);
     };
 
-    this.signOut = function(successCallback) {
-        $http.get('/logout').then(successCallback);
-    };
-
-    this.processLoginResults = function(res) {
+    this.processSignInResults = function(res) {
         if(res.data.success) {
           userStorageService.set(res.data.user);
           $window.location.href = '/main';

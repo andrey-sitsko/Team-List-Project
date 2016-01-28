@@ -1,4 +1,4 @@
-<div id="myModal" class="sign-up-modal modal fade" role="dialog">
+<div id="signUpModal" class="sign-up-modal modal fade" role="dialog">
   <div class="modal-dialog sign-up-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body">
         <form ng-submit="submitSignUp()">
-          <div class="alert alert-danger" ng-show="alreadyExistWarning">
+          <div class="alert alert-danger">
             User with such email already exist!
           </div>
           <div class="form-group">
@@ -17,7 +17,7 @@
           <div class="form-group">
             <input type="email" class="form-control" name="first-name" placeholder="Email Adress" ng-model="signUpEmail" required>
           </div>
-          <div class="form-group">
+          <div class="form-group" id="sign-up-password-group">
             <input type="password" class="form-control" name="first-name" placeholder="Password" ng-model="signUpPassword" required>
           </div>
           <button type="submit" class="btn btn-block create-account-button">Create Account</button>
