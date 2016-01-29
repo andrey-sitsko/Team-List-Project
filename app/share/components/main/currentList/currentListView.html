@@ -5,5 +5,9 @@
     <input type="submit" class="submit-task-add">
   </form>
   <ul class="list-group">
+    <li class="list-group-item" ng-repeat="task in tasks">
+      <input type="radio">
+        {{task.title}}
+    </li>
   </ul>
 </div>

@@ -1,9 +1,7 @@
 .col-md-8.current-list-container {
-  display: table-cell;
   min-height: 100%;
   overflow: auto;
   position: relative;
-  background-color: rgb(200, 234, 212);
   margin: 0;
 }
 
@@ -60,17 +58,17 @@
   position: relative;
   padding-left: 32px;
   padding-right: 8px;
-  border: 1px solid rgb(48, 51, 46);
+  border: 2px solid rgb(48, 51, 46);
   border-radius: 5px;
   margin: 3px 10px 0 10px;
-  color: white;
-  background-color: rgb(57, 158, 90);
+  color: rgb(48, 51, 46);
   transition: background-color 0.3s;
   cursor: default;
 }
 
 .current-list-container .list-group li:hover {
   background-color: rgb(0, 204, 122);
+  color: white;
 }
 
 .current-list-container input[type=radio] {
