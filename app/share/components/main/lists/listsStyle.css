@@ -1,7 +1,7 @@
 .col-md-2.lists-container {
-  height: 100%;
+	overflow: auto;
+  min-height: 100%;
   padding: 67px 0;
-  border-right: 1px solid rgb(178, 178, 204);
   background-color: rgb(57, 158, 90);
   margin: 0;
 }
@@ -57,7 +57,7 @@
   border-right: none;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
-  border-radius: 0;
+  word-wrap: break-word;
   color: white;
   background-color: rgb(57, 158, 90);
   transition: background-color 0.3s;

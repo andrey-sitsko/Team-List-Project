@@ -4,7 +4,7 @@ var User = require('../models/userModel.js'),
     signIn = require('../middleware/login/signIn'),
     signUp = require('../middleware/login/signUp'),
     signOut = require('../middleware/login/signOut'),
-    isAuthenticated = require('../middleware/login/isAuthenticated');
+    authCheck = require('../middleware/login/authCheck.js');
 
 function loginRoutes(app) {
 
@@ -14,16 +14,12 @@ function loginRoutes(app) {
 
   app.post('/signIn', signIn);
 
-  app.get('/', function(req, res) {
-    res.render('loginView.html');
-  });
+  app.get('/', authCheck.login);
+
+  app.get('/main', authCheck.main);
 
   app.get('/currentUser', function(req, res) {
     res.send(req.user);
-  });
-
-  app.get('/main', isAuthenticated, function(req, res) {
-    res.render('mainView.html');
   });
 
   app.get('/api/users', function(req, res) {
