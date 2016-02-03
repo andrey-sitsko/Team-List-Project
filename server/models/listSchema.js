@@ -9,4 +9,6 @@ listSchema = new Schema({
     tasks: [task]
 });
 
+listSchema.set('versionKey', false);
+
 module.exports = listSchema;

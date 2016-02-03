@@ -7,4 +7,6 @@ subTaskSchema = new Schema({
     done: Boolean
 });
 
+subTaskSchema.set('versionKey', false);
+
 module.exports = subTaskSchema;

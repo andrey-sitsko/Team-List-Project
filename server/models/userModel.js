@@ -10,4 +10,6 @@ userSchema = new Schema({
   lists: [list]
 });
 
+userSchema.set('versionKey', false);
+
 module.exports = mongoose.model('User', userSchema);

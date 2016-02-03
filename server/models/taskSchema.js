@@ -10,4 +10,6 @@ taskSchema = new Schema({
   subtasks: [subTask]
 });
 
+taskSchema.set('versionKey', false);
+
 module.exports = taskSchema;

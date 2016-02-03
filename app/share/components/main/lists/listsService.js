@@ -15,7 +15,6 @@ function($http, idGeneratorService, userStorageService) {
     },
     deleteList: function(list) {
       $http.post('/deleteList', list).then(function(res) {
-        console.log(res);
         userStorageService.deleteList(list.id);
       });
     }
