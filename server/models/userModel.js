@@ -1,27 +1,13 @@
 var mongoose = require('mongoose'),
+    list = require('./listSchema'),
     Schema = mongoose.Schema,
-    userSchema,
-    userModel;
+    userSchema;
 
 userSchema = new Schema({
   name: String,
   email: String,
   password: String,
-  lists: [{
-    title: String,
-    id: String,
-    tasks: [{
-      title: String,
-      dueDate: Date,
-      done: Boolean,
-      subtask: [{
-        title: String,
-        done: Boolean
-      }]
-    }]
-  }]
+  lists: [list]
 });
 
-userModel = mongoose.model('User', userSchema);
-
-module.exports = userModel;
+module.exports = mongoose.model('User', userSchema);
