@@ -8,7 +8,7 @@ app.directive('lists', function() {
     restrict: 'E',
     templateUrl: 'listsView.html',
     controller: ['$scope', 'listsService', 'currentUserService', function($scope, listsService, currentUserService) {
-      var user = currentUserService.get();
+      var user = currentUserService.getUser();
       $scope.lists = user.lists;
       $scope.addList = function(title) {
         var id = listsService.createList(title, user);
@@ -18,6 +18,9 @@ app.directive('lists', function() {
       $scope.deleteList = function(list) {
         listsService.deleteList(list);
         $scope.lists.splice($scope.lists.indexOf(list), 1);
+      };
+      $scope.checkList = function(list) {
+        listsService.checkList(list, $scope.lists.indexOf(list));
       };
     }]
   };

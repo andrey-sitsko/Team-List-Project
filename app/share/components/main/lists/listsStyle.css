@@ -72,6 +72,11 @@
   border-top: none;
 }
 
+.lists-container .list-group  li.checked-list  {
+	background-color: rgb(204, 255, 153);
+  color: black;
+}
+
 .lists-container .list-group li i {
   position: absolute;
   top: 50%;

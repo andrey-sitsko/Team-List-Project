@@ -4,11 +4,19 @@ var app = angular.module('currentUserServiceApp', ['LocalStorageModule']);
 
 app.service('currentUserService', ['$http', 'localStorageService', function($http, localStorageService) {
 
-  this.set = function(newUser) {
+  this.setCurrentList = function(list) {
+    localStorageService.set('currentList', list);
+  };
+
+  this.getCurrentList = function() {
+    return localStorageService.get('currentList');
+  };
+
+  this.setUser = function(newUser) {
     localStorageService.set('user', newUser);
   };
 
-  this.get = function() {
+  this.getUser = function() {
     return localStorageService.get('user');
  };
 

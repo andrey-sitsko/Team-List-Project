@@ -14,7 +14,7 @@ app.service('loginService', ['$http', '$window', 'currentUserService', function(
 
     this.processSignUpResults = function(res) {
         if(res.data.success) {
-          currentUserService.set(res.data.user);
+          currentUserService.setUser(res.data.user);
           $window.location.href = '/main';
         } else {
           $('.sign-up-modal .alert-danger').show();
@@ -28,7 +28,7 @@ app.service('loginService', ['$http', '$window', 'currentUserService', function(
 
     this.processSignInResults = function(res) {
         if(res.data.success) {
-          currentUserService.set(res.data.user);
+          currentUserService.setUser(res.data.user);
           $window.location.href = '/main';
         } else {
           showWrongCredetiansAlert();

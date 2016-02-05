@@ -8,7 +8,7 @@ app.directive('userInfo', function() {
     restrict: 'E',
     templateUrl: 'userInfoView.html',
     controller: ['$scope', '$window', 'loginService', 'currentUserService', function($scope, $window, loginService, currentUserService) {
-      $scope.currentUserName = currentUserService.get().name;
+      $scope.currentUserName = currentUserService.getUser().name;
       $scope.logout = function() {
         loginService.signOut(function(res) {
           $window.location.href = '/';
