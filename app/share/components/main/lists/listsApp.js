@@ -1,14 +1,14 @@
-require('../../../services/userStorageService.js');
+require('../../../services/currentUserService.js');
 require('./listsService.js');
 
-var app = angular.module('listsApp', ['listsServiceApp', 'userStorageServiceApp']);
+var app = angular.module('listsApp', ['listsServiceApp', 'currentUserServiceApp']);
 
 app.directive('lists', function() {
   return {
     restrict: 'E',
     templateUrl: 'listsView.html',
-    controller: ['$scope', 'listsService', 'userStorageService', function($scope, listsService, userStorageService) {
-      var user = userStorageService.get();
+    controller: ['$scope', 'listsService', 'currentUserService', function($scope, listsService, currentUserService) {
+      var user = currentUserService.get();
       $scope.lists = user.lists;
       $scope.addList = function(title) {
         var id = listsService.createList(title, user);

@@ -1,14 +1,14 @@
 require('../../../services/loginService.js');
-require('../../../services/userStorageService.js');
+require('../../../services/currentUserService.js');
 
-var app = angular.module('signUpApp', ['loginServiceApp', 'userStorageServiceApp']);
+var app = angular.module('signUpApp', ['loginServiceApp', 'currentUserServiceApp']);
 
 app.directive('signUpModalDialog', function() {
   return {
     restrict: 'E',
     templateUrl: 'signUpView.html',
-    controller: ['$scope', '$window', 'loginService', 'userStorageService',
-      function($scope, $window, loginService, userStorageService) {
+    controller: ['$scope', '$window', 'loginService', 'currentUserService',
+      function($scope, $window, loginService, currentUserService) {
       $scope.signUpName = '';
       $scope.signUpPassword = '';
       $scope.signUpEmail = '';

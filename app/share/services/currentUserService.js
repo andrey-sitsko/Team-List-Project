@@ -1,9 +1,9 @@
 require('../../../node_modules/angular-local-storage/dist/angular-local-storage.min.js');
 
-var app = angular.module('userStorageServiceApp', ['LocalStorageModule']);
+var app = angular.module('currentUserServiceApp', ['LocalStorageModule']);
 
-app.service('userStorageService', ['$http', 'localStorageService', function($http, localStorageService) {
-  
+app.service('currentUserService', ['$http', 'localStorageService', function($http, localStorageService) {
+
   this.set = function(newUser) {
     localStorageService.set('user', newUser);
   };
