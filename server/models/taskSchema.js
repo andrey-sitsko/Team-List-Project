@@ -7,7 +7,7 @@ taskSchema = new Schema({
   title: String,
   dueDate: Date,
   done: Boolean,
-  subtasks: [subTask]
+  subTasks: [subTask]
 });
 
 taskSchema.set('versionKey', false);

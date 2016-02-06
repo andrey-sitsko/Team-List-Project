@@ -13,7 +13,7 @@ function config(app) {
   app.use('/userInfoView.html', express.static('./app/share/components/main/userInfo/userInfoView.html'));
   app.use('/listsView.html', express.static('./app/share/components/main/lists/listsView.html'));
   app.use('/taskSettingsView.html', express.static('./app/share/components/main/taskSettings/taskSettingsView.html'));
-  app.use('/currentListView.html', express.static('./app/share/components/main/currentList/currentListView.html'));
+  app.use('/tasksView.html', express.static('./app/share/components/main/tasks/tasksView.html'));
 
   app.set('views', './app/views');
 

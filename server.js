@@ -11,6 +11,7 @@ var express = require('express'),
     passportConfig = require('./server/config/passportConfig.js'),
     loginRoutes = require('./server/routes/loginRoutes'),
     listsRoutes = require('./server/routes/listsRoutes'),
+    tasksRoutes = require('./server/routes/tasksRoutes'),
     app;
 
 mongoose.connect(databaseConfig.url);
@@ -29,5 +30,6 @@ app.use(passport.session());
 app = serverConfig(app);
 app = loginRoutes(app);
 app = listsRoutes(app);
+app = tasksRoutes(app);
 
 app.listen(8000);

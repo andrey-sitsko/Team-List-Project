@@ -20,8 +20,28 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
     return localStorageService.get('user');
  };
 
+ this.addTask = function(id, title) {
+   var user = localStorageService.get('user'),
+       index = user.lists.indexOf(localStorageService.get('currentList'));
+   if(user && index > 0) {
+     user.lists[index].push({title: title, id: id});
+   }
+   localStorageService.set('user', user);
+ };
+
+ this.deleteTask = function(id) {
+   var user = localStorageService.get('user'),
+       index = user.lists.indexOf(localStorageService.get('currentList'));
+   if(user && index > 0) {
+     user.lists[index].splice(user.lists[index].map(function(task) {
+       return task.id;
+     }).indexOf(id), 1);
+   }
+   localStorageService.set('user', user);
+ };
+
  this.addList = function(id, title) {
-   user = localStorageService.get('user');
+   var user = localStorageService.get('user');
    if(user) {
      user.lists.push({title: title, id: id, tasks: []});
    }
@@ -29,7 +49,7 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
  };
 
  this.deleteList = function(id) {
-   user = localStorageService.get('user');
+   var user = localStorageService.get('user');
    if(user) {
      user.lists.splice(user.lists.map(function(list) {
        return list.id;
