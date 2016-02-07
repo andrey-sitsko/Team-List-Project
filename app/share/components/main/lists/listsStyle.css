@@ -69,11 +69,16 @@
 }
 
 .lists-container .list-group li:first-child {
+	border-radius: 0;
   border-top: none;
 }
 
+.lists-container .list-group li:last-child {
+	border-radius: 0;
+}
+
 .lists-container .list-group  li.checked-list  {
-	background-color: rgb(204, 255, 153);
+	background-color: rgb(128, 255, 0);
   color: black;
 }
 
