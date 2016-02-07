@@ -1,13 +1,15 @@
-<div class="current-list-container col-md-8">
+<div class="tasks-container col-md-8">
   <form class="add-task-form" ng-submit="addTask(newTaskTitle)">
-    <input type="text" placeholder="Add new task here" class="add-task-input" ng-model="newTaskTitle" required>
+    <input type="text" placeholder="Add new task here..." class="add-task-input" ng-model="newTaskTitle" required>
     <i class="fa fa-plus-square-o new-task-plus-icon"></i>
     <input type="submit" class="submit-task-add">
   </form>
   <ul class="list-group">
     <li class="list-group-item" ng-repeat="task in tasks">
-      <input type="radio">
         {{task.title}}
+      <div class="trash-icon-container">
+        <i class="fa fa-trash-o" ng-click="deleteTask(task)"></i>
+      </div>
     </li>
   </ul>
 </div>

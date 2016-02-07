@@ -1,8 +1,8 @@
-require('./userStorageService');
+require('./currentUserService');
 
-var app = angular.module('loginServiceApp', ['userStorageServiceApp']);
+var app = angular.module('loginServiceApp', ['currentUserServiceApp']);
 
-app.service('loginService', ['$http', '$window', 'userStorageService', function($http, $window, userStorageService) {
+app.service('loginService', ['$http', '$window', 'currentUserService', function($http, $window, currentUserService) {
 
     this.signOut = function(successCallback) {
         $http.get('/logout').then(successCallback);
@@ -14,7 +14,7 @@ app.service('loginService', ['$http', '$window', 'userStorageService', function(
 
     this.processSignUpResults = function(res) {
         if(res.data.success) {
-          userStorageService.set(res.data.user);
+          currentUserService.setUser(res.data.user);
           $window.location.href = '/main';
         } else {
           $('.sign-up-modal .alert-danger').show();
@@ -28,7 +28,7 @@ app.service('loginService', ['$http', '$window', 'userStorageService', function(
 
     this.processSignInResults = function(res) {
         if(res.data.success) {
-          userStorageService.set(res.data.user);
+          currentUserService.setUser(res.data.user);
           $window.location.href = '/main';
         } else {
           showWrongCredetiansAlert();

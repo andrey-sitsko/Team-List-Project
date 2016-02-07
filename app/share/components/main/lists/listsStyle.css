@@ -52,7 +52,7 @@
 .lists-container .list-group li {
   position: relative;
   padding-left: 8px;
-  padding-right: 38px;
+  padding-right: 30px;
   border-left: none;
   border-right: none;
   border-top: 1px solid white;
@@ -69,26 +69,28 @@
 }
 
 .lists-container .list-group li:first-child {
+	border-radius: 0;
   border-top: none;
 }
 
-.lists-container .list-group li i {
-  position: absolute;
-  top: 50%;
-  right: 8px;
-  margin-top: -10px;
-  font-size: 20px;
+.lists-container .list-group li:last-child {
+	border-radius: 0;
 }
 
-.trash-icon-container {
+.lists-container .list-group  li.checked-list  {
+	background-color: rgb(128, 255, 0);
+  color: black;
+}
+
+.lists-container .trash-icon-container {
+  font-size: 20px;
   position: absolute;
-  top: 0;
+  top: 6px;
   right: 0;
   text-align: center;
-  height: 100%;
   width: 36px;
 }
 
-.trash-icon-container:hover {
+.lists-container .trash-icon-container i:hover {
   color: rgb(255, 51, 51);
 }
