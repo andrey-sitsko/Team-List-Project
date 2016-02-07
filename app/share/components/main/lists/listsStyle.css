@@ -52,7 +52,7 @@
 .lists-container .list-group li {
   position: relative;
   padding-left: 8px;
-  padding-right: 38px;
+  padding-right: 30px;
   border-left: none;
   border-right: none;
   border-top: 1px solid white;
@@ -82,23 +82,15 @@
   color: black;
 }
 
-.lists-container .list-group li i {
-  position: absolute;
-  top: 50%;
-  right: 8px;
-  margin-top: -10px;
+.lists-container .trash-icon-container {
   font-size: 20px;
-}
-
-.trash-icon-container {
   position: absolute;
-  top: 0;
+  top: 6px;
   right: 0;
   text-align: center;
-  height: 100%;
   width: 36px;
 }
 
-.trash-icon-container:hover {
+.lists-container .trash-icon-container i:hover {
   color: rgb(255, 51, 51);
 }
