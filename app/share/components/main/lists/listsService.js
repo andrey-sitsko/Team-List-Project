@@ -5,10 +5,12 @@ var app = angular.module('listsServiceApp', ['idGeneratorServiceApp', 'currentUs
 
 app.service('listsService', ['$http', 'idGeneratorService', 'currentUserService',
 function($http, idGeneratorService, currentUserService) {
+  var taskSettingCallback;
   return {
     checkList: function(list, index) {
       var tasks;
       currentUserService.setCurrentList(list);
+      taskSettingCallback(currentUserService.getListTasks(list));
       $('.lists-container .list-group-item').removeClass('checked-list');
       $('#list-' + index).addClass('checked-list');
     },
@@ -29,6 +31,9 @@ function($http, idGeneratorService, currentUserService) {
           throw err;
         }
       });
+    },
+    passTaskSettingCallback: function(callback) {
+      taskSettingCallback = callback;
     }
   };
 }]);
