@@ -34,9 +34,12 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
 
     deleteTask: function(id) {
       var user = localStorageService.get('user'),
-          index = user.lists.indexOf(localStorageService.get('currentList'));
-      if(user && index > 0) {
-        user.lists[index].splice(user.lists[index].map(function(task) {
+          currentList = localStorageService.get('currentList'),
+          index = user.lists.map(function(e) {
+            return e.id;
+          }).indexOf(currentList.id);
+      if(user && index >= 0) {
+        user.lists[index].tasks.splice(user.lists[index].tasks.map(function(task) {
           return task.id;
         }).indexOf(id), 1);
       }

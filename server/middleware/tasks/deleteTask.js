@@ -2,11 +2,17 @@ User = require('../../models/userModel.js');
 
 module.exports = function(req, res) {
   var email = req.user.email,
-      listData = req.body;
-
+      taskData = req.body;
   User.update(
-    {'email': email},
-    { $pull: { "lists" : { id: listData.id } } },
+    {
+      'email': email,
+      'lists.id': taskData.listId,
+    },
+    {
+      $pull: {
+       'lists.$.tasks' : { id: taskData.id }
+      }
+    },
     false,
     function(response) {
       res.send(response);

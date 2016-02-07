@@ -17,7 +17,9 @@ app.directive('lists', function() {
       };
       $scope.deleteList = function(list) {
         listsService.deleteList(list);
-        $scope.lists.splice($scope.lists.indexOf(list), 1);
+        $scope.lists.splice($scope.lists.map(function(list) {
+          return list.id;
+        }).indexOf(list.id), 1);
       };
       $scope.checkList = function(list) {
         listsService.checkList(list, $scope.lists.indexOf(list));

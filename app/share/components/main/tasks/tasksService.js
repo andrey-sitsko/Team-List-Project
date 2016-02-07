@@ -18,9 +18,10 @@ function($http, idGeneratorService, currentUserService) {
       });
       return id;
     },
-    deleteList: function(task) {
+    deleteTask: function(task) {
+      var currentList = currentUserService.getCurrentList();
       currentUserService.deleteTask(task.id);
-      $http.post('/deleteTask', task).then(function(res, err) {
+      $http.post('/deleteTask', { id: task.id, listId: currentList.id }).then(function(res, err) {
         if(err) {
           throw err;
         }
