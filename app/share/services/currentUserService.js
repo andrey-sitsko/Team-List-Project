@@ -4,23 +4,18 @@ var app = angular.module('currentUserServiceApp', ['LocalStorageModule']);
 
 app.service('currentUserService', ['$http', 'localStorageService', function($http, localStorageService) {
   return {
-
     setCurrentList: function(list) {
       localStorageService.set('currentList', list);
     },
-
     getCurrentList: function() {
       return localStorageService.get('currentList');
     },
-
     setUser: function(newUser) {
       localStorageService.set('user', newUser);
     },
-
     getUser: function() {
       return localStorageService.get('user');
     },
-
     addTask: function(id, title) {
       var user = localStorageService.get('user'),
           index = user.lists.map(function(e) {
@@ -31,7 +26,6 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
       }
       localStorageService.set('user', user);
     },
-
     deleteTask: function(id) {
       var user = localStorageService.get('user'),
           currentList = localStorageService.get('currentList'),
@@ -45,7 +39,6 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
       }
       localStorageService.set('user', user);
     },
-
     getListTasks: function(list) {
       var user = localStorageService.get('user'),
           index = user.lists.map(function(e) {
@@ -53,7 +46,6 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
           }).indexOf(list.id);
       return user.lists[index].tasks;
     },
-
     addList: function(id, title) {
       var user = localStorageService.get('user');
       if(user) {
@@ -61,7 +53,6 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
       }
       localStorageService.set('user', user);
      },
-
      deleteList: function(id) {
        var user = localStorageService.get('user');
        if(user) {
