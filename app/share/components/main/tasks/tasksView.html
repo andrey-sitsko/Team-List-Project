@@ -1,5 +1,5 @@
 <div class="tasks-container col-md-8">
-  <form class="add-task-form" ng-submit="addTask(newTaskTitle)">
+  <form class="add-task-form" ng-submit="addTask(newTaskTitle)" ng-class="{'unavailable': tasks == unavailable}">
     <input type="text" placeholder="Add new task here..." class="add-task-input" ng-model="newTaskTitle" required>
     <i class="fa fa-plus-square-o new-task-plus-icon"></i>
     <input type="submit" class="submit-task-add">

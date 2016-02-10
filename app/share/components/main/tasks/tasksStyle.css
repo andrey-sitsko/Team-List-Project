@@ -16,6 +16,11 @@
   right: 10px;
 }
 
+.tasks-container .unavailable {
+  opacity: 0.75;
+  z-index: -1;
+}
+
 .add-task-input {
   border: none;
   background-color: inherit;
