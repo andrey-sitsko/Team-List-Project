@@ -1,0 +1,6 @@
+.col-md-3.task-settings-container {
+  overflow: auto;
+  min-height: 100%;
+  background-color: rgb(57, 158, 90);
+  margin: 0;
+}

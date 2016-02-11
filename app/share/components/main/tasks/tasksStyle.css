@@ -1,4 +1,4 @@
-.col-md-8.tasks-container {
+.col-md-6.tasks-container {
   min-height: 100%;
   overflow: auto;
   position: relative;
@@ -66,7 +66,7 @@
   padding-left: 8px;
   padding-right: 30px;
   margin-top: 10px;
-  font-size: 19px;
+  font-size: 20px;
   border: 2px solid rgb(48, 51, 46);
   word-wrap: break-word;
   color: rgb(48, 51, 46);
