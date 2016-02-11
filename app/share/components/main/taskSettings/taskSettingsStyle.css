@@ -4,3 +4,50 @@
   background-color: rgb(57, 158, 90);
   margin: 0;
 }
+
+.add-deadline-form {
+  position: absolute;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-color: rgb(64, 140, 72);
+  color: white;
+  top: 77px;
+  left: 10px;
+  right: 10px;
+}
+
+.add-deadline-input {
+  border: none;
+  background-color: inherit;
+  width: 100%;
+  font-size: 17px;
+  padding: 0 30px 0 5px;
+  height: 40px;
+}
+
+.add-deadline-input:focus {
+  outline: none;
+}
+
+.add-deadline-form input::-webkit-input-placeholder {
+  color: white;
+}
+
+.fa.deadline-calendar-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -13px;
+  right: 5px;
+  color: white;
+  font-size: 25px;
+}
+
+.submit-deadline-addition {
+  position: absolute;
+  opacity: 0;
+  right: 5px;
+  top: 50%;
+  margin-top: -13px;
+  width: 25px;
+  height: 30px;
+}
