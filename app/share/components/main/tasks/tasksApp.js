@@ -19,8 +19,11 @@ app.directive('tasks', function() {
       };
       $scope.addTask = function(title) {
         var id = tasksService.createTask(title);
-        $scope.tasks.push({title: title, id: id});
+        $scope.tasks.unshift({title: title, id: id});
         $scope.newTaskTitle = '';
+      };
+      $scope.checkTask = function(task) {
+        tasksService.checkTask(task, $scope.tasks.indexOf(task));
       };
       function setTasks(tasks) {
         $scope.tasks = tasks;

@@ -5,7 +5,7 @@
     <input type="submit" class="submit-task-add">
   </form>
   <ul class="list-group">
-    <li class="list-group-item" ng-repeat="task in tasks">
+    <li class="list-group-item" ng-repeat="task in tasks" id="task-{{tasks.indexOf(task)}}" ng-click="checkTask(task)">
         {{task.title}}
       <div class="trash-icon-container">
         <i class="fa fa-trash-o" ng-click="deleteTask(task)"></i>

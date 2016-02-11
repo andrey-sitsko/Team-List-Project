@@ -39,6 +39,9 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
       }
       localStorageService.set('user', user);
     },
+    setCurrentTask: function(task) {
+      localStorageService.set('currentTask', task);
+    },
     getListTasks: function(list) {
       var user = localStorageService.get('user'),
           index = user.lists.map(function(e) {

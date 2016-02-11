@@ -93,4 +93,5 @@
 
 .lists-container .trash-icon-container i:hover {
   color: rgb(255, 51, 51);
+  cursor: pointer;
 }

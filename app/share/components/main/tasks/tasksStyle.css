@@ -75,7 +75,11 @@
   cursor: default;
 }
 
-.tasks-container .list-group li:hover {
+.tasks-container .list-group  li.checked-task {
+  background-color: rgb(128, 255, 0);
+}
+
+.tasks-container li:hover {
   background-color: rgb(204, 255, 204);
 }
 
@@ -90,4 +94,5 @@
 
 .tasks-container .trash-icon-container i:hover {
   color: rgb(255, 51, 51);
+  cursor: pointer;
 }
