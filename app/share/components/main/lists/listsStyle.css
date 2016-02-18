@@ -10,10 +10,10 @@
   border: none;
   width: 100%;
   color: white;
-  font-size: 20px;
+  font-size: 17px;
   padding: 0 30px 0 5px;
   height: 35px;
-  background-color: rgb(38, 83, 43);
+  background-color: rgb(48, 105, 54);
 }
 
 .add-list-input:focus {

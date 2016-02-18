@@ -5,7 +5,7 @@ app.directive('taskSettings', function() {
     restrict: 'E',
     templateUrl: 'taskSettingsView.html',
     controller: (['$scope', function($scope) {
-
+      $scope.subTasks = [{title: 'fuck'}, {title: 'fuck'}, {title: 'fuck'}, {title: 'fuck'}]
     }])
   };
 });

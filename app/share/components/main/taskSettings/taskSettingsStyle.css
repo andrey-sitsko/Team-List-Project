@@ -9,7 +9,7 @@
   position: absolute;
   border-radius: 5px;
   border: 2px solid transparent;
-  background-color: rgb(64, 140, 72);
+  background-color: rgb(48, 105, 54);
   color: white;
   top: 77px;
   left: 10px;
@@ -42,7 +42,104 @@
   font-size: 25px;
 }
 
-.submit-deadline-addition {
+.add-deadline-form input[type="submit"]{
+  position: absolute;
+  opacity: 0;
+  right: 5px;
+  top: 50%;
+  margin-top: -13px;
+  width: 25px;
+  height: 30px;
+  cursor: default;
+}
+
+.task-settings-container .trash-icon-container {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  text-align: center;
+  width: 36px;
+  font-size: 24px;
+}
+
+.task-settings-container .trash-icon-container i:hover {
+  color: rgb(255, 51, 51);
+  cursor: pointer;
+}
+
+.submit-subTask-add {
+  position: absolute;
+  opacity: 0;
+  right: 5px;
+  top: 50%;
+  margin-top: -13px;
+  width: 25px;
+  height: 30px;
+}
+
+.task-settings-container .subtasks-list {
+  margin-top: 127px;
+}
+
+.subtasks-list {
+  list-style-type: none;
+  padding: 0 4px 0 4px;
+}
+
+.subtasks-list li {
+  background-color: inherit;
+  position: relative;
+  padding: 7px 30px 7px 8px;
+  margin-top: 10px;
+  font-size: 17px;
+  word-wrap: break-word;
+  color: white;
+  border-bottom: 1px solid white;
+  transition: background-color 0.3s;
+  cursor: default;
+}
+
+.add-subTask-form {
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-color: rgb(48, 105, 54);
+  position: relative;
+  margin: 0 auto;
+}
+
+.task-settings-container .unavailable {
+  opacity: 0.75;
+  z-index: -1;
+}
+
+.add-subTask-form input[type="text"] {
+  border: none;
+  width: 100%;
+  font-size: 17px;
+  padding: 0 30px 0 5px;
+  color: white;
+  height: 40px;
+  background-color: inherit;
+}
+
+.add-subTask-form input[type="text"]:focus {
+  outline: none;
+}
+
+.add-subTask-form input::-webkit-input-placeholder {
+  color: white;
+}
+
+.add-subTask-form .fa {
+  position: absolute;
+  top: 50%;
+  margin-top: -14px;
+  right: 5px;
+  color: white;
+  font-size: 30px;
+}
+
+.add-subTask-form input[type="submit"] {
   position: absolute;
   opacity: 0;
   right: 5px;
