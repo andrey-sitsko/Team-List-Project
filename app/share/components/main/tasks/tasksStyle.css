@@ -84,12 +84,17 @@
 }
 
 .tasks-container .trash-icon-container {
+  visibility: hidden;
   position: absolute;
   top: 6px;
   right: 0;
   text-align: center;
   width: 36px;
   font-size: 24px;
+}
+
+.tasks-container li:hover .trash-icon-container {
+  visibility: visible;
 }
 
 .tasks-container .trash-icon-container i:hover {

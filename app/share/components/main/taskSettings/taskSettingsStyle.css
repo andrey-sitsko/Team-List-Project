@@ -54,12 +54,17 @@
 }
 
 .task-settings-container .trash-icon-container {
+  visibility: hidden;
   position: absolute;
   top: 1px;
   right: 0;
   text-align: center;
   width: 36px;
   font-size: 24px;
+}
+
+.subtasks-list li:hover .trash-icon-container {
+  visibility: visible;
 }
 
 .task-settings-container .trash-icon-container i:hover {
@@ -90,13 +95,16 @@
   background-color: inherit;
   position: relative;
   padding: 7px 30px 7px 8px;
-  margin-top: 10px;
   font-size: 17px;
   word-wrap: break-word;
   color: white;
   border-bottom: 1px solid white;
   transition: background-color 0.3s;
   cursor: default;
+}
+
+.subtasks-list li:hover {
+  background-color: rgb(0, 204, 122);
 }
 
 .add-subTask-form {
@@ -128,6 +136,10 @@
 
 .add-subTask-form input::-webkit-input-placeholder {
   color: rgb(209, 209, 224);
+}
+
+.subtasks-list li:hover {
+
 }
 
 .add-subTask-form .fa {
