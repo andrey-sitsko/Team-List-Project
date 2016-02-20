@@ -30,7 +30,7 @@
 }
 
 .add-deadline-form input::-webkit-input-placeholder {
-  color: white;
+  color: rgb(209, 209, 224);
 }
 
 .fa.deadline-calendar-icon {
@@ -127,7 +127,7 @@
 }
 
 .add-subTask-form input::-webkit-input-placeholder {
-  color: white;
+  color: rgb(209, 209, 224);
 }
 
 .add-subTask-form .fa {

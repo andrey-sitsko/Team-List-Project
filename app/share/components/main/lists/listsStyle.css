@@ -46,7 +46,7 @@
 }
 
 .add-list-form input::-webkit-input-placeholder {
-  color: white;
+  color: rgb(209, 209, 224);
 }
 
 .lists-container .list-group li {
