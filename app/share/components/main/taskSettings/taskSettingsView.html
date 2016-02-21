@@ -12,10 +12,15 @@
       </div>
     </li>
   </ul>
-  <form class="add-subTask-form" ng-submit="addSubTask(newSubTaskTitle)"
+  <form class="task-settings-form add-subTask-form" ng-submit="addSubTask(newSubTaskTitle)"
     ng-class="{'unavailable': subTasks == undefined}">
     <input type="text" placeholder="Add new subtask here..." ng-model="newSubTaskTitle" required>
     <i class="fa fa-plus-square-o"></i>
+    <input type="submit">
+  </form>
+  <form class="task-settings-form note-form">
+    <input type="text" placeholder="Add note here..." ng-model="taskNote" required>
+    <i class="fa fa-pencil"></i>
     <input type="submit">
   </form>
 </div>
