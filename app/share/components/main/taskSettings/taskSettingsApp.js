@@ -1,11 +1,18 @@
-var app = angular.module('taskSettingsApp', []);
+require('./taskSettingsService.js');
+
+var app = angular.module('taskSettingsApp', ['taskSettingsServiceApp']);
 
 app.directive('taskSettings', function() {
   return {
     restrict: 'E',
     templateUrl: 'taskSettingsView.html',
-    controller: (['$scope', function($scope) {
-      $scope.subTasks = [{title: 'fuck'}, {title: 'fuck'}, {title: 'fuck'}, {title: 'fuck'}]
+    controller: (['$scope', 'taskSettingsService', function($scope, taskSettingsService) {
+      $scope.subTasks = [];
+      $scope.addSubTask = function(title) {
+        var id = taskSettingsService.createSubTask(title);
+        $scope.subTasks.unshift({title: title, id: id});
+        $scope.newTaskTitle = '';
+      };
     }])
   };
 });

@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 taskSchema = new Schema({
   title: String,
   id: String,
-  dueDate: Date,
+  deadline: Date,
   done: Boolean,
   subTasks: [subTask]
 });

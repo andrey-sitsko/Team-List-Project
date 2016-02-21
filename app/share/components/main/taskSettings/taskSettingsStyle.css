@@ -147,6 +147,10 @@
   font-size: 30px;
 }
 
+.note-form .fa {
+  font-size: 27px;
+}
+
 .task-settings-form input[type="submit"] {
   position: absolute;
   opacity: 0;
