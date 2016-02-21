@@ -22,7 +22,7 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
              return e.id;
           }).indexOf(localStorageService.get('currentList').id);
       if(user && index >= 0) {
-        user.lists[index].tasks.push({title: title, id: id});
+        user.lists[index].tasks.push({title: title, id: id, subTasks: []});
       }
       localStorageService.set('user', user);
     },
@@ -43,7 +43,7 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
       localStorageService.set('currentTask', task);
     },
     getCurrentTask: function() {
-      return localStorageService.get('currentTask');  
+      return localStorageService.get('currentTask');
     },
     getListTasks: function(list) {
       var user = localStorageService.get('user'),
