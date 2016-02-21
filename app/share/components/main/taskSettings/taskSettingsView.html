@@ -1,8 +1,8 @@
 <div class="task-settings-container col-md-3">
-  <form class="add-deadline-form" ng-submit="addDeadline(deadline)">
-    <input placeholder="Add task deadline" class="input-group add-deadline-input">
-    <i class="fa fa-calendar deadline-calendar-icon"></i>
-    <input type="submit" class="submit-deadline-addition">
+  <form class="deadline-form task-settings-form" ng-submit="addDeadline(deadline)">
+    <input placeholder="Add task deadline" type="text">
+    <i class="fa fa-calendar"></i>
+    <input type="submit">
   </form>
   <ul class="subtasks-list">
     <li ng-repeat="subTask in subTasks" id="subTask-{{subTasks.indexOf(subTask)}}">

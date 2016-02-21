@@ -5,18 +5,11 @@
   margin: 0;
 }
 
-.add-deadline-form {
-  position: absolute;
-  border-radius: 5px;
-  border: 2px solid transparent;
-  background-color: rgb(48, 105, 54);
-  color: white;
-  top: 77px;
-  left: 10px;
-  right: 10px;
+.task-settings-form.deadline-form {
+  margin-top: 77px;
 }
 
-.add-deadline-input {
+.deadline-form input[type="text"] {
   border: none;
   background-color: inherit;
   width: 100%;
@@ -25,41 +18,33 @@
   height: 40px;
 }
 
-.add-deadline-input:focus {
+.deadline-form input[type="text"]:focus {
   outline: none;
 }
 
-.add-deadline-form input::-webkit-input-placeholder {
+.deadline-form input::-webkit-input-placeholder {
   color: rgb(209, 209, 224);
 }
 
-.fa.deadline-calendar-icon {
+.task-settings-container .deadline-form .fa {
   position: absolute;
   top: 50%;
   margin-top: -13px;
   right: 5px;
   color: white;
-  font-size: 25px;
-}
-
-.add-deadline-form input[type="submit"]{
-  position: absolute;
-  opacity: 0;
-  right: 5px;
-  top: 50%;
-  margin-top: -13px;
-  width: 25px;
-  height: 30px;
-  cursor: default;
+  font-size: 26px;
 }
 
 .task-settings-container .trash-icon-container {
   visibility: hidden;
   position: absolute;
-  top: 1px;
+  top: 8px;
   right: 0;
   text-align: center;
   width: 36px;
+}
+
+.task-settings-container .trash-icon-container i {
   font-size: 24px;
 }
 
@@ -72,21 +57,7 @@
   cursor: pointer;
 }
 
-.submit-subTask-add {
-  position: absolute;
-  opacity: 0;
-  right: 5px;
-  top: 50%;
-  margin-top: -13px;
-  width: 25px;
-  height: 30px;
-}
-
 .task-settings-container .subtasks-list {
-  margin-top: 127px;
-}
-
-.subtasks-list {
   list-style-type: none;
   padding: 0 4px 0 4px;
 }

@@ -10,8 +10,8 @@ app.directive('taskSettings', function() {
       $scope.subTasks = [];
       $scope.addSubTask = function(title) {
         var id = taskSettingsService.createSubTask(title);
-        $scope.subTasks.unshift({title: title, id: id});
-        $scope.newTaskTitle = '';
+        $scope.subTasks.push({title: title, id: id});
+        $scope.newSubTaskTitle = '';
       };
     }])
   };
