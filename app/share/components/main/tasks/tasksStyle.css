@@ -1,4 +1,4 @@
-.col-md-8.tasks-container {
+.col-md-6.tasks-container {
   min-height: 100%;
   overflow: auto;
   position: relative;
@@ -16,6 +16,11 @@
   right: 10px;
 }
 
+.tasks-container .unavailable {
+  opacity: 0.75;
+  z-index: -1;
+}
+
 .add-task-input {
   border: none;
   background-color: inherit;
@@ -30,7 +35,7 @@
 }
 
 .add-task-form input::-webkit-input-placeholder {
-  color: white;
+  color: rgb(209, 209, 224);
 }
 
 .fa.new-task-plus-icon {
@@ -61,7 +66,7 @@
   padding-left: 8px;
   padding-right: 30px;
   margin-top: 10px;
-  font-size: 19px;
+  font-size: 20px;
   border: 2px solid rgb(48, 51, 46);
   word-wrap: break-word;
   color: rgb(48, 51, 46);
@@ -70,11 +75,16 @@
   cursor: default;
 }
 
-.tasks-container .list-group li:hover {
+.tasks-container .list-group  li.checked-task {
+  background-color: rgb(128, 255, 0);
+}
+
+.tasks-container li:hover {
   background-color: rgb(204, 255, 204);
 }
 
 .tasks-container .trash-icon-container {
+  visibility: hidden;
   position: absolute;
   top: 6px;
   right: 0;
@@ -83,6 +93,11 @@
   font-size: 24px;
 }
 
+.tasks-container li:hover .trash-icon-container {
+  visibility: visible;
+}
+
 .tasks-container .trash-icon-container i:hover {
   color: rgb(255, 51, 51);
+  cursor: pointer;
 }

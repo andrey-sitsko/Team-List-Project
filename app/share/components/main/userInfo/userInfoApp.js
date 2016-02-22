@@ -1,18 +1,16 @@
-require('../../../services/loginService.js');
+require('./userInfoService.js');
 require('../../../services/currentUserService.js');
 
-var app = angular.module('userInfoApp', ['loginServiceApp', 'currentUserServiceApp']);
+var app = angular.module('userInfoApp', ['userInfoServiceApp', 'currentUserServiceApp']);
 
 app.directive('userInfo', function() {
   return {
     restrict: 'E',
     templateUrl: 'userInfoView.html',
-    controller: ['$scope', '$window', 'loginService', 'currentUserService', function($scope, $window, loginService, currentUserService) {
+    controller: ['$scope', 'userInfoService', 'currentUserService', function($scope, userInfoService, currentUserService) {
       $scope.currentUserName = currentUserService.getUser().name;
       $scope.logout = function() {
-        loginService.signOut(function(res) {
-          $window.location.href = '/';
-        });
+        userInfoService.signOut();
       };
     }],
   };

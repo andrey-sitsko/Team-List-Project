@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 
 subTaskSchema = new Schema({
     title: String,
-    done: Boolean
+    id: String
 });
 
 subTaskSchema.set('versionKey', false);

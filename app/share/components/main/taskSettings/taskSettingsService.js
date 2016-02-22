@@ -1,0 +1,33 @@
+require('../../../services/idGeneratorService.js');
+require('../../../services/currentUserService.js');
+
+var app = angular.module('taskSettingsServiceApp', ['idGeneratorServiceApp', 'currentUserServiceApp']);
+
+app.service('taskSettingsService', ['$http', 'idGeneratorService', 'currentUserService',
+function($http, idGeneratorService, currentUserService) {
+  return {
+    createSubTask: function(title) {
+      var user = currentUserService.getUser(),
+          id = idGeneratorService.getSubTaskId(title, user),
+          currentTask = currentUserService.getCurrentTask(),
+          currentList = currentUserService.getCurrentList();
+      currentUserService.addSubTask(id, title);
+      $http.post('/createSubTask', { title: title, id: id, listId: currentList.id, taskId: currentTask.id }).then(function(res, err) {
+        if(err) {
+          throw err;
+        }
+      });
+      return id;
+    },
+    deleteSubTask: function(subTask) {
+      var currentList = currentUserService.getCurrentList(),
+          currentTask = currentUserService.getCurrentTask();
+      currentUserService.deleteSubTask(subTask.id);
+      $http.post('/deleteSubTask', { id: subTask.id, listId: currentList.id, taskId: currentTask.id }).then(function(res, err) {
+        if(err) {
+          throw err;
+        }
+      });
+    }
+  };
+}]);

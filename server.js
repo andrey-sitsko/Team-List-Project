@@ -12,6 +12,7 @@ var express = require('express'),
     loginRoutes = require('./server/routes/loginRoutes'),
     listsRoutes = require('./server/routes/listsRoutes'),
     tasksRoutes = require('./server/routes/tasksRoutes'),
+    taskSettingsRoutes = require('./server/routes/taskSettingsRoutes'),
     app;
 
 mongoose.connect(databaseConfig.url);
@@ -31,5 +32,6 @@ app = serverConfig(app);
 app = loginRoutes(app);
 app = listsRoutes(app);
 app = tasksRoutes(app);
+app = taskSettingsRoutes(app);
 
 app.listen(8000);

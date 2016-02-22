@@ -1,0 +1,133 @@
+.col-md-3.task-settings-container {
+  overflow: auto;
+  min-height: 100%;
+  background-color: rgb(57, 158, 90);
+  margin: 0;
+}
+
+.task-settings-form.deadline-form {
+  margin-top: 77px;
+}
+
+.deadline-form input[type="text"] {
+  border: none;
+  background-color: inherit;
+  width: 100%;
+  font-size: 17px;
+  padding: 0 30px 0 5px;
+  height: 40px;
+}
+
+.deadline-form input[type="text"]:focus {
+  outline: none;
+}
+
+.deadline-form input::-webkit-input-placeholder {
+  color: rgb(209, 209, 224);
+}
+
+.task-settings-container .deadline-form .fa {
+  position: absolute;
+  top: 50%;
+  margin-top: -13px;
+  right: 5px;
+  color: white;
+  font-size: 26px;
+}
+
+.task-settings-container .trash-icon-container {
+  visibility: hidden;
+  position: absolute;
+  top: 8px;
+  right: 0;
+  text-align: center;
+  width: 36px;
+}
+
+.task-settings-container .trash-icon-container i {
+  font-size: 24px;
+}
+
+.subtasks-list li:hover .trash-icon-container {
+  visibility: visible;
+}
+
+.task-settings-container .trash-icon-container i:hover {
+  color: rgb(255, 51, 51);
+  cursor: pointer;
+}
+
+.task-settings-container .subtasks-list {
+  list-style-type: none;
+  padding: 0 4px 0 4px;
+  margin: 5px 0 5px 0;
+}
+
+.subtasks-list li {
+  background-color: inherit;
+  position: relative;
+  padding: 7px 30px 7px 8px;
+  font-size: 17px;
+  word-wrap: break-word;
+  color: white;
+  transition: background-color 0.3s;
+  cursor: default;
+}
+
+.subtasks-list li:hover {
+  background-color: rgb(0, 204, 122);
+}
+
+.task-settings-form {
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-color: rgb(48, 105, 54);
+  position: relative;
+  margin: 5px auto;
+}
+
+.task-settings-container .unavailable {
+  opacity: 0.75;
+  z-index: -1;
+}
+
+.task-settings-form input[type="text"] {
+  border: none;
+  width: 100%;
+  font-size: 17px;
+  padding: 0 30px 0 5px;
+  color: white;
+  height: 40px;
+  background-color: inherit;
+}
+
+.task-settings-form input[type="text"]:focus {
+  outline: none;
+}
+
+.task-settings-form input::-webkit-input-placeholder {
+  color: rgb(209, 209, 224);
+}
+
+.task-settings-form .fa {
+  position: absolute;
+  top: 50%;
+  margin-top: -14px;
+  right: 5px;
+  color: white;
+  font-size: 30px;
+}
+
+.note-form .fa {
+  font-size: 27px;
+}
+
+.task-settings-form input[type="submit"] {
+  position: absolute;
+  opacity: 0;
+  right: 5px;
+  top: 50%;
+  margin-top: -13px;
+  width: 25px;
+  height: 30px;
+}

@@ -1,16 +1,16 @@
-require('../../../services/loginService.js');
+require('./signInService.js');
 
-var app = angular.module('signInApp', ['loginServiceApp']);
+var app = angular.module('signInApp', ['signInServiceApp']);
 
 app.directive('signInForm', function() {
   return {
     restrict: 'E',
     templateUrl: 'signInView.html',
-    controller: ['$scope','$window', 'loginService', function($scope, $window, loginService) {
+    controller: ['$scope','$window', 'signInService', function($scope, $window, signInService) {
       $scope.signInPassword = '';
       $scope.signInEmail = '';
       $scope.submitSignIn = function() {
-        loginService.signIn({email: $scope.signInEmail, password: $scope.signInPassword}, loginService.processSignInResults);
+        signInService.signIn({email: $scope.signInEmail, password: $scope.signInPassword});
       };
     }]
   };

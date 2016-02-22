@@ -8,7 +8,6 @@ function($http, idGeneratorService, currentUserService) {
   var taskSettingCallback;
   return {
     checkList: function(list, index) {
-      var tasks;
       currentUserService.setCurrentList(list);
       taskSettingCallback(currentUserService.getListTasks(list));
       $('.lists-container .list-group-item').removeClass('checked-list');
@@ -26,6 +25,9 @@ function($http, idGeneratorService, currentUserService) {
     },
     deleteList: function(list) {
       currentUserService.deleteList(list.id);
+      if(currentUserService.getCurrentList().id == list.id) {
+        taskSettingCallback();
+      }
       $http.post('/deleteList', list).then(function(res, err) {
         if(err) {
           throw err;

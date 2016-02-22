@@ -12,7 +12,7 @@ app.directive('lists', function() {
       $scope.lists = user.lists;
       $scope.addList = function(title) {
         var id = listsService.createList(title, user);
-        $scope.lists.push({title: title, id: id});
+        $scope.lists.unshift({title: title, id: id});
         $scope.newListTitle = '';
       };
       $scope.deleteList = function(list) {

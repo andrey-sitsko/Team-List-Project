@@ -26,6 +26,11 @@ function($http, idGeneratorService, currentUserService) {
           throw err;
         }
       });
+    },
+    checkTask: function(task, index) {
+      currentUserService.setCurrentTask(task);
+      $('.tasks-container .list-group-item').removeClass('checked-task');
+      $('#task-' + index).addClass('checked-task');
     }
   };
 }]);

@@ -10,7 +10,6 @@ app.directive('tasks', function() {
     templateUrl: 'tasksView.html',
     controller: ['$scope', 'tasksService', 'currentUserService', 'listsService',
     function($scope, tasksService, currentUserService, listsService) {
-      $scope.tasks = [];
       listsService.passTaskSettingCallback(setTasks);
       $scope.deleteTask = function(task) {
         tasksService.deleteTask(task);
@@ -20,8 +19,11 @@ app.directive('tasks', function() {
       };
       $scope.addTask = function(title) {
         var id = tasksService.createTask(title);
-        $scope.tasks.push({title: title, id: id});
+        $scope.tasks.unshift({title: title, id: id});
         $scope.newTaskTitle = '';
+      };
+      $scope.checkTask = function(task) {
+        tasksService.checkTask(task, $scope.tasks.indexOf(task));
       };
       function setTasks(tasks) {
         $scope.tasks = tasks;
