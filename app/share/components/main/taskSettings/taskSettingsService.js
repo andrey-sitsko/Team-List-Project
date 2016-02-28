@@ -9,10 +9,9 @@ function($http, idGeneratorService, currentUserService) {
     createSubTask: function(title) {
       var user = currentUserService.getUser(),
           id = idGeneratorService.getSubTaskId(title, user),
-          currentTask = currentUserService.getCurrentTask(),
-          currentList = currentUserService.getCurrentList();
+          currentTask = currentUserService.getCurrentTask();
       currentUserService.addSubTask(id, title);
-      $http.post('/createSubTask', { title: title, id: id, listId: currentList.id, taskId: currentTask.id }).then(function(res, err) {
+      $http.post('/createSubTask', { title: title, id: id, taskId: currentTask.id }).then(function(res, err) {
         if(err) {
           throw err;
         }
@@ -20,10 +19,9 @@ function($http, idGeneratorService, currentUserService) {
       return id;
     },
     deleteSubTask: function(subTask) {
-      var currentList = currentUserService.getCurrentList(),
-          currentTask = currentUserService.getCurrentTask();
+      var currentTask = currentUserService.getCurrentTask();
       currentUserService.deleteSubTask(subTask.id);
-      $http.post('/deleteSubTask', { id: subTask.id, listId: currentList.id, taskId: currentTask.id }).then(function(res, err) {
+      $http.post('/deleteSubTask', { id: subTask.id, taskId: currentTask.id }).then(function(res, err) {
         if(err) {
           throw err;
         }
