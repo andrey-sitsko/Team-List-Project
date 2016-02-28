@@ -21,7 +21,7 @@ function($http, idGeneratorService, currentUserService) {
     deleteSubTask: function(subTask) {
       var currentTask = currentUserService.getCurrentTask();
       currentUserService.deleteSubTask(subTask.id);
-      $http.post('/deleteSubTask', { id: subTask.id, taskId: currentTask.id }).then(function(res, err) {
+      $http.post('/deleteSubTask', { id: subTask.id }).then(function(res, err) {
         if(err) {
           throw err;
         }

@@ -15,6 +15,12 @@ app.directive('taskSettings', function() {
         $scope.subTasks.push({title: title, id: id});
         $scope.newSubTaskTitle = '';
       };
+      $scope.deleteSubTask = function(subTask) {
+        taskSettingsService.deleteSubTask(subTask);
+        $scope.subTasks.splice($scope.subTasks.map(function(val) {
+          return val.id;
+        }).indexOf(subTask.id), 1);
+      };
       function setSubTasks(subTasks) {
         $scope.subTasks = subTasks;
       }
