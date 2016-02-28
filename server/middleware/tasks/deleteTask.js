@@ -5,12 +5,11 @@ module.exports = function(req, res) {
       taskData = req.body;
   User.update(
     {
-      'email': email,
-      'lists.id': taskData.listId,
+      'email': email
     },
     {
       $pull: {
-       'lists.$.tasks' : { id: taskData.id }
+       'tasks.id' : { id: taskData.id }
       }
     },
     false,

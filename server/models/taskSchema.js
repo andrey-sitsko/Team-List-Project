@@ -1,14 +1,13 @@
 var mongoose = require('mongoose'),
-    subTask = require('./subTaskSchema'),
     Schema = mongoose.Schema,
     taskSchema;
 
 taskSchema = new Schema({
   title: String,
   id: String,
+  listId: String,
   deadline: Date,
-  done: Boolean,
-  subTasks: [subTask]
+  done: Boolean
 });
 
 taskSchema.set('versionKey', false);

@@ -6,13 +6,11 @@ module.exports = function(req, res) {
 
   User.update(
     {
-      'email': email,
-      'lists.id': subTaskData.listId,
-      'tasks.id': subTaskData.taskId
+      'email': email
     },
     {
-      $push: {
-       'tasks.$.subTasks' : { title: subTaskData.title, id: subTaskData.id }
+      $pull: {
+       'subTasks.id' : { id: subTaskData.id }
       }
     },
     false,
