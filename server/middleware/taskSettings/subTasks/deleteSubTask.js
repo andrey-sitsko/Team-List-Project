@@ -1,8 +1,8 @@
-User = require('../../models/userModel.js');
+User = require('../../../models/userModel.js');
 
 module.exports = function(req, res) {
   var email = req.user.email,
-      taskData = req.body;
+      subTaskData = req.body;
 
   User.update(
     {
@@ -10,7 +10,7 @@ module.exports = function(req, res) {
     },
     {
       $pull: {
-       'tasks' : { id: taskData.id }
+       'subTasks' : { id: subTaskData.id }
       }
     },
     false,

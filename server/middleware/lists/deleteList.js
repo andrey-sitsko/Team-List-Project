@@ -5,8 +5,14 @@ module.exports = function(req, res) {
       listData = req.body;
 
   User.update(
-    {'email': email},
-    { $pull: { "lists" : { id: listData.id } } },
+    {
+      'email': email
+    },
+    {
+      $pull: {
+        'lists' : { id: listData.id }
+      }
+    },
     false,
     function(response) {
       res.send(response);

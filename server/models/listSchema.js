@@ -1,12 +1,10 @@
 var mongoose = require('mongoose'),
-    task = require('./taskSchema'),
     Schema = mongoose.Schema,
     listSchema;
 
 listSchema = new Schema({
     title: String,
-    id: String,
-    tasks: [task]
+    id: String
 });
 
 listSchema.set('versionKey', false);

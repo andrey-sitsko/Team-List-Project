@@ -5,13 +5,14 @@ var app = angular.module('tasksServiceApp', ['idGeneratorServiceApp', 'currentUs
 
 app.service('tasksService', ['$http', 'idGeneratorService', 'currentUserService',
 function($http, idGeneratorService, currentUserService) {
+  var setSubTasks;
   return {
     createTask: function(title) {
       var user = currentUserService.getUser(),
           id = idGeneratorService.getTaskId(title, user),
           currentList = currentUserService.getCurrentList();
       currentUserService.addTask(id, title);
-      $http.post('/createTask', {title: title, id: id, list: currentList}).then(function(res, err) {
+      $http.post('/createTask', { title: title, id: id, listId: currentList.id }).then(function(res, err) {
         if(err) {
           throw err;
         }
@@ -21,7 +22,7 @@ function($http, idGeneratorService, currentUserService) {
     deleteTask: function(task) {
       var currentList = currentUserService.getCurrentList();
       currentUserService.deleteTask(task.id);
-      $http.post('/deleteTask', { id: task.id, listId: currentList.id }).then(function(res, err) {
+      $http.post('/deleteTask', { id: task.id }).then(function(res, err) {
         if(err) {
           throw err;
         }
@@ -29,8 +30,12 @@ function($http, idGeneratorService, currentUserService) {
     },
     checkTask: function(task, index) {
       currentUserService.setCurrentTask(task);
+      setSubTasks(currentUserService.getTaskSubTasks(task.id));
       $('.tasks-container .list-group-item').removeClass('checked-task');
       $('#task-' + index).addClass('checked-task');
+    },
+    setSubTasksSettingCallback: function(callback) {
+      setSubTasks = callback;
     }
   };
 }]);

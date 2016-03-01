@@ -4,12 +4,6 @@ var app = angular.module('currentUserServiceApp', ['LocalStorageModule']);
 
 app.service('currentUserService', ['$http', 'localStorageService', function($http, localStorageService) {
   return {
-    setCurrentList: function(list) {
-      localStorageService.set('currentList', list);
-    },
-    getCurrentList: function() {
-      return localStorageService.get('currentList');
-    },
     setUser: function(newUser) {
       localStorageService.set('user', newUser);
     },
@@ -18,44 +12,45 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
     },
     addTask: function(id, title) {
       var user = localStorageService.get('user'),
-          index = user.lists.map(function(e) {
-             return e.id;
-          }).indexOf(localStorageService.get('currentList').id);
-      if(user && index >= 0) {
-        user.lists[index].tasks.push({title: title, id: id, subTasks: []});
+          currentList = localStorageService.get('currentList');
+      if(user && currentList) {
+        user.tasks.push({ title: title, id: id, listId: currentList.id });
       }
       localStorageService.set('user', user);
     },
     deleteTask: function(id) {
       var user = localStorageService.get('user'),
           currentList = localStorageService.get('currentList'),
-          index = user.lists.map(function(e) {
-            return e.id;
-          }).indexOf(currentList.id);
+          index = user.tasks.map(function(task) {
+            return task.id;
+          }).indexOf(id);
       if(user && index >= 0) {
-        user.lists[index].tasks.splice(user.lists[index].tasks.map(function(task) {
-          return task.id;
-        }).indexOf(id), 1);
+        user.tasks.splice(index, 1);
       }
       localStorageService.set('user', user);
     },
     setCurrentTask: function(task) {
       localStorageService.set('currentTask', task);
     },
+    setCurrentList: function(list) {
+      localStorageService.set('currentList', list);
+    },
+    getCurrentList: function() {
+      return localStorageService.get('currentList');
+    },
     getCurrentTask: function() {
       return localStorageService.get('currentTask');
     },
     getListTasks: function(list) {
-      var user = localStorageService.get('user'),
-          index = user.lists.map(function(e) {
-             return e.id;
-          }).indexOf(list.id);
-      return user.lists[index].tasks;
+      var user = localStorageService.get('user');
+      return user.tasks.filter(function(task) {
+        return task.listId == list.id;
+      });
     },
     addList: function(id, title) {
       var user = localStorageService.get('user');
       if(user) {
-        user.lists.push({title: title, id: id, tasks: []});
+        user.lists.push({ title: title, id: id });
       }
       localStorageService.set('user', user);
      },
@@ -70,33 +65,28 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
    },
    addSubTask: function(id, title) {
      var user = localStorageService.get('user'),
-         listIndex = user.lists.map(function(e) {
-            return e.id;
-         }).indexOf(localStorageService.get('currentList').id),
-         taskIndex = user.lists[listIndex].tasks.map(function(e) {
-            return e.id;
-         }).indexOf(localStorageService.get('currentTask').id);
-
-     if(user && listIndex >= 0 && taskIndex >= 0) {
-       user.lists[listIndex].tasks[taskIndex].subTasks.push({title: title, id: id});
+         currentTask = localStorageService.get('currentTask');
+     if(user && currentTask >= 0) {
+       user.subTasks.push({ title: title, id: id, taskId: currentTask.id });
      }
      localStorageService.set('user', user);
    },
    deleteSubTask: function(id) {
      var user = localStorageService.get('user'),
-         listIndex = user.lists.map(function(e) {
-            return e.id;
-         }).indexOf(localStorageService.get('currentList').id),
-         taskIndex = user.lists[listIndex].map(function(e) {
-            return e.id;
-         }).indexOf(localStorageService.get('currentTask').id);
-
+         currentTask = localStorageService.get('currentTask'),
+         index = user.subTasks.map(function(subTask) {
+           return subTask.id;
+         }).indexOf(id);
      if(user && index >= 0) {
-       user.lists[listIndex].tasks[taskIndex].subTasks.splice(user.lists[listIndex].tasks[taskIndex].subTasks.map(function(subTask) {
-         return subTask.id;
-       }).indexOf(id), 1);
+       user.subTasks.splice(index, 1);
      }
      localStorageService.set('user', user);
+   },
+   getTaskSubTasks: function(taskId) {
+     var user = localStorageService.get('user');
+     return user.subTasks.filter(function(subTask) {
+       return subTask.taskId == taskId;
+     });
    }
   };
 }]);
