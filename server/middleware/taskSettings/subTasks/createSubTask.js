@@ -1,4 +1,4 @@
-User = require('../../models/userModel.js');
+User = require('../../../models/userModel.js');
 
 module.exports = function(req, res) {
   var email = req.user.email,
@@ -6,13 +6,11 @@ module.exports = function(req, res) {
 
   User.update(
     {
-      'email': email,
-      'lists.id': subTaskData.listId,
-      'tasks.id': subTaskData.taskId
+      'email': email
     },
     {
       $push: {
-       'tasks.$.subTasks' : { title: subTaskData.title, id: subTaskData.id }
+       'subTasks' : { title: subTaskData.title, id: subTaskData.id, taskId: subTaskData.taskId }
       }
     },
     false,
