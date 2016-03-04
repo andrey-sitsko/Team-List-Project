@@ -3,9 +3,9 @@ var mongoose = require('mongoose'),
     subTaskSchema;
 
 subTaskSchema = new Schema({
-    taskId: String,
-    title: String,
-    id: String
+  taskId: String,
+  title: String,
+  id: String
 });
 
 subTaskSchema.set('versionKey', false);

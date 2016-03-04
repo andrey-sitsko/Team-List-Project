@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     list = require('./listSchema'),
     subTask = require('./subTaskSchema'),
-    task = require('./taskSchema'),    
+    task = require('./taskSchema'),
     Schema = mongoose.Schema,
     userSchema;
 

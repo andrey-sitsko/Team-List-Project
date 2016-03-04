@@ -5,7 +5,7 @@ var app = angular.module('tasksServiceApp', ['idGeneratorServiceApp', 'currentUs
 
 app.service('tasksService', ['$http', 'idGeneratorService', 'currentUserService',
 function($http, idGeneratorService, currentUserService) {
-  var setSubTasks;
+  var taskSettingsCallback;
   return {
     createTask: function(title) {
       var user = currentUserService.getUser(),
@@ -30,12 +30,12 @@ function($http, idGeneratorService, currentUserService) {
     },
     checkTask: function(task, index) {
       currentUserService.setCurrentTask(task);
-      setSubTasks(currentUserService.getTaskSubTasks(task.id));
+      taskSettingsCallback(currentUserService.getCurrentTaskSettings());
       $('.tasks-container .list-group-item').removeClass('checked-task');
       $('#task-' + index).addClass('checked-task');
     },
-    setSubTasksSettingCallback: function(callback) {
-      setSubTasks = callback;
+    setTaskSettingsCallback: function(callback) {
+      taskSettingsCallback = callback;
     }
   };
 }]);

@@ -9,7 +9,9 @@ app.directive('taskSettings', function() {
     templateUrl: 'taskSettingsView.html',
     controller: (['$scope', 'taskSettingsService', 'tasksService', function($scope, taskSettingsService, tasksService) {
       $scope.subTasks = [];
-      tasksService.setSubTasksSettingCallback(setSubTasks);
+      $scope.deadline = [];
+      $scope.note = '';
+      tasksService.setTaskSettingsCallback(setTaskSettings);
       $scope.addSubTask = function(title) {
         var id = taskSettingsService.createSubTask(title);
         $scope.subTasks.push({title: title, id: id});
@@ -21,8 +23,10 @@ app.directive('taskSettings', function() {
           return val.id;
         }).indexOf(subTask.id), 1);
       };
-      function setSubTasks(subTasks) {
-        $scope.subTasks = subTasks;
+      function setTaskSettings(taskSettings) {
+        $scope.subTasks = taskSettings.subTasks || [];
+        $scope.deadline = taskSettings.deadline || '';
+        $scope.note = taskSettings.note || '';
       }
     }])
   };

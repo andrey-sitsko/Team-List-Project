@@ -7,7 +7,7 @@ taskSchema = new Schema({
   id: String,
   listId: String,
   deadline: Date,
-  done: Boolean
+  note: String
 });
 
 taskSchema.set('versionKey', false);

@@ -3,8 +3,8 @@ var mongoose = require('mongoose'),
     listSchema;
 
 listSchema = new Schema({
-    title: String,
-    id: String
+  title: String,
+  id: String
 });
 
 listSchema.set('versionKey', false);
