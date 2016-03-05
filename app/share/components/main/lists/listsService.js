@@ -29,6 +29,7 @@ function($http, idGeneratorService, currentUserService) {
       currentUserService.deleteList(list.id);
       if(currentUserService.getCurrentList().id == list.id) {
         tasksCallback();
+        taskSettingsCallback();
       }
       $http.post('/deleteList', list).then(function(res, err) {
         if(err) {

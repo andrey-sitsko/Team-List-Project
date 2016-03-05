@@ -1,5 +1,5 @@
-<div class="task-settings-container col-md-3" ng-class="{ 'unavailable': disableTaskSettings }">
-  <form class="deadline-form task-settings-form" ng-submit="addDeadline(deadline)">
+<div class="task-settings-container col-md-3">
+  <form class="deadline-form task-settings-form" ng-submit="addDeadline(deadline)" ng-class="{ 'unavailable': disableTaskSettings }">
     <input placeholder="Add task deadline" type="text">
     <i class="fa fa-calendar"></i>
     <input type="submit">
@@ -13,12 +13,12 @@
     </li>
   </ul>
   <form class="task-settings-form add-subTask-form" ng-submit="addSubTask(newSubTaskTitle)"
-    ng-class="{'unavailable': subTasks == undefined}">
+    ng-class="{ 'unavailable': disableTaskSettings }">
     <input type="text" placeholder="Add new subtask here..." ng-model="newSubTaskTitle" required>
     <i class="fa fa-plus-square-o"></i>
     <input type="submit">
   </form>
-  <form class="task-settings-form note-form">
+  <form class="task-settings-form note-form" ng-class="{ 'unavailable': disableTaskSettings }">
     <input type="text" placeholder="Add note here..." ng-model="taskNote" required>
     <i class="fa fa-pencil"></i>
     <input type="submit">

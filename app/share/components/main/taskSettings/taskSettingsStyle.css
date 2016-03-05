@@ -5,9 +5,9 @@
   margin: 0;
 }
 
-.task-settings-container.unavailable {
+.task-settings-container .unavailable {
   opacity: 0.75;
-  z-index: -1;
+  pointer-events: none;
 }
 
 .task-settings-form.deadline-form {
@@ -89,11 +89,6 @@
   background-color: rgb(48, 105, 54);
   position: relative;
   margin: 5px auto;
-}
-
-.task-settings-container .unavailable {
-  opacity: 0.75;
-  z-index: -1;
 }
 
 .task-settings-form input[type="text"] {
