@@ -1,4 +1,4 @@
-<div class="task-settings-container col-md-3">
+<div class="task-settings-container col-md-3" ng-class="{ 'unavailable': disableTaskSettings }">
   <form class="deadline-form task-settings-form" ng-submit="addDeadline(deadline)">
     <input placeholder="Add task deadline" type="text">
     <i class="fa fa-calendar"></i>

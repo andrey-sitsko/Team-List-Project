@@ -1,17 +1,21 @@
 require('./taskSettingsService.js');
 require('../tasks/tasksService.js');
+require('../lists/listsService.js');
 
-var app = angular.module('taskSettingsApp', ['taskSettingsServiceApp', 'tasksServiceApp']);
+var app = angular.module('taskSettingsApp', ['taskSettingsServiceApp', 'tasksServiceApp', 'listsServiceApp']);
 
 app.directive('taskSettings', function() {
   return {
     restrict: 'E',
     templateUrl: 'taskSettingsView.html',
-    controller: (['$scope', 'taskSettingsService', 'tasksService', function($scope, taskSettingsService, tasksService) {
+    controller: (['$scope', 'taskSettingsService', 'tasksService', 'listsService',
+    function($scope, taskSettingsService, tasksService, listsService) {
       $scope.subTasks = [];
       $scope.deadline = [];
       $scope.note = '';
+      $scope.disableTaskSettings = true;
       tasksService.setTaskSettingsCallback(setTaskSettings);
+      listsService.setTaskSettingCallback(setTaskSettings);
       $scope.addSubTask = function(title) {
         var id = taskSettingsService.createSubTask(title);
         $scope.subTasks.push({title: title, id: id});
@@ -24,9 +28,10 @@ app.directive('taskSettings', function() {
         }).indexOf(subTask.id), 1);
       };
       function setTaskSettings(taskSettings) {
-        $scope.subTasks = taskSettings.subTasks || [];
-        $scope.deadline = taskSettings.deadline || '';
-        $scope.note = taskSettings.note || '';
+        $scope.disableTaskSettings = (taskSettings === undefined);
+        $scope.subTasks = taskSettings && taskSettings.subTasks || [];
+        $scope.deadline = taskSettings && taskSettings.deadline || '';
+        $scope.note = taskSettings && taskSettings.note || '';
       }
     }])
   };

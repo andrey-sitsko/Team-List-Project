@@ -22,6 +22,9 @@ function($http, idGeneratorService, currentUserService) {
     deleteTask: function(task) {
       var currentList = currentUserService.getCurrentList();
       currentUserService.deleteTask(task.id);
+      if(currentUserService.getCurrentTask().id == task.id) {
+        taskSettingsCallback();
+      }
       $http.post('/deleteTask', { id: task.id }).then(function(res, err) {
         if(err) {
           throw err;

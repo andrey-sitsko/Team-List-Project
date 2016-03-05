@@ -10,7 +10,7 @@ app.directive('tasks', function() {
     templateUrl: 'tasksView.html',
     controller: ['$scope', 'tasksService', 'currentUserService', 'listsService',
     function($scope, tasksService, currentUserService, listsService) {
-      listsService.passTaskSettingCallback(setTasks);
+      listsService.setTasksCallback(setTasks);
       $scope.deleteTask = function(task) {
         tasksService.deleteTask(task);
         $scope.tasks.splice($scope.tasks.map(function(task) {

@@ -5,6 +5,11 @@
   margin: 0;
 }
 
+.task-settings-container.unavailable {
+  opacity: 0.75;
+  z-index: -1;
+}
+
 .task-settings-form.deadline-form {
   margin-top: 77px;
 }
