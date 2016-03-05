@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
     subTaskSchema;
 
 subTaskSchema = new Schema({
+  listId: String,
   taskId: String,
   title: String,
   id: String

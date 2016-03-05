@@ -9,9 +9,10 @@ function($http, idGeneratorService, currentUserService) {
     createSubTask: function(title) {
       var user = currentUserService.getUser(),
           id = idGeneratorService.getSubTaskId(title, user),
+          currentList = currentUserService.getCurrentList(),
           currentTask = currentUserService.getCurrentTask();
       currentUserService.addSubTask(id, title);
-      $http.post('/createSubTask', { title: title, id: id, taskId: currentTask.id }).then(function(res, err) {
+      $http.post('/createSubTask', { title: title, id: id, taskId: currentTask.id, listId: currentList.id }).then(function(res, err) {
         if(err) {
           throw err;
         }

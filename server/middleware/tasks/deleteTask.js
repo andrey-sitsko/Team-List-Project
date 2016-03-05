@@ -10,7 +10,8 @@ module.exports = function(req, res) {
     },
     {
       $pull: {
-       'tasks' : { id: taskData.id }
+       'tasks' : { id: taskData.id },
+       'subTasks' : { taskId: taskData.id }
       }
     },
     false,

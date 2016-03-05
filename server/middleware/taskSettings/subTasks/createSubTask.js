@@ -10,7 +10,7 @@ module.exports = function(req, res) {
     },
     {
       $push: {
-       'subTasks' : { title: subTaskData.title, id: subTaskData.id, taskId: subTaskData.taskId }
+       'subTasks' : { title: subTaskData.title, id: subTaskData.id, taskId: subTaskData.taskId, listId: subTaskData.listId }
       }
     },
     false,
