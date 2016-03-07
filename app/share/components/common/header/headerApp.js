@@ -1,3 +1,5 @@
+require('./headerStyle.css');
+
 var app = angular.module('headerApp', []);
 
 app.directive('header', function() {

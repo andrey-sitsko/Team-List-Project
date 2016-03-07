@@ -7,6 +7,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './app/builtApps'),
+    publicPath: 'builtApps/',
     filename: "[name].bundle.js",
   },
   module: {
@@ -18,6 +19,9 @@ module.exports = {
       {
         test: /\.png$/,
         loader: "file?name=[path][name].[ext]"
+      },
+      {
+        test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"
       }
     ]
   }

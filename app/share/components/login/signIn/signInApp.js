@@ -1,4 +1,5 @@
 require('./signInService.js');
+require('./signInStyle.css');
 
 var app = angular.module('signInApp', ['signInServiceApp']);
 

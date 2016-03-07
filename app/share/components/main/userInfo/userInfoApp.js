@@ -1,5 +1,6 @@
 require('./userInfoService.js');
 require('../../../services/currentUserService.js');
+require('./userInfoStyle.css');
 
 var app = angular.module('userInfoApp', ['userInfoServiceApp', 'currentUserServiceApp']);
 

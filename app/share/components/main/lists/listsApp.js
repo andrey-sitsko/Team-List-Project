@@ -1,5 +1,6 @@
 require('../../../services/currentUserService.js');
 require('./listsService.js');
+require('./listsStyle.css');
 
 var app = angular.module('listsApp', ['listsServiceApp', 'currentUserServiceApp']);
 

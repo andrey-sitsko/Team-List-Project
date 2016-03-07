@@ -1,6 +1,7 @@
 require('./taskSettingsService.js');
 require('../tasks/tasksService.js');
 require('../lists/listsService.js');
+require('./taskSettingsStyle.css');
 
 var app = angular.module('taskSettingsApp', ['taskSettingsServiceApp', 'tasksServiceApp', 'listsServiceApp']);
 
