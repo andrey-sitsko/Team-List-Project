@@ -6,6 +6,6 @@ require('../../node_modules/angular/angular.min.js');
 require('../../node_modules/bootstrap/dist/js/bootstrap.min.js');
 require('../share/components/login/signUp/signUpApp.js');
 require('../share/components/login/signIn/signInApp.js');
-require('../share/components/common/header/headerApp.js');
+require('../share/components/common/pageHeader/pageHeaderApp.js');
 
-var app = angular.module('loginApp', ['signInApp', 'signUpApp', 'headerApp']);
+var app = angular.module('loginApp', ['signInApp', 'signUpApp', 'pageHeaderApp']);
