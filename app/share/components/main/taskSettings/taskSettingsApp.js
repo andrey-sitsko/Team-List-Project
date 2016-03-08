@@ -2,6 +2,8 @@ require('./taskSettingsService.js');
 require('../tasks/tasksService.js');
 require('../lists/listsService.js');
 require('./taskSettingsStyle.css');
+require('./datepickerStyle.css');
+require('jquery-ui');
 
 var app = angular.module('taskSettingsApp', ['taskSettingsServiceApp', 'tasksServiceApp', 'listsServiceApp']);
 
@@ -17,6 +19,15 @@ app.directive('taskSettings', function() {
       $scope.disableTaskSettings = true;
       tasksService.setTaskSettingsCallback(setTaskSettings);
       listsService.setTaskSettingCallback(setTaskSettings);
+      $(function() {
+        var dateToday = new Date();
+        $( "#deadlineDatepicker" ).datepicker({
+          dateFormat: 'dd-M-yy',
+          clearBtn: true,
+          todayHighlight: true,
+          minDate: dateToday
+        });
+      });
       $scope.addSubTask = function(title) {
         var id = taskSettingsService.createSubTask(title);
         $scope.subTasks.push({title: title, id: id});
