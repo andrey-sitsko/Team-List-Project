@@ -1,4 +1,5 @@
-var path = require('path');
+var path = require('path'),
+    webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -8,21 +9,28 @@ module.exports = {
   output: {
     path: path.join(__dirname, './app/builtApps'),
     publicPath: 'builtApps/',
-    filename: "[name].bundle.js",
+    filename: '[name].bundle.js',
   },
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        loader: 'style-loader!css-loader'
       },
       {
         test: /\.png$/,
-        loader: "file?name=[path][name].[ext]"
+        loader: 'file?name=[path][name].[ext]'
       },
       {
-        test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"
+        test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+    })
+  ]
 };
