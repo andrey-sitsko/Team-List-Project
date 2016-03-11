@@ -35,6 +35,7 @@ function($http, idGeneratorService, currentUserService) {
           throw err;
         }
       });
+      currentUserService.addDeadline(date);
     }
   };
 }]);

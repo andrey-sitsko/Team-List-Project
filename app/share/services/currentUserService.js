@@ -95,6 +95,20 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
      }
      localStorageService.set('user', user);
    },
+   addDeadline: function(date) {
+     var user,
+         currentTask,
+         index;
+     user = localStorageService.get('user');
+     currentTask = localStorageService.get('currentTask');
+     index = user.tasks.map(function(task) {
+       return task.id;
+     }).indexOf(currentTask.id);
+     if(user && index >= 0) {
+       user.tasks[index].deadline = date;
+     }
+     localStorageService.set('user', user);
+   },
    getCurrentTaskSettings: function() {
      var user,
          currentTask,

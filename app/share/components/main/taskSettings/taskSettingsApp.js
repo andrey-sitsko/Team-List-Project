@@ -14,7 +14,6 @@ app.directive('taskSettings', function() {
     controller: (['$scope', 'taskSettingsService', 'tasksService', 'listsService',
     function($scope, taskSettingsService, tasksService, listsService) {
       $scope.subTasks = [];
-      $scope.deadline = [];
       $scope.note = '';
       $scope.disableTaskSettings = true;
       tasksService.setTaskSettingsCallback(setTaskSettings);
@@ -54,8 +53,8 @@ app.directive('taskSettings', function() {
       function setTaskSettings(taskSettings) {
         $scope.disableTaskSettings = (taskSettings === undefined);
         $scope.subTasks = taskSettings && taskSettings.subTasks || [];
-        $scope.deadline = taskSettings && taskSettings.deadline || '';
         $scope.note = taskSettings && taskSettings.note || '';
+        $('#deadlineDatepicker').val(taskSettings && taskSettings.deadline || '');
       }
     }])
   };
