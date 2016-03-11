@@ -34,6 +34,9 @@ app.directive('taskSettings', function() {
                   left: 0
               });
             }, 0);
+          },
+          onSelect: function(dateText, inst) {
+            taskSettingsService.addDeadline(new Date(inst.currentYear, inst.currentMonth, inst.currentDay));
           }
         });
       });

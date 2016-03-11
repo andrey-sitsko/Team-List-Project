@@ -27,6 +27,14 @@ function($http, idGeneratorService, currentUserService) {
           throw err;
         }
       });
+    },
+    addDeadline: function(date) {
+      var currentTask = currentUserService.getCurrentTask();
+      $http.post('/addDeadline', { date: date, taskId: currentTask.id }).then(function(res, err) {
+        if(err) {
+          throw err;
+        }
+      });
     }
   };
 }]);
