@@ -1,11 +1,11 @@
 .ui-datepicker {
+	width: 300px;
 	color: rgb(48, 105, 54);
 	background-color: #fff;
 	border-radius: 4px;
 	display: none;
-	margin: 4px 0 0 -2px;
+	margin-top: 4px;
 	padding: 10px;
-	width: 366px;
 }
 
 .ui-datepicker a,
@@ -82,7 +82,7 @@
 }
 
 .ui-datepicker .ui-datepicker-calendar td.ui-datepicker-today:hover {
-	background-color: rgb(133, 199, 138);	
+	background-color: rgb(133, 199, 138);
 }
 
 .ui-datepicker .ui-datepicker-calendar td:hover {

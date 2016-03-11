@@ -25,7 +25,16 @@ app.directive('taskSettings', function() {
           dateFormat: 'dd-M-yy',
           clearBtn: true,
           todayHighlight: true,
-          minDate: dateToday
+          minDate: dateToday,
+          beforeShow: function (input, inst) {
+            $('.deadline-form').append(inst.dpDiv);
+            setTimeout(function () {
+              inst.dpDiv.css({
+                  top: '40px',
+                  left: 0
+              });
+            }, 0);
+          }
         });
       });
       $scope.addSubTask = function(title) {
