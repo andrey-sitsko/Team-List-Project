@@ -5,7 +5,8 @@ require('./taskSettingsStyle.css');
 require('./datepickerStyle.css');
 require('jquery-ui');
 
-var app = angular.module('taskSettingsApp', ['taskSettingsServiceApp', 'tasksServiceApp', 'listsServiceApp']);
+var app = angular.module('taskSettingsApp', ['taskSettingsServiceApp', 'tasksServiceApp', 'listsServiceApp']),
+    months_en = require('../../../data/locales/months/months_en.js');
 
 app.directive('taskSettings', function() {
   return {
@@ -35,7 +36,8 @@ app.directive('taskSettings', function() {
             }, 0);
           },
           onSelect: function(dateText, inst) {
-            taskSettingsService.addDeadline(new Date(inst.currentYear, inst.currentMonth, inst.currentDay));
+            inst.input.val(months_en[inst.currentMonth] + ' ' + inst.currentDay + ' ' + inst.currentYear);
+            taskSettingsService.addDeadline({ year: inst.currentYear, month: inst.currentMonth, day: inst.currentDay });
           }
         });
       });
@@ -51,10 +53,16 @@ app.directive('taskSettings', function() {
         }).indexOf(subTask.id), 1);
       };
       function setTaskSettings(taskSettings) {
-        $scope.disableTaskSettings = (taskSettings === undefined);
-        $scope.subTasks = taskSettings && taskSettings.subTasks || [];
-        $scope.note = taskSettings && taskSettings.note || '';
-        $('#deadlineDatepicker').val(taskSettings && taskSettings.deadline || '');
+        var deadline;
+        if(taskSettings === undefined) {
+          $scope.disableTaskSettings = true;
+          return;
+        }
+        $scope.disableTaskSettings = false;
+        deadline = taskSettings.deadline;
+        $scope.subTasks = taskSettings.subTasks || [];
+        $scope.note = taskSettings.note || '';
+        $('#deadlineDatepicker').val(deadline && months_en[deadline.month] + ' ' + deadline.day + ' ' + deadline.year);
       }
     }])
   };

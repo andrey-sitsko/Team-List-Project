@@ -6,7 +6,7 @@ taskSchema = new Schema({
   title: String,
   id: String,
   listId: String,
-  deadline: Date,
+  deadline: Object,
   note: String
 });
 
