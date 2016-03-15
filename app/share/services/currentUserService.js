@@ -97,37 +97,35 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
    },
    addDeadline: function(date) {
      var user,
-         currentTask,
-         index;
+         currentTaskId,
+         currentTask;
      user = localStorageService.get('user');
-     currentTask = localStorageService.get('currentTask');
-     index = user.tasks.map(function(task) {
-       return task.id;
-     }).indexOf(currentTask.id);
-     if(user && index >= 0) {
-       user.tasks[index].deadline = date;
-     }
-     localStorageService.set('user', user);
+     currentTaskId = localStorageService.get('currentTask').id;
+     currentTask = user.tasks.filter(function(task) {
+       return task.id == currentTaskId;
+     })[0];
+    currentTask.deadline = date;
+    localStorageService.set('user', user);
    },
    getCurrentTaskSettings: function() {
      var user,
          currentTask,
+         currentTaskId,
          subTasks,
-         deadline,
-         note,
-         taskId;
+         taskIndex;
      user = localStorageService.get('user');
-     currentTask = localStorageService.get('currentTask');
-     taskId = currentTask.id;
+     currentTaskId = localStorageService.get('currentTask').id;
+     currentTask = user.tasks.filter(function(task) {
+       return task.id == currentTaskId;
+     })[0];
      subTasks = user.subTasks.filter(function(subTask) {
-       return subTask.taskId == taskId;
+       return subTask.taskId == currentTaskId;
      });
-     deadline = currentTask.deadline;
-     note = currentTask.note;
+
      return {
        subTasks: subTasks,
-       deadline: deadline,
-       note: note
+       deadline: currentTask.deadline,
+       note: currentTask.note
      };
    }
   };
