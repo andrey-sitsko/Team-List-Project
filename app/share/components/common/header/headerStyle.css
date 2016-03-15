@@ -10,15 +10,13 @@
   z-index: 2;
   width: 695px;
   height: 358px;
-  padding: 7px 0 7px 0;
   background-color: rgba(186, 205, 255, 0.54);
   box-sizing: border-box;
 }
 
 .logo {
-  //position: relative;
   height: 89px;
   width: 144px;
-  margin-top: 75px;
+  margin-top: 76px;
   margin-left: 487px;
 }

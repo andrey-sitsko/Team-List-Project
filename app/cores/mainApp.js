@@ -10,6 +10,7 @@ var app = angular.module('mainApp',  ['headerApp', 'userInfoApp', 'listsApp', 't
 
 app.controller('styleController', ['$scope', function($scope) {
   $scope.stylesheets = [
+    '../share/assets/stylesheets/resetStyle.css',
     '../share/components/common/header/headerStyle.css',
     '../share/components/main/userInfo/userInfoStyle.css',
     '../share/components/main/lists/listsStyle.css',

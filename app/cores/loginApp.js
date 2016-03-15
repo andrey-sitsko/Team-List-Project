@@ -8,8 +8,10 @@ var app = angular.module('loginApp', ['signInApp', 'signUpApp', 'headerApp']);
 
 app.controller('styleController', ['$scope', function($scope) {
   $scope.stylesheets = [
+    '../share/assets/stylesheets/resetStyle.css',
     '../share/components/login/signUp/signUpStyle.css',
     '../share/components/login/signIn/signInStyle.css',
+    '../share/components/login/signIn/fonts.css',
     '../share/components/common/header/headerStyle.css',
     '../share/assets/stylesheets/loginStyle.css',
     '../../node_modules/bootstrap/dist/css/bootstrap.min.css',
