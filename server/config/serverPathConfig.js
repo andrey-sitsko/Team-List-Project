@@ -4,7 +4,6 @@ function config(app) {
   app.use('/share', express.static('./app/share'));
   app.use('/components', express.static('./app/share/components'));
   app.use('/builtApps', express.static('./app/builtApps'));
-  app.use('/assets', express.static('./app/share/assets'));
   app.use('/node_modules', express.static('./node_modules'));
 
   app.use('/signInView.html', express.static('./app/share/components/login/signIn/signInView.html'));

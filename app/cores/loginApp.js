@@ -8,9 +8,9 @@ var app = angular.module('loginApp', ['signInApp', 'signUpApp']);
 app.controller('styleController', ['$scope', function($scope) {
   $scope.stylesheets = [
     '../share/assets/stylesheets/resetStyle.css',
-    '../share/components/login/signUp/signUpStyle.css',
-    '../share/components/login/signIn/signInStyle.css',
-    '../share/components/login/signIn/fonts.css',
+    '../share/components/login/signUp/assets/stylesheets/signUpStyle.css',
+    '../share/components/login/signIn/assets/stylesheets/signInStyle.css',
+    '../share/components/login/signIn/assets/stylesheets/fonts.css',
     '../share/assets/stylesheets/loginStyle.css',
     '../../node_modules/bootstrap/dist/css/bootstrap.min.css',
     '../../node_modules/bootstrap-social/bootstrap-social.css',
