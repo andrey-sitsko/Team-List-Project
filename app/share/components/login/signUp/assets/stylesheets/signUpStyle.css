@@ -1,0 +1,83 @@
+.modal-content {
+  width: 400px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.modal.sign-up-modal {
+  text-align: center;
+}
+
+img.sign-up-logo {
+  height: 89px;
+  width: 144px;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  font-family: "OratorStdMedium";
+  color: #000;
+}
+
+.form-group {
+  border: 1px rgba(0, 0, 0, 0.5) solid;
+}
+
+.submit-form input::-webkit-input-placeholder {
+  color: #000;
+}
+
+.submit-form input::-moz-placeholder {
+  color: #000;
+}
+
+.submit-form input {
+  font-family: "SegoeUISemiBold";
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0); 
+  border: none;
+  color: #000;
+  padding-left: 16px;
+}
+
+.btn.create-account-button {
+  font-family: "SegoeUISemiBold";
+  font-size: 20px;
+  color: #000;
+  background-color: #e8e8e8;
+  border: 1px rgba(0, 0, 0, 0.2) solid;
+}
+
+.btn.create-account-button:hover {
+  background-color: #ddd;
+}
+
+.sign-up-dialog input::-webkit-input-placeholder {
+  color: #000;
+}
+
+.sign-in-form input::-moz-placeholder {
+  color: #000;
+}
+
+.sign-up-dialog input {
+  color: #000;
+}
+
+.social-container {
+  text-align: center;
+}
+
+.modal-footer.sign-up-dialog-footer {
+  text-align: center;
+  padding-top: 0;
+}
+
+.modal-footer.sign-up-dialog-footer h4 {
+  margin-bottom: 20px;
+  color: #000;
+  font-family: "SegoeUIRegular";
+}
