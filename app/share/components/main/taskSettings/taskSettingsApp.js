@@ -21,10 +21,8 @@ app.directive('taskSettings', function() {
       listsService.setTaskSettingCallback(setTaskSettings);
       $(function() {
         var dateToday = new Date();
-        $( "#deadlineDatepicker" ).datepicker({
-          dateFormat: 'dd-M-yy',
-          clearBtn: true,
-          todayHighlight: true,
+        $("#deadlineDatepicker").datepicker({
+          dateFormat: 'MM dd, yy',
           minDate: dateToday,
           beforeShow: function (input, inst) {
             $('.deadline-form').append(inst.dpDiv);
@@ -36,7 +34,6 @@ app.directive('taskSettings', function() {
             }, 0);
           },
           onSelect: function(dateText, inst) {
-            inst.input.val(months_en[inst.currentMonth] + ' ' + inst.currentDay + ' ' + inst.currentYear);
             taskSettingsService.addDeadline({ year: inst.currentYear, month: inst.currentMonth, day: inst.currentDay });
           }
         });

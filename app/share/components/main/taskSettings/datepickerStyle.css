@@ -77,14 +77,6 @@
 	transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
-.ui-datepicker .ui-datepicker-calendar td.ui-datepicker-today {
-	background-color: rgb(168, 215, 172);
-}
-
-.ui-datepicker .ui-datepicker-calendar td.ui-datepicker-today:hover {
-	background-color: rgb(133, 199, 138);
-}
-
 .ui-datepicker .ui-datepicker-calendar td:hover {
 	background-color: #eee;
 	cursor: pointer;
