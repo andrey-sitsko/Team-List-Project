@@ -1,18 +1,41 @@
-<div class="login-container pull-right">
-  <form class="sign-in-form navbar-form" ng-submit="submitSignIn()">
-     <div class="input-group" id="sign-in-email-group">
-       <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-       <input type="email" class="form-control" ng-model="signInEmail" ng placeholder="Email Address" required>
-     </div>
-     <div class="input-group" id="sign-in-password-group">
-       <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-       <input type="password" class="form-control" ng-model="signInPassword" placeholder="Password" required>
-     </div>
-     <button type="submit" class="login-button btn">Sign in</button>
-     <div id="wrong-login-credetians-message" class="wrong-login-credetians-message">
-       wrong email or password
-     </div>
-  </form>
-  <span class="or-span">or</span>
-  <button class="login-button btn sign-up-button" data-toggle="modal" data-target="#signUpModal">Sign up</button>
+<div class="main-container">
+      <img src="../share/components/login/signIn/assets/images/logo.png" class="logo"/>
+      <div class="text">
+        <p class="headline">
+          Entrust your businesses to us
+        </p>
+        <p class="info">
+          Smart to-do manager<br>
+          Team-List<sup>©</sup> is the most<br>
+          convenient way to keep<br>
+          track your tasks
+        </p>
+        <p class="get_started">
+          Get started<br>
+           <span class="offset_2_line">with</span><br>
+          <span class="offset_3_line">Team-List<sup>©</sup></span>
+        </p>
+    </div>
+    <div class="login_container">
+      <form class="sign-in-form" ng-submit="submitSignIn()">
+         <div class="sign-in-email-group">
+           <input type="email" class="form-control" ng-model="signInEmail" ng placeholder="Email Address" required>
+         </div>
+         <div class="sign-in-input sign-in-password-group">
+           <input type="password" class="form-control" ng-model="signInPassword" placeholder="Password" required>
+         </div>
+         <button type="submit" class="login-button">Sign In</button>
+         <div id="wrong-login-credetians-message" class="wrong-login-credetians-message">
+           wrong email or password
+         </div>
+      </form>
+      <span class="or-span">or</span>
+      <button class="sign-up-button" data-toggle="modal" data-target="#signUpModal">Join Us</button>
+      <span class="with-span">with</span>
+      <div class="social-buttons-group">
+        <button class="twitter-button" data-toggle="modal" data-target="#"></button>
+        <button class="google-button" data-toggle="modal" data-target="#"></button>
+        <button class="facebook-button" data-toggle="modal" data-target="#"></button>
+      </div>
+    </div>
 </div>
