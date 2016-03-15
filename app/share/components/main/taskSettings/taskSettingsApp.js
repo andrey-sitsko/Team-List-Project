@@ -59,7 +59,7 @@ app.directive('taskSettings', function() {
         deadline = taskSettings.deadline;
         $scope.subTasks = taskSettings.subTasks || [];
         $scope.note = taskSettings.note || '';
-        $('#deadlineDatepicker').val(deadline && months_en[deadline.month] + ' ' + deadline.day + ' ' + deadline.year);
+        $('#deadlineDatepicker').datepicker( 'setDate', deadline && months_en[deadline.month] + ' ' + deadline.day + ', ' + deadline.year );
       }
     }])
   };
