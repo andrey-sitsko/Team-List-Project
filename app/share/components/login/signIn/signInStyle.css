@@ -79,6 +79,10 @@ span.offset_3_line {
   color: #000;
 }
 
+.sign-in-form input::-moz-placeholder {
+  color: #000;
+}
+
 .sign-in-form input {
   font-family: "SegoeUISemiBold";
   font-size: 14px;
