@@ -1,6 +1,6 @@
 require('./signUpService');
 require('../../../services/currentUserService.js');
-require('./signUpStyle.css');
+require('./assets/stylesheets/signUpStyle.css');
 
 var app = angular.module('signUpApp', ['signUpServiceApp', 'currentUserServiceApp']);
 

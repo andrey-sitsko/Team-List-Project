@@ -1,0 +1,261 @@
+.main-container {
+  position: absolute;
+  top: 155px;
+  z-index: 2;
+  width: 695px;
+  height: 358px;
+  background-color: rgba(186, 205, 255, 0.54);
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 89px;
+  width: 144px;
+  margin-top: 76px;
+  margin-left: 487px;
+}
+
+.text {
+  font-family: "OratorStdMedium";
+  color: #000;
+}
+
+.headline {
+  position: absolute;
+  top: 10px;
+  left: 28px;
+  font-size: 37px;
+  letter-spacing: -1pt;
+}
+
+.info {
+  position: absolute;
+  top: 58px;
+  left: 74px;
+  font-size: 23px;
+  letter-spacing: 0pt;
+  line-height: 1.3em;
+}
+
+.get_started {
+  position: absolute;
+  bottom: 20px;
+  left: 55px;
+  font-size: 23px;
+  letter-spacing: 0pt;
+  line-height: 1.3em;
+}
+
+span.offset_2_line {
+  margin-left: 50px;
+}
+
+span.offset_3_line {
+  margin-left: 13px;
+}
+
+.login_container {
+  position: absolute;
+  width: 470px;
+  height: 121px;
+  bottom: 27px;
+  right: 0px;
+}
+
+.sign-in-form {
+  position: absolute;
+  left: 0;
+  bottom: -39px;
+  width: 347px;
+  height: 82px;
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.sign-in-email-group {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 37px;
+  border: 1px #000 solid;
+}
+
+.sign-in-password-group {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 220px;
+  height: 37px;
+  border: 1px #000 solid;
+}
+
+.sign-in-form input::-webkit-input-placeholder {
+  color: #000;
+}
+
+.sign-in-form input::-moz-placeholder {
+  color: #000;
+}
+
+.sign-in-form input {
+  font-family: "SegoeUISemiBold";
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0); 
+  border: none;
+  color: #000;
+  padding-left: 16px;
+}
+
+.or-span, .with-span {
+  font-family: "SegoeUIRegular";
+  font-size: 16px;
+  color: #000;
+}
+
+.or-span {
+  position: absolute;
+  right: 172px;
+  bottom: 28px;
+}
+
+.with-span {
+  position: absolute;
+  right: 80px;
+  bottom: 54px;
+}
+
+.login-button {
+  font-family: "SegoeUIRegular";
+  position: absolute;
+  right: 0px;
+  top: 4px;
+  height: 29px;
+  width: 119px;
+  font-size: 19px;
+  color: #000;
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-button:hover {
+  background-color: #ddd;
+}
+
+.email-input {
+  border: 3px #000 solid;
+}
+
+.input-group.wrong-login-credetians {
+  border: 2px solid rgb(255, 51, 51);
+  border-radius: 6px;
+}
+
+.wrong-login-credetians-message {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  background-color: rgb(255, 51, 51);
+  color: white;
+  font-size: 21px;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  transform: translateY(-26px);
+}
+
+.show-login-tooltip {
+  transform: translateY(14px);
+  animation: show-login-tooltip 2.5s;
+}
+
+.sign-up-button {
+  font-family: "SegoeUIRegular";
+  position: absolute;
+  right: 135px;
+  bottom: 5px;
+  height: 23px;
+  width: 94px;
+  font-size: 15px;
+  color: #000;
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 5px;
+}
+
+.sign-up-button:hover {
+  background-color: #ddd;
+}
+
+.social-buttons-group {
+  position: absolute;
+  height: 121px;
+  width: 34px;
+  bottom: 4px;
+  right: 36px;
+}
+
+.social-buttons-group button{
+  width: 34px;
+  height: 30px;
+  position: absolute;
+  border: none; 
+}
+
+.twitter-button {
+  background: url("../images/social_buttons_sprite.png") 0 -90px;
+  top: 0px;
+  left: 0px;
+}
+
+.twitter-button:hover {
+  background: url("../images/social_buttons_sprite_hover.png") 0 -90px;
+  top: 0px;
+  left: 0px;
+}
+
+.google-button {
+  background: url("../images/social_buttons_sprite.png") 0 -30px;
+  top: 45px;
+  left: 0px;
+}
+
+.google-button:hover {
+  background: url("../images/social_buttons_sprite_hover.png") 0 -30px;
+  top: 45px;
+  left: 0px;
+}
+
+.facebook-button {
+  background: url("../images/social_buttons_sprite.png") 0 -60px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.facebook-button:hover {
+  background: url("../images/social_buttons_sprite_hover.png") 0 -60px;
+  bottom: 0px;
+  left: 0px;
+}
+
+
+@keyframes show-login-tooltip {
+    0%   {
+      opacity: 0;
+      transform: translateY(-26px);
+    }
+    25%  {
+      opacity: 1;
+      transform: translateY(14px);
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}

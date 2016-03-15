@@ -1,5 +1,6 @@
 require('./signInService.js');
-require('./signInStyle.css');
+require('./assets/stylesheets/signInStyle.css');
+require('./assets/stylesheets/fonts.css');
 
 var app = angular.module('signInApp', ['signInServiceApp']);
 
