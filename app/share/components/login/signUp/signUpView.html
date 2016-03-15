@@ -1,18 +1,16 @@
 <div id="signUpModal" class="sign-up-modal modal fade" role="dialog">
-  <div class="modal-dialog sign-up-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="modal-close-button close" data-dismiss="modal">&times;</button>
-        <h1>Join team-list now!</h1>
-        <h3>Create your own account here</h3>
+        <h3>Create your own account</h3>
+         <img src="../assets/images/logo.png" class="sign-up-logo" />
       </div>
       <div class="modal-body">
-        <form ng-submit="submitSignUp()">
+        <form class="submit-form" ng-submit="submitSignUp()">
           <div class="alert alert-danger">
             User with such email already exist!
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="Your Name" ng-model="signUpName" required>
+            <input type="text" class=" form-control" name="name" placeholder="Your Name" ng-model="signUpName" required>
           </div>
           <div class="form-group">
             <input type="email" class="form-control" name="first-name" placeholder="Email Adress" ng-model="signUpEmail" required>
@@ -20,7 +18,7 @@
           <div class="form-group" id="sign-up-password-group">
             <input type="password" class="form-control" name="first-name" placeholder="Password" ng-model="signUpPassword" required>
           </div>
-          <button type="submit" class="btn btn-block create-account-button">Create Account</button>
+          <button type="submit" class="btn btn-block create-account-button">Confirm</button>
         </form>
       </div>
       <div class="modal-footer sign-up-dialog-footer">
@@ -41,5 +39,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>

@@ -1,3 +1,20 @@
+.main-container {
+  position: absolute;
+  top: 155px;
+  z-index: 2;
+  width: 695px;
+  height: 358px;
+  background-color: rgba(186, 205, 255, 0.54);
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 89px;
+  width: 144px;
+  margin-top: 76px;
+  margin-left: 487px;
+}
+
 .text {
   font-family: "OratorStdMedium";
   color: #000;
