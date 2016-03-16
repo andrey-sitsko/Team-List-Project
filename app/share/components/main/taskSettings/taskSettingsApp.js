@@ -42,12 +42,19 @@ app.directive('taskSettings', function() {
           }
         });
       });
+      $('#noteInput').on('blur',function () {
+        $scope.addNote($('#noteInput').val());
+      });
       $scope.addNote = function(noteContent) {
         taskSettingsService.addNote(noteContent);
         $scope.note = noteContent;
         $('.note-form').addClass('task-settings-form-blink');
         $('.note-form').on('animationend', function() {
           $('.note-form').removeClass('task-settings-form-blink');
+        });
+        $('#noteInput').off('blur').blur();
+        $('#noteInput').on('blur',function () {
+          $scope.addNote($('#noteInput').val());
         });
       };
       $scope.addSubTask = function(title) {
