@@ -41,6 +41,10 @@ app.directive('taskSettings', function() {
       $scope.addNote = function(noteContent) {
         taskSettingsService.addNote(noteContent);
         $scope.note = noteContent;
+        $('.note-form').addClass('task-settings-form-blink');
+        $('.note-form').on('animationend', function() {
+          $('.note-form').removeClass('task-settings-form-blink');
+        });
       };
       $scope.addSubTask = function(title) {
         var id = taskSettingsService.createSubTask(title);

@@ -131,3 +131,19 @@
   width: 25px;
   height: 30px;
 }
+
+.task-settings-form-blink {
+  animation: task-settings-form-blink-animation 0.7s;
+}
+
+@keyframes task-settings-form-blink-animation {
+  0% {
+    background-color: rgb(48, 105, 54);
+  }
+  50% {
+    background-color: rgb(0, 230, 153);
+  }
+  100% {
+    background-color: rgb(48, 105, 54);
+  }
+}
