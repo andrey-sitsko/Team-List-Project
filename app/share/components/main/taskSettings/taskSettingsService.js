@@ -36,6 +36,15 @@ function($http, idGeneratorService, currentUserService) {
         }
       });
       currentUserService.addDeadline(date);
+    },
+    addNote: function(noteContent) {
+      var currentTask = currentUserService.getCurrentTask();
+      $http.post('/addNote', { note: noteContent, taskId: currentTask.id }).then(function(res, err) {
+        if(err) {
+          throw err;
+        }
+      });
+      currentUserService.addNote(noteContent);
     }
   };
 }]);
