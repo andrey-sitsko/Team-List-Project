@@ -107,6 +107,18 @@ app.service('currentUserService', ['$http', 'localStorageService', function($htt
     currentTask.deadline = date;
     localStorageService.set('user', user);
    },
+   addNote: function(noteContent) {
+     var user,
+         currentTaskId,
+         currentTask;
+     user = localStorageService.get('user');
+     currentTaskId = localStorageService.get('currentTask').id;
+     currentTask = user.tasks.filter(function(task) {
+       return task.id == currentTaskId;
+     })[0];
+     currentTask.note = noteContent;
+     localStorageService.set('user', user);
+   },
    getCurrentTaskSettings: function() {
      var user,
          currentTask,

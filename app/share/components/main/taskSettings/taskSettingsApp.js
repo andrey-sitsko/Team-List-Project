@@ -38,6 +38,10 @@ app.directive('taskSettings', function() {
           }
         });
       });
+      $scope.addNote = function(noteContent) {
+        taskSettingsService.addNote(noteContent);
+        $scope.note = noteContent;
+      };
       $scope.addSubTask = function(title) {
         var id = taskSettingsService.createSubTask(title);
         $scope.subTasks.push({title: title, id: id});

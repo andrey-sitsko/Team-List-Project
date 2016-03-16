@@ -19,8 +19,8 @@
     <i class="fa fa-plus-square-o"></i>
     <input type="submit">
   </form>
-  <form class="task-settings-form note-form" ng-class="{ 'unavailable': disableTaskSettings }">
-    <input type="text" placeholder="Add note here..." ng-model="taskNote" required>
+  <form class="task-settings-form note-form" ng-class="{ 'unavailable': disableTaskSettings }" ng-submit="addNote(note)">
+    <input type="text" placeholder="Add note here..." ng-model="note" required>
     <i class="fa fa-pencil"></i>
     <input type="submit">
   </form>
