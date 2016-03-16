@@ -35,6 +35,10 @@ app.directive('taskSettings', function() {
           },
           onSelect: function(dateText, inst) {
             taskSettingsService.addDeadline({ year: inst.currentYear, month: inst.currentMonth, day: inst.currentDay });
+            $('.deadline-form').addClass('task-settings-form-blink');
+            $('.deadline-form').on('animationend', function() {
+              $('.deadline-form').removeClass('task-settings-form-blink');
+            });
           }
         });
       });
