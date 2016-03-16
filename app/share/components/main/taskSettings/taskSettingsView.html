@@ -3,7 +3,7 @@
     ng-class="{ 'unavailable': disableTaskSettings }">
     <input placeholder="Add task deadline" type="text" id="deadlineDatepicker">
     <i class="fa fa-calendar"></i>
-    <input type="submit">
+    <input type="submit" class="default-cursor">
   </form>
   <ul class="subtasks-list">
     <li ng-repeat="subTask in subTasks" id="subTask-{{subTasks.indexOf(subTask)}}">
@@ -22,6 +22,6 @@
   <form class="task-settings-form note-form" ng-class="{ 'unavailable': disableTaskSettings }" ng-submit="addNote(note)">
     <input type="text" placeholder="Add note here..." ng-model="note">
     <i class="fa fa-pencil"></i>
-    <input type="submit">
+    <input type="submit" class="default-cursor">
   </form>
 </div>
