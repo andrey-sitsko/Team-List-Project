@@ -38,6 +38,7 @@
   right: 5px;
   color: white;
   font-size: 26px;
+  pointer-events:none;
 }
 
 .task-settings-container .trash-icon-container {

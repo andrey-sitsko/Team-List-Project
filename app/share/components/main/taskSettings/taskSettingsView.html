@@ -4,7 +4,6 @@
     <i class="fa fa-trash-o delete-deadline-icon" id="deleteDeadlineIcon" ng-click="deleteDeadline()"></i>
     <input placeholder="Add task deadline" type="text" id="deadlineDatepicker" readonly>
     <i class="fa fa-calendar"></i>
-    <input type="submit" class="default-cursor">
   </form>
   <ul class="subtasks-list">
     <li ng-repeat="subTask in subTasks" id="subTask-{{subTasks.indexOf(subTask)}}">
