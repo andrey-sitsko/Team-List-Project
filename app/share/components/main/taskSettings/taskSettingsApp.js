@@ -36,6 +36,7 @@ app.directive('taskSettings', function() {
           onSelect: function(dateText, inst) {
             taskSettingsService.addDeadline({ year: inst.currentYear, month: inst.currentMonth, day: inst.currentDay });
             $('.deadline-form').addClass('task-settings-form-blink');
+            taskSettingsService.showDatepickerTrashIcon(true);
             $('.deadline-form').on('animationend', function() {
               $('.deadline-form').removeClass('task-settings-form-blink');
             });
@@ -75,12 +76,13 @@ app.directive('taskSettings', function() {
         $scope.subTasks = taskSettings !== undefined ? taskSettings.subTasks : [];
         $scope.note = taskSettings !== undefined ? taskSettings.note : '';
         if(deadline) {
+          taskSettingsService.showDatepickerTrashIcon(true);
           $('#deadlineDatepicker').datepicker( 'setDate', deadline && months_en[deadline.month] + ' ' + deadline.day + ', ' + deadline.year );
         } else {
+          taskSettingsService.showDatepickerTrashIcon(false);
           $('#deadlineDatepicker').val('');
         }
       }
-
     }])
   };
 });

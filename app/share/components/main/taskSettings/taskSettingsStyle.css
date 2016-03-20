@@ -31,7 +31,7 @@
   color: rgb(209, 209, 224);
 }
 
-.task-settings-container .deadline-form .fa {
+.task-settings-container .deadline-form .fa-calendar {
   position: absolute;
   top: 50%;
   margin-top: -13px;
@@ -105,6 +105,10 @@
   outline: none;
 }
 
+.task-settings-form.deadline-form .datepicker-padding {
+  padding-left: 25px;
+}
+
 .task-settings-form input::-webkit-input-placeholder {
   color: rgb(209, 209, 224);
 }
@@ -134,10 +138,32 @@
 
 .task-settings-form input[type="submit"].default-cursor {
   cursor: default;
-}  
+}
 
 .task-settings-form-blink {
   animation: task-settings-form-blink-animation 0.7s;
+}
+
+.task-settings-container .deadline-form .fa-trash-o {
+  position: absolute;
+  visibility: hidden;
+  width: 13px;
+  left: 4px;
+  font-style: normal;
+  color: white;
+  font-size: 16px;
+  height: 16px;
+  top: 50%;
+  margin-top: -8px;
+}
+
+.task-settings-container .deadline-form .fa-trash-o:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.task-settings-container .deadline-form .fa-trash-o.visible {
+  visibility: visible;
 }
 
 @keyframes task-settings-form-blink-animation {

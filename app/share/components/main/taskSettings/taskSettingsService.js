@@ -45,6 +45,15 @@ function($http, idGeneratorService, currentUserService) {
         }
       });
       currentUserService.addNote(noteContent);
+    },
+    showDatepickerTrashIcon: function(state) {
+      if(state) {
+        $('#deleteDeadlineIcon').addClass('visible');
+        $('#deadlineDatepicker').addClass('datepicker-padding');
+      } else {
+        $('#deleteDeadlineIcon').removeClass('visible');
+        $('#deadlineDatepicker').removeClass('datepicker-padding');
+      }
     }
   };
 }]);
