@@ -37,6 +37,16 @@ function($http, idGeneratorService, currentUserService) {
       });
       currentUserService.addDeadline(date);
     },
+    deleteDeadline: function() {
+      var currentTask = currentUserService.getCurrentTask();
+      $http.post('/addDeadline', { date: null, taskId: currentTask.id }).then(function(res, err) {
+        if(err) {
+          throw err;
+        }
+      });
+      $('#deadlineDatepicker').val('');
+      currentUserService.addDeadline(null);
+    },
     addNote: function(noteContent) {
       var currentTask = currentUserService.getCurrentTask();
       $http.post('/addNote', { note: noteContent, taskId: currentTask.id }).then(function(res, err) {

@@ -69,6 +69,10 @@ app.directive('taskSettings', function() {
           return val.id;
         }).indexOf(subTask.id), 1);
       };
+      $scope.deleteDeadline = function() {
+        taskSettingsService.deleteDeadline();
+        taskSettingsService.showDatepickerTrashIcon(false);
+      };
       function setTaskSettings(taskSettings) {
         var deadline;
         $scope.disableTaskSettings = taskSettings === undefined ? true : false;
