@@ -70,16 +70,17 @@ app.directive('taskSettings', function() {
       };
       function setTaskSettings(taskSettings) {
         var deadline;
-        if(taskSettings === undefined) {
-          $scope.disableTaskSettings = true;
-          return;
+        $scope.disableTaskSettings = taskSettings === undefined ? true : false;
+        deadline = taskSettings !== undefined ? taskSettings.deadline : '';
+        $scope.subTasks = taskSettings !== undefined ? taskSettings.subTasks : [];
+        $scope.note = taskSettings !== undefined ? taskSettings.note : '';
+        if(deadline) {
+          $('#deadlineDatepicker').datepicker( 'setDate', deadline && months_en[deadline.month] + ' ' + deadline.day + ', ' + deadline.year );
+        } else {
+          $('#deadlineDatepicker').val('');
         }
-        $scope.disableTaskSettings = false;
-        deadline = taskSettings.deadline;
-        $scope.subTasks = taskSettings.subTasks || [];
-        $scope.note = taskSettings.note || '';
-        $('#deadlineDatepicker').datepicker( 'setDate', deadline && months_en[deadline.month] + ' ' + deadline.day + ', ' + deadline.year );
       }
+
     }])
   };
 });
