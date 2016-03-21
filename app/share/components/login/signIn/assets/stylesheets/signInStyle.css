@@ -22,7 +22,7 @@
 
 .headline {
   position: absolute;
-  top: 10px;
+  top: 14px;
   left: 28px;
   font-size: 37px;
   letter-spacing: -1pt;
@@ -39,8 +39,8 @@
 
 .get_started {
   position: absolute;
-  bottom: 20px;
-  left: 55px;
+  bottom: 27px;
+  left: 57px;
   font-size: 23px;
   letter-spacing: 0pt;
   line-height: 1.3em;
@@ -118,13 +118,13 @@ span.offset_3_line {
 .or-span {
   position: absolute;
   right: 172px;
-  bottom: 28px;
+  bottom: 30px;
 }
 
 .with-span {
   position: absolute;
   right: 80px;
-  bottom: 54px;
+  bottom: 55px;
 }
 
 .login-button {
@@ -139,6 +139,7 @@ span.offset_3_line {
   background-color: #e8e8e8;
   border: none;
   border-radius: 5px;
+  padding-bottom: 4px;
 }
 
 .login-button:hover {
@@ -188,6 +189,8 @@ span.offset_3_line {
   background-color: #e8e8e8;
   border: none;
   border-radius: 5px;
+  padding-bottom: 3px;
+  padding-left: 12px;
 }
 
 .sign-up-button:hover {
