@@ -35,9 +35,28 @@ app.directive('taskSettings', function() {
           },
           onSelect: function(dateText, inst) {
             taskSettingsService.addDeadline({ year: inst.currentYear, month: inst.currentMonth, day: inst.currentDay });
+            $('.deadline-form').addClass('task-settings-form-blink');
+            $('.deadline-form').on('animationend', function() {
+              $('.deadline-form').removeClass('task-settings-form-blink');
+            });
           }
         });
       });
+      $('#noteInput').on('blur',function () {
+        $scope.addNote($('#noteInput').val());
+      });
+      $scope.addNote = function(noteContent) {
+        taskSettingsService.addNote(noteContent);
+        $scope.note = noteContent;
+        $('.note-form').addClass('task-settings-form-blink');
+        $('.note-form').on('animationend', function() {
+          $('.note-form').removeClass('task-settings-form-blink');
+        });
+        $('#noteInput').off('blur').blur();
+        $('#noteInput').on('blur',function () {
+          $scope.addNote($('#noteInput').val());
+        });
+      };
       $scope.addSubTask = function(title) {
         var id = taskSettingsService.createSubTask(title);
         $scope.subTasks.push({title: title, id: id});
@@ -51,8 +70,11 @@ app.directive('taskSettings', function() {
       };
       function setTaskSettings(taskSettings) {
         var deadline;
-        if(taskSettings === undefined) {
-          $scope.disableTaskSettings = true;
+          if(taskSettings === undefined) {
+            $scope.disableTaskSettings = true;
+          $scope.subTasks = [];
+          $scope.note = '';
+          $('#deadlineDatepicker').val();
           return;
         }
         $scope.disableTaskSettings = false;
