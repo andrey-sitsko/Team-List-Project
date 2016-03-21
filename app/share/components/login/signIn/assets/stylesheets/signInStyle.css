@@ -22,7 +22,7 @@
 
 .headline {
   position: absolute;
-  top: 10px;
+  top: 14px;
   left: 28px;
   font-size: 37px;
   letter-spacing: -1pt;
@@ -39,8 +39,8 @@
 
 .get_started {
   position: absolute;
-  bottom: 20px;
-  left: 55px;
+  bottom: 27px;
+  left: 57px;
   font-size: 23px;
   letter-spacing: 0pt;
   line-height: 1.3em;
@@ -103,7 +103,7 @@ span.offset_3_line {
 .sign-in-form input {
   font-family: "SegoeUISemiBold";
   font-size: 14px;
-  background-color: rgba(0, 0, 0, 0); 
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   color: #000;
   padding-left: 16px;
@@ -118,13 +118,13 @@ span.offset_3_line {
 .or-span {
   position: absolute;
   right: 172px;
-  bottom: 28px;
+  bottom: 30px;
 }
 
 .with-span {
   position: absolute;
   right: 80px;
-  bottom: 54px;
+  bottom: 55px;
 }
 
 .login-button {
@@ -139,6 +139,7 @@ span.offset_3_line {
   background-color: #e8e8e8;
   border: none;
   border-radius: 5px;
+  padding-bottom: 4px;
 }
 
 .login-button:hover {
@@ -156,19 +157,22 @@ span.offset_3_line {
 
 .wrong-login-credetians-message {
   position: absolute;
-  opacity: 0;
+  font-family: "OratorStdMedium";
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 80px;
+  visibility: hidden;
   z-index: -1;
   background-color: rgb(255, 51, 51);
   color: white;
-  font-size: 21px;
   height: 40px;
-  width: 100%;
+  width: 200px;
   text-align: center;
-  line-height: 40px;
   transform: translateY(-26px);
 }
 
 .show-login-tooltip {
+  visibility: visible;
   transform: translateY(14px);
   animation: show-login-tooltip 2.5s;
 }
@@ -185,6 +189,8 @@ span.offset_3_line {
   background-color: #e8e8e8;
   border: none;
   border-radius: 5px;
+  padding-bottom: 3px;
+  padding-left: 12px;
 }
 
 .sign-up-button:hover {
@@ -203,7 +209,7 @@ span.offset_3_line {
   width: 34px;
   height: 30px;
   position: absolute;
-  border: none; 
+  border: none;
 }
 
 .twitter-button {
