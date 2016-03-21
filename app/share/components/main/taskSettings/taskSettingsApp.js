@@ -70,8 +70,11 @@ app.directive('taskSettings', function() {
       };
       function setTaskSettings(taskSettings) {
         var deadline;
-        if(taskSettings === undefined) {
-          $scope.disableTaskSettings = true;
+          if(taskSettings === undefined) {
+            $scope.disableTaskSettings = true;
+          $scope.subTasks = [];
+          $scope.note = '';
+          $('#deadlineDatepicker').val();
           return;
         }
         $scope.disableTaskSettings = false;
