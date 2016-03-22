@@ -1,7 +1,12 @@
 var User = require('../../models/userModel.js'),
     passport = require('passport');
 
-module.exports = function(req, res, next) {
+module.exports = {
+  local: local,
+  facebook: facebook
+};
+
+function local(req, res, next) {
   passport.authenticate('local', function(err, user) {
     if (err) {
       return next(err);
@@ -17,4 +22,8 @@ module.exports = function(req, res, next) {
       res.send({success: true, user: user});
     }
   })(req, res);
-};
+}
+
+function facebook(req, res, next) {
+  passport.authenticate('facebook', { scope : 'email' });
+}

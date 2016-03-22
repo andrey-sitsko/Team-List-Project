@@ -27,7 +27,10 @@ app.service('signInService', ['$http', '$window', 'currentUserService', function
 
   return {
     signIn: function(authData, successCallback) {
-        $http.post('/signIn', authData).then(processSignInResults);
+      $http.post('/signIn', authData).then(processSignInResults);
+    },
+    facebookSignIn: function() {
+      $http.get('/signIn/facebook').then(processSignInResults);
     }
   };
 

@@ -14,6 +14,9 @@ app.directive('signInForm', function() {
       $scope.submitSignIn = function() {
         signInService.signIn({email: $scope.signInEmail, password: $scope.signInPassword});
       };
+      $scope.facebookSignIn = function() {
+        signInService.facebookSignIn();
+      };
     }]
   };
 });

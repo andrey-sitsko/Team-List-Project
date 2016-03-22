@@ -1,10 +1,12 @@
-var localStrategy = require('./passportStrategies/localStrategy'),
+var localStrategy = require('./passportStrategies/localStrategy.js'),
+    facebookStrategy = require('./passportStrategies/facebookStrategy.js'),
     User = require('../models/userModel');
 
 module.exports = function(passport) {
 
   passport.use(localStrategy);
-
+  passport.use(facebookStrategy);
+  
   passport.serializeUser(function(user, done) {
     done(null, user.id);
   });

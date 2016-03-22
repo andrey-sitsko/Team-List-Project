@@ -1,7 +1,8 @@
 var User = require('../models/userModel.js'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
-    signIn = require('../middleware/login/signIn'),
+    localSignIn = require('../middleware/login/signIn').local,
+    facebookSignIn = require('../middleware/login/signIn').facebook,
     signUp = require('../middleware/login/signUp'),
     signOut = require('../middleware/login/signOut'),
     authCheck = require('../middleware/login/authCheck.js');
@@ -10,7 +11,10 @@ function loginRoutes(app) {
 
   app.get('/logout', signOut);
   app.post('/signUp', signUp);
-  app.post('/signIn', signIn);
+  app.post('/signIn', localSignIn);
+
+  app.get('/signIn/facebook', facebookSignIn);
+
   app.get('/', authCheck.login);
   app.get('/main', authCheck.main);
   app.get('/currentUser', function(req, res) {
