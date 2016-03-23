@@ -6,7 +6,7 @@ module.exports = new facebookStrategy({
   callbackURL: 'http://localhost:8000/signIn/facebook/callback'
 },
 function(accessToken, refreshToken, profile, cb) {
-
+  
   /*User.findOne({ facebookId: profile.id }, function (err, user) {
     return cb(err, user);
   });*/

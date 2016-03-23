@@ -6,7 +6,7 @@ module.exports = function(passport) {
 
   passport.use(localStrategy);
   passport.use(facebookStrategy);
-  
+
   passport.serializeUser(function(user, done) {
     done(null, user.id);
   });

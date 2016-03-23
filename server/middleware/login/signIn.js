@@ -3,7 +3,8 @@ var User = require('../../models/userModel.js'),
 
 module.exports = {
   local: local,
-  facebook: facebook
+  facebook: facebook,
+  facebookCallback: facebookCallback
 };
 
 function local(req, res, next) {
@@ -25,5 +26,12 @@ function local(req, res, next) {
 }
 
 function facebook(req, res, next) {
-  passport.authenticate('facebook', { scope : 'email' });
+  passport.authenticate('facebook');
+}
+
+function facebookCallback(req, res, next) {
+  passport.authenticate('facebook', {
+    successRedirect : '/main',
+    failureRedirect : '/'
+  });
 }
