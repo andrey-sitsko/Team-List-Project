@@ -1,4 +1,5 @@
-var facebookStrategy = require('passport-facebook').Strategy;
+var facebookStrategy = require('passport-facebook').Strategy,
+    User = require('../../models/userModel.js');
 
 module.exports = new facebookStrategy({
   clientID: '867433800070115',

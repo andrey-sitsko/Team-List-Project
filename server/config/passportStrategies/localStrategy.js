@@ -1,4 +1,5 @@
-var LocalStrategy = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy,
+    User = require('../../models/userModel.js');
 
 module.exports = new LocalStrategy({
   usernameField: 'email',
