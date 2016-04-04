@@ -4,7 +4,7 @@ var localStrategy = require('./passportStrategies/localStrategy.js'),
     passport = require('passport');
 
 module.exports = function() {
-  
+
   passport.use(localStrategy);
   passport.use(facebookStrategy);
 

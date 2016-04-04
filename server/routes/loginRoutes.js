@@ -64,17 +64,6 @@ module.exports = function(app) {
     })(req, res);
   });
 
-  app.get('/signIn/facebook', function(req, res, next) {
-    passport.authenticate('facebook');
-  });
-
-  app.get('/signIn/facebook/callback', function(req, res, next) {
-    passport.authenticate('facebook', {
-      successRedirect : '/main',
-      failureRedirect : '/'
-    });
-  });
-
   app.get('/', function (req, res) {
     if (req.user) {
         res.redirect('/main');
@@ -90,6 +79,13 @@ module.exports = function(app) {
           res.redirect('/');
       }
   });
+
+  app.get('/signIn/facebook', passport.authenticate('facebook', { scope: 'email' }));
+
+  app.get('/signIn/facebook/callback', passport.authenticate('facebook', {
+     successRedirect : '/main',
+     failureRedirect: '/'
+  }));
 
   app.get('/currentUser', function(req, res) {
     res.send(req.user);
