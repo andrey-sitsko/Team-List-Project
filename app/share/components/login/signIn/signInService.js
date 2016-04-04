@@ -5,6 +5,7 @@ var app = angular.module('signInServiceApp', ['currentUserServiceApp']);
 app.service('signInService', ['$http', '$window', 'currentUserService', function($http, $window, currentUserService) {
 
   function processSignInResults(res) {
+    console.log('processSignInResults');
       if(res.data.success) {
         currentUserService.setUser(res.data.user);
         $window.location.href = '/main';
