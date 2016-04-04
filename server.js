@@ -8,7 +8,6 @@ var express = require('express'),
     session = require('express-session'),
     serverConfig = require('./server/config/serverPathConfig.js'),
     databaseConfig = require('./server/config/databaseConfig.js'),
-    passportConfig = require('./server/config/passportConfig.js'),
     loginRoutes = require('./server/routes/loginRoutes'),
     listsRoutes = require('./server/routes/listsRoutes'),
     tasksRoutes = require('./server/routes/tasksRoutes'),
@@ -24,7 +23,7 @@ app.use(bodyParser.json());
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true}));
 app.engine('html', require('ejs').renderFile);
 
-passport = passportConfig(passport);
+require('./server/config/passportConfig.js')();
 app.use(passport.initialize());
 app.use(passport.session());
 

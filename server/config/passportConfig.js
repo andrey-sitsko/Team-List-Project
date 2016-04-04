@@ -1,9 +1,10 @@
 var localStrategy = require('./passportStrategies/localStrategy.js'),
     facebookStrategy = require('./passportStrategies/facebookStrategy.js'),
-    User = require('../models/userModel');
+    User = require('../models/userModel'),
+    passport = require('passport');
 
-module.exports = function(passport) {
-
+module.exports = function() {
+  
   passport.use(localStrategy);
   passport.use(facebookStrategy);
 
@@ -16,6 +17,4 @@ module.exports = function(passport) {
       done(err, user);
     });
   });
-
-  return passport;
 };
