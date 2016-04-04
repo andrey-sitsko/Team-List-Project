@@ -7,7 +7,7 @@ app.service('signInService', ['$http', '$window', 'currentUserService', function
   function processSignInResults(res) {
     console.log('processSignInResults');
       if(res.data.success) {
-        currentUserService.setUser(res.data.user);
+        currentUserService.setUser(res);
         $window.location.href = '/main';
       } else {
         showWrongCredetiansAlert();
@@ -31,7 +31,8 @@ app.service('signInService', ['$http', '$window', 'currentUserService', function
       $http.post('/signIn', authData).then(processSignInResults);
     },
     facebookSignIn: function() {
-      $http.get('/signIn/facebook').then(processSignInResults);
+      $http.jsonp('/signIn/facebook?callback=JSON_CALLBACK').success(processSignInResults);
+      //$.get('/signIn/facebook').then(processSignInResults);
     }
   };
 

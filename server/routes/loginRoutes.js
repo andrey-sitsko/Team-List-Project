@@ -80,12 +80,20 @@ module.exports = function(app) {
       }
   });
 
-  app.get('/signIn/facebook', passport.authenticate('facebook', { scope: 'email' }));
+  app.get('/signIn/facebook', passport.authenticate('facebook', { scope: 'email' }), function() {});
 
-  app.get('/signIn/facebook/callback', passport.authenticate('facebook', {
-     successRedirect : '/main',
-     failureRedirect: '/'
-  }));
+  app.get('/signIn/facebook/callback', passport.authenticate('facebook'), function(req, res) {
+    var user = req.user;
+    req.login(user, function(err) {
+      if (err) {
+        throw err;
+      }
+    });
+    res.send({
+      success: 'true',
+      user: user
+    });
+  });
 
   app.get('/currentUser', function(req, res) {
     res.send(req.user);

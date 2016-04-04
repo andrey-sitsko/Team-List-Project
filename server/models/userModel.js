@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
     userSchema;
 
 userSchema = new Schema({
+  facebookId: String,
   name: String,
   email: String,
   password: String,
