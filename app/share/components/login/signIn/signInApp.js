@@ -2,7 +2,7 @@ require('./signInService.js');
 require('./assets/stylesheets/signInStyle.css');
 require('./assets/stylesheets/fonts.css');
 
-var app = angular.module('signInApp', ['signInServiceApp']);
+var app = angular.module('loginApp');
 
 app.directive('signInForm', function() {
   return {

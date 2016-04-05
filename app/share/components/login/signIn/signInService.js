@@ -1,6 +1,6 @@
 require('../../../services/currentUserService.js');
 
-var app = angular.module('signInServiceApp', ['currentUserServiceApp']);
+var app = angular.module('loginApp');
 
 app.service('signInService', ['$http', '$window', 'currentUserService', function($http, $window, currentUserService) {
 

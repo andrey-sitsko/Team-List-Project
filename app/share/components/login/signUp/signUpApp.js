@@ -2,7 +2,7 @@ require('./signUpService');
 require('../../../services/currentUserService.js');
 require('./assets/stylesheets/signUpStyle.css');
 
-var app = angular.module('signUpApp', ['signUpServiceApp', 'currentUserServiceApp']);
+var app = angular.module('loginApp');
 
 app.directive('signUpModalDialog', function() {
   return {
