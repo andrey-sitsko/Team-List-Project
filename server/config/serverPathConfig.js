@@ -3,7 +3,7 @@ function config(app) {
 
   app.use('/share', express.static('./app/share'));
   app.use('/components', express.static('./app/share/components'));
-  app.use('/builtApps', express.static('./app/builtApps'));
+  app.use('/public', express.static('./app/public'));
   app.use('/node_modules', express.static('./node_modules'));
 
   app.use('/signInView.html', express.static('./app/share/components/login/signIn/signInView.html'));

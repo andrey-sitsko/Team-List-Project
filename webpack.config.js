@@ -7,8 +7,8 @@ module.exports = {
     mainApp: './app/cores/mainApp.js'
   },
   output: {
-    path: path.join(__dirname, './app/builtApps'),
-    publicPath: 'builtApps/',
+    path: path.join(__dirname, './app/public'),
+    publicPath: 'public/',
     filename: '[name].bundle.js',
   },
   module: {
