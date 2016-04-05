@@ -3,7 +3,7 @@ require('../lists/listsService.js');
 require('./tasksService');
 require('./tasksStyle.css');
 
-var app = angular.module('tasksApp', ['tasksServiceApp', 'currentUserServiceApp', 'listsServiceApp']);
+var app = angular.module('mainApp');
 
 app.directive('tasks', function() {
   return {

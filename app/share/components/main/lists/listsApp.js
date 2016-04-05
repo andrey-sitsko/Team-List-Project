@@ -2,7 +2,7 @@ require('../../../services/currentUserService.js');
 require('./listsService.js');
 require('./listsStyle.css');
 
-var app = angular.module('listsApp', ['listsServiceApp', 'currentUserServiceApp']);
+var app = angular.module('mainApp');
 
 app.directive('lists', function() {
   return {

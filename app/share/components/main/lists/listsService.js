@@ -1,7 +1,4 @@
-require('../../../services/idGeneratorService.js');
-require('../../../services/currentUserService.js');
-
-var app = angular.module('listsServiceApp', ['idGeneratorServiceApp', 'currentUserServiceApp']);
+var app = angular.module('mainApp');
 
 app.service('listsService', ['$http', 'idGeneratorService', 'currentUserService',
 function($http, idGeneratorService, currentUserService) {

@@ -5,7 +5,7 @@ require('./taskSettingsStyle.css');
 require('./datepickerStyle.css');
 require('jquery-ui');
 
-var app = angular.module('taskSettingsApp', ['taskSettingsServiceApp', 'tasksServiceApp', 'listsServiceApp']),
+var app = angular.module('mainApp'),
     months_en = require('../../../data/locales/months/months_en.js');
 
 app.directive('taskSettings', function() {

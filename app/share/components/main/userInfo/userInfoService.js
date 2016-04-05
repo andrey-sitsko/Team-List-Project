@@ -1,4 +1,4 @@
-var app = angular.module('userInfoServiceApp', []);
+var app = angular.module('mainApp');
 
 app.service('userInfoService', ['$http', '$window', function($http, $window) {
 
