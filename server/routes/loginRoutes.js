@@ -89,10 +89,17 @@ module.exports = function(app) {
         throw err;
       }
     });
-    res.send({
+    //console.log(req.params);
+    //app.set('jsonp callback name', 'JSON_CALLBACK');
+    //res.render('./mainView.html');
+    res.send('processSignInResults' + '(' + JSON.stringify({
       success: 'true',
       user: user
-    });
+    }) + ')');
+    /*res.jsonp({
+      success: 'true',
+      user: user
+    });*/
   });
 
   app.get('/currentUser', function(req, res) {

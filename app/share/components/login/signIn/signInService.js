@@ -31,7 +31,11 @@ app.service('signInService', ['$http', '$window', 'currentUserService', function
       $http.post('/signIn', authData).then(processSignInResults);
     },
     facebookSignIn: function() {
-      $http.jsonp('/signIn/facebook?callback=JSON_CALLBACK').success(processSignInResults);
+      /*window.JSON_CALLBACK = function(res) {
+        console.log(res);
+      };*/
+
+      $http.jsonp('/signIn/facebook?callback=processSignInResults');
       //$.get('/signIn/facebook').then(processSignInResults);
     }
   };
