@@ -80,9 +80,25 @@ module.exports = function(app) {
       }
   });
 
-  app.get('/signIn/facebook', passport.authenticate('facebook', { scope: 'email' }), function() {});
+  app.get('/signIn/facebook', passport.authenticate('facebook'), function() {});
 
   app.get('/signIn/facebook/callback', passport.authenticate('facebook'), function(req, res) {
+    var user = req.user;
+    req.login(user, function(err) {
+      if (err) {
+        throw err;
+      }
+    });
+    res.send('SOCIAL_AUTH_JSON_CALLBACK' + '(' + JSON.stringify({
+      success: 'true',
+      user: user
+    }) + ')');
+  });
+
+  app.get('/signIn/google', passport.authenticate('google'), function() {});
+
+  app.get('/signIn/google/callback', passport.authenticate('google'), function(req, res) {
+    console.log(user);
     var user = req.user;
     req.login(user, function(err) {
       if (err) {

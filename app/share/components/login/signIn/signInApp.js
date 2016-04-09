@@ -17,6 +17,9 @@ app.directive('signInForm', function() {
       $scope.facebookSignIn = function() {
         signInService.facebookSignIn();
       };
+      $scope.googleSignIn = function() {
+        signInService.googleSignIn();
+      };
     }]
   };
 });

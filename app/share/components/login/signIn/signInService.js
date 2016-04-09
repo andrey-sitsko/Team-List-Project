@@ -42,6 +42,9 @@ app.service('signInService', ['$http', '$window', 'currentUserService', function
     },
     facebookSignIn: function() {
       $http.jsonp('/signIn/facebook?callback=SOCIAL_AUTH_JSON_CALLBACK');
+    },
+    googleSignIn: function() {
+      $http.jsonp('/signIn/google?callback=SOCIAL_AUTH_JSON_CALLBACK');
     }
   };
 

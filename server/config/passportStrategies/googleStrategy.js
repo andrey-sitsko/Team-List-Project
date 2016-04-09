@@ -6,7 +6,6 @@ module.exports = new googleStrategy({
     callbackURL: 'http://localhost:8000/signIn/google/callback'
   },
   function(tokens, profile, done) {
-    console.log('google strategy');
     done(null, profile, tokens);
   }
-));
+);
