@@ -89,17 +89,10 @@ module.exports = function(app) {
         throw err;
       }
     });
-    //console.log(req.params);
-    //app.set('jsonp callback name', 'JSON_CALLBACK');
-    //res.render('./mainView.html');
-    res.send('processSignInResults' + '(' + JSON.stringify({
+    res.send('SOCIAL_AUTH_JSON_CALLBACK' + '(' + JSON.stringify({
       success: 'true',
       user: user
     }) + ')');
-    /*res.jsonp({
-      success: 'true',
-      user: user
-    });*/
   });
 
   app.get('/currentUser', function(req, res) {

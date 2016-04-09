@@ -4,14 +4,24 @@ var app = angular.module('loginApp');
 
 app.service('signInService', ['$http', '$window', 'currentUserService', function($http, $window, currentUserService) {
 
-  function processSignInResults(res) {
-    console.log('processSignInResults');
+  window.SOCIAL_AUTH_JSON_CALLBACK = function(res) {
+    processSocialSignInResults(res);
+  };
+
+  function processLocalSignInResults(res) {
       if(res.data.success) {
         currentUserService.setUser(res);
         $window.location.href = '/main';
       } else {
         showWrongCredetiansAlert();
       }
+  }
+
+  function processSocialSignInResults(res) {
+    if(res.success) {
+      currentUserService.setUser(res.user);
+      $window.location.href = '/main';
+    }
   }
 
   function showWrongCredetiansAlert() {
@@ -28,15 +38,10 @@ app.service('signInService', ['$http', '$window', 'currentUserService', function
 
   return {
     signIn: function(authData, successCallback) {
-      $http.post('/signIn', authData).then(processSignInResults);
+      $http.post('/signIn', authData).then(processSocialSignInResults);
     },
     facebookSignIn: function() {
-      /*window.JSON_CALLBACK = function(res) {
-        console.log(res);
-      };*/
-
-      $http.jsonp('/signIn/facebook?callback=processSignInResults');
-      //$.get('/signIn/facebook').then(processSignInResults);
+      $http.jsonp('/signIn/facebook?callback=SOCIAL_AUTH_JSON_CALLBACK');
     }
   };
 
