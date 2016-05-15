@@ -23,6 +23,8 @@
   background-color: inherit;
   width: 100%;
   height: 40px;
+  padding-right: 55px;
+  text-overflow: ellipsis;
 }
 
 .add-task-input::-webkit-input-placeholder {color: rgb(209, 209, 224); letter-spacing: -2px;}

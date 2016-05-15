@@ -21,6 +21,7 @@
   height: 35px;
   background: none;
 	font-size: 18px;
+	text-overflow: ellipsis;
 }
 
 .add-list-input::-webkit-input-placeholder {color:#fff;}
