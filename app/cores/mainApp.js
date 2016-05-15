@@ -8,6 +8,17 @@ require('../share/assets/stylesheets/resetStyle.css');
 
 var app = angular.module('mainApp',  ['idGeneratorServiceApp', 'currentUserServiceApp']);
 
+app.controller('mainPageController', ['$scope', '$http', 'currentUserService', function($scope, $http, currentUserService) {
+  $http.get('/currentUser').then(function(res) {
+    $scope.user = res.data;
+    $scope.currentTasks = [];
+    $scope.currentTask = {};
+    $scope.currentSubTasks = [];
+    $scope.disableTaskSettings = true;
+    $scope.disableTasks = true;
+  });
+}]);
+
 require('../share/components/main/userInfo/userInfoApp.js');
 require('../share/components/main/lists/listsApp.js');
 require('../share/components/main/taskSettings/taskSettingsApp.js');
