@@ -7,6 +7,8 @@
 	display: none;
 	margin-top: 4px;
 	padding: 10px;
+	font-family: sans-serif;
+	letter-spacing: 1px;
 }
 
 .ui-datepicker:after {
@@ -98,7 +100,12 @@
 	cursor: pointer;
 }
 
+.ui-datepicker th {
+	font-size: 18px;
+}
+
 .ui-datepicker td {
+	font-family: OratorStdMedium;
 	font-size: 17px;
 }
 
