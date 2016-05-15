@@ -8,22 +8,43 @@ app.directive('lists', function() {
   return {
     restrict: 'E',
     templateUrl: 'listsView.html',
-    controller: ['$scope', 'listsService', 'currentUserService', function($scope, listsService, currentUserService) {
-      var user = currentUserService.getUser();
-      $scope.lists = user.lists;
+    scope: false,
+    controller: ['$scope', '$http','currentUserService','idGeneratorService',
+    function($scope, $http, currentUserService, idGeneratorService) {
       $scope.addList = function(title) {
-        var id = listsService.createList(title, user);
-        $scope.lists.unshift({title: title, id: id});
+        var id = idGeneratorService.getListId(title, $scope.user);
+        $scope.user.lists.unshift({title: title, id: id});
+        $http.post('/createList', {title: title, id: id}).then(function(res, err) {
+          if(err) {
+            throw err;
+          }
+        });
         $scope.newListTitle = '';
       };
       $scope.deleteList = function(list) {
-        listsService.deleteList(list);
-        $scope.lists.splice($scope.lists.map(function(list) {
+        if($scope.currentList.id && $scope.currentList.id == list.id) {
+          $scope.currentTasks = [];
+          $scope.currentTask = [];
+          $scope.currentSubTasks = [];
+          $scope.disableTaskSettings = true;
+          $scope.disableTasks = true;
+        }
+        $scope.user.lists.splice($scope.user.lists.map(function(list) {
           return list.id;
         }).indexOf(list.id), 1);
+        $http.post('/deleteList', list).then(function(res, err) {
+          if(err) {
+            throw err;
+          }
+        });
       };
       $scope.checkList = function(list) {
-        listsService.checkList(list, $scope.lists.indexOf(list));
+        $scope.currentTasks = $scope.user.tasks.filter(function(task) {
+          return task.listId == list.id;
+        });
+        $scope.disableTasks = false;
+        $('.lists-container .list-group-item').removeClass('checked-list');
+        $('#list-' + $scope.user.lists.indexOf(list)).addClass('checked-list');
       };
     }]
   };

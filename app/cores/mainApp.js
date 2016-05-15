@@ -11,6 +11,7 @@ var app = angular.module('mainApp',  ['idGeneratorServiceApp', 'currentUserServi
 app.controller('mainPageController', ['$scope', '$http', 'currentUserService', function($scope, $http, currentUserService) {
   $http.get('/currentUser').then(function(res) {
     $scope.user = res.data;
+    $scope.currentList = {};
     $scope.currentTasks = [];
     $scope.currentTask = {};
     $scope.currentSubTasks = [];

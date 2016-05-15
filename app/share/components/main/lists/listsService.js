@@ -5,16 +5,13 @@ function($http, idGeneratorService, currentUserService) {
   var tasksCallback,
       taskSettingsCallback;
   return {
-    checkList: function(list, index) {
-      currentUserService.setCurrentList(list);
-      tasksCallback(currentUserService.getListTasks(list));
+    /*checkList: function(list, index) {
       taskSettingsCallback();
       $('.lists-container .list-group-item').removeClass('checked-list');
       $('#list-' + index).addClass('checked-list');
     },
     createList: function(title, user) {
       var id = idGeneratorService.getListId(title, user);
-      currentUserService.addList(id, title);
       $http.post('/createList', {title: title, id: id}).then(function(res, err) {
         if(err) {
           throw err;
@@ -24,16 +21,21 @@ function($http, idGeneratorService, currentUserService) {
     },
     deleteList: function(list) {
       currentUserService.deleteList(list.id);
-      if(currentUserService.getCurrentList().id == list.id) {
-        tasksCallback();
-        taskSettingsCallback();
+      if($scope.currentList.id == list.id) {
+        $scope.currentTasks = [];
+        $scope.currentTask = [];
+        $scope.currentSubTasks = [];
+        $scope.disableTaskSettings
       }
+      $scope.user.lists.splice($scope.user.lists.map(function(list) {
+        return list.id;
+      }).indexOf(list.id), 1);
       $http.post('/deleteList', list).then(function(res, err) {
         if(err) {
           throw err;
         }
       });
-    },
+    },*/
     setTasksCallback: function(callback) {
       tasksCallback = callback;
     },
