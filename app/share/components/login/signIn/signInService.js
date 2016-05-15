@@ -38,7 +38,7 @@ app.service('signInService', ['$http', '$window', 'currentUserService', function
 
   return {
     signIn: function(authData, successCallback) {
-      $http.post('/signIn', authData).then(processSocialSignInResults);
+      $http.post('/signIn', authData).then(processLocalSignInResults);
     },
     facebookSignIn: function() {
       $http.jsonp('/signIn/facebook?callback=SOCIAL_AUTH_JSON_CALLBACK');
