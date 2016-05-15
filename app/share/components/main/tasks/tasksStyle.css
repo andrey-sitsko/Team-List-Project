@@ -69,6 +69,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   background-color: rgba(255, 255, 255, 0.26);
+  cursor: default;
 }
 
 .tasks-container .list-group li span {
