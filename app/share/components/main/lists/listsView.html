@@ -1,15 +1,13 @@
 <div class="lists-container col-md-3">
   <form class="add-list-form" ng-submit="addList(newListTitle)">
     <input type="text" placeholder="Add new list here..." class="add-list-input" ng-model="newListTitle" required>
-    <i class="fa fa-plus-square-o new-list-plus-icon"></i>
     <input type="submit" class="submit-list-add">
+    <i class="sprite-main sprite-add new-list-plus-icon"></i>
   </form>
   <ul class="list-group">
-    <li class="list-group-item" ng-repeat="list in lists" id="list-{{lists.indexOf(list)}}" ng-click="checkList(list)">
-      <div class="trash-icon-container">
-        <i class="fa fa-trash-o" ng-click="deleteList(list)"></i>
-      </div>
-      {{list.title}}
+    <li class="list-item" ng-repeat="list in lists" id="list-{{lists.indexOf(list)}}" ng-click="checkList(list)">
+      <i class="delete-list-button sprite-main sprite-delete" ng-click="deleteList(list)"></i>
+      <span>{{list.title}}</span>
     </li>
   </ul>
 </div>

@@ -9,7 +9,7 @@ function($http, idGeneratorService, currentUserService) {
       currentUserService.setCurrentList(list);
       tasksCallback(currentUserService.getListTasks(list));
       taskSettingsCallback();
-      $('.lists-container .list-group-item').removeClass('checked-list');
+      $('.lists-container .list-item').removeClass('checked-list');
       $('#list-' + index).addClass('checked-list');
     },
     createList: function(title, user) {
