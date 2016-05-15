@@ -4,10 +4,6 @@ var app = angular.module('loginApp');
 
 app.service('signInService', ['$http', '$window', 'currentUserService', function($http, $window, currentUserService) {
 
-  window.SOCIAL_AUTH_JSON_CALLBACK = function(res) {
-    processSocialSignInResults(res);
-  };
-
   function processLocalSignInResults(res) {
       if(res.data.success) {
         currentUserService.setUser(res);
@@ -41,7 +37,7 @@ app.service('signInService', ['$http', '$window', 'currentUserService', function
       $http.post('/signIn', authData).then(processLocalSignInResults);
     },
     facebookSignIn: function() {
-      $http.jsonp('/signIn/facebook?callback=SOCIAL_AUTH_JSON_CALLBACK');
+      $http.get('/signIn/facebook').then(processSocialSignInResults);
     },
     googleSignIn: function() {
       $http.jsonp('/signIn/google?callback=SOCIAL_AUTH_JSON_CALLBACK');
