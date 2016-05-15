@@ -14,7 +14,7 @@
 
 .deadline-form {
   position: relative;
-  padding: 0 48px;
+  padding: 0 48px 10px 48px;
 }
 
 .deadline-form input[type="text"] {
@@ -85,6 +85,10 @@
   margin-top: 20px;
 }
 
+.subtasks-list li:first-child {
+  margin-top: 10px;
+}
+
 .subtasks-list li:last-child {
   margin-bottom: 5px;
 }
@@ -117,10 +121,6 @@
   background-position: -120px -46px;
 }
 
-
-
-
-
 .task-settings-container input[type="text"] {
   border: none;
   width: 100%;
@@ -134,7 +134,7 @@
 .task-settings-containerinput:-moz-placeholder           {color: #fff; letter-spacing: -2px;}/* Firefox 18- */
 .task-settings-containerinput:-ms-input-placeholder      {color: #fff; letter-spacing: -2px;}
 
-.task-settings-containerinput[type="text"]:focus {
+.task-settings-container input[type="text"]:focus {
   outline: none;
 }
 
@@ -142,15 +142,13 @@
   color: #fff;
 }
 
-
-
 .task-settings-container input[type="submit"] {
   position: absolute;
   opacity: 0;
-  right: 5px;
+  right: 38px;
   top: 50%;
-  margin-top: -13px;
-  width: 25px;
+  margin-top: -14px;
+  width: 36px;
   height: 30px;
 }
 
@@ -158,40 +156,24 @@
   cursor: default;
 }
 
-.task-settings-form-blink {
-  animation: task-settings-form-blink-animation 0.7s;
+.add-subTask-form {
+  position: relative;
+  padding: 0 48px 10px 48px;
 }
 
-.task-settings-container .deadline-form .fa-trash-o {
-  position: absolute;
-  visibility: hidden;
-  width: 13px;
-  left: 4px;
-  font-style: normal;
-  color: white;
-  font-size: 16px;
+.sprite-add-small {
+  width: 16px;
   height: 16px;
-  top: 50%;
-  margin-top: -8px;
+  background-position: -85px -10px;
 }
 
-.task-settings-container .deadline-form .fa-trash-o:hover {
-  color: red;
-  cursor: pointer;
+.add-subTask-form .sprite-add-small {
+  position: absolute;
+  right: 48px;
+  top: 7px;
+  pointer-events: none;
 }
 
-.task-settings-container .deadline-form .fa-trash-o.visible {
-  visibility: visible;
-}
-
-@keyframes task-settings-form-blink-animation {
-  0% {
-    background-color: rgb(48, 105, 54);
-  }
-  50% {
-    background-color: rgb(0, 230, 153);
-  }
-  100% {
-    background-color: rgb(48, 105, 54);
-  }
+.add-subTask-form input[type="submit"]:hover + .sprite-add-small {
+  background-position: -49px -10px;
 }

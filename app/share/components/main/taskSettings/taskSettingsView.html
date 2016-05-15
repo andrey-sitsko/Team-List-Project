@@ -14,8 +14,8 @@
   <form class="add-subTask-form" ng-submit="addSubTask(newSubTaskTitle)"
     ng-class="{ 'unavailable': disableTaskSettings }">
     <input type="text" placeholder="add subtask" ng-model="newSubTaskTitle" required>
-    <i class="fa fa-plus-square-o"></i>
     <input type="submit">
+    <i class="sprite-main sprite-add-small"></i>
   </form>
   <form class="note-form" ng-class="{ 'unavailable': disableTaskSettings }" ng-submit="addNote(note)">
     <input type="text" placeholder="add note" ng-model="note" id="noteInput">
