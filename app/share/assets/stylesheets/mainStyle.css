@@ -11,3 +11,9 @@ body {
     background-image: url("../images/background-main.jpg");
     background-size: cover;
 }
+
+.sprite-main {
+    background-image: url("../images/spritesheet-main.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+}
