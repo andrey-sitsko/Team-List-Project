@@ -177,3 +177,25 @@
 .add-subTask-form input[type="submit"]:hover + .sprite-add-small {
   background-position: -49px -10px;
 }
+
+.note-form {
+  position: relative;
+  padding: 0 48px;
+}
+
+.sprite-note {
+  width: 19px;
+  height: 20px;
+  background-position: -117px -110px;
+}
+
+.note-form .sprite-note {
+  position: absolute;
+  top: 5px;
+  right: 45px;
+  pointer-events: none;
+}
+
+.note-form input[type="submit"]:hover + .sprite-note {
+  background-position: -78px -110px;
+}
