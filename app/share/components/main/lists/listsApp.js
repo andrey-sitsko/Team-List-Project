@@ -39,6 +39,7 @@ app.directive('lists', function() {
         });
       };
       $scope.checkList = function(list) {
+        $scope.currentList = list;
         $scope.currentTasks = $scope.user.tasks.filter(function(task) {
           return task.listId == list.id;
         });

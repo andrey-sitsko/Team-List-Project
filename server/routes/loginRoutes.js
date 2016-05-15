@@ -107,7 +107,9 @@ module.exports = function(app) {
   });
 
   app.get('/currentUser', function(req, res) {
-    res.send(req.user);
+    User.findOne({ email: req.user.email }, function(err, user) {
+      res.send(user);
+    });
   });
 
   app.get('/api/users', function(req, res) {

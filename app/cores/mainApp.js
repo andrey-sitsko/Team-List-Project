@@ -9,14 +9,17 @@ require('../share/assets/stylesheets/resetStyle.css');
 var app = angular.module('mainApp',  ['idGeneratorServiceApp', 'currentUserServiceApp']);
 
 app.controller('mainPageController', ['$scope', '$http', 'currentUserService', function($scope, $http, currentUserService) {
+  $scope.disableTaskSettings = true;
+  $scope.disableTasks = true;
+  $scope.currentList = {};
+  $scope.currentTasks = [];
+  $scope.currentTask = {};
+  $scope.currentSubTasks = [];
   $http.get('/currentUser').then(function(res) {
     $scope.user = res.data;
-    $scope.currentList = {};
-    $scope.currentTasks = [];
-    $scope.currentTask = {};
-    $scope.currentSubTasks = [];
-    $scope.disableTaskSettings = true;
-    $scope.disableTasks = true;
+    $scope.user.lists.reverse();
+    $scope.user.tasks.reverse();
+    $scope.user.subTasks.reverse();
   });
 }]);
 
