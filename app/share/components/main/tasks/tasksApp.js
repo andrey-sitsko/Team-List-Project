@@ -41,6 +41,7 @@ app.directive('tasks', function() {
         });
       };
       $scope.checkTask = function(task) {
+        $scope.disableTaskSettings = false;
         $scope.currentTask = $scope.user.tasks.filter(function(elem) {
           return elem.id == task.id;
         })[0];

@@ -6,7 +6,7 @@
     <i class="fa fa-calendar"></i>
   </form>
   <ul class="subtasks-list">
-    <li ng-repeat="subTask in subTasks" id="subTask-{{subTasks.indexOf(subTask)}}">
+    <li ng-repeat="subTask in currentSubTasks" id="subTask-{{currentSubTasks.indexOf(subTask)}}">
         {{subTask.title}}
       <div class="trash-icon-container">
         <i class="fa fa-trash-o" ng-click="deleteSubTask(subTask)"></i>
@@ -20,7 +20,7 @@
     <input type="submit">
   </form>
   <form class="task-settings-form note-form" ng-class="{ 'unavailable': disableTaskSettings }" ng-submit="addNote(note)">
-    <input type="text" placeholder="Add note here..." ng-model="note" id="noteInput">
+    <input type="text" placeholder="Add note here..." ng-model="currentTask.note" id="noteInput">
     <i class="fa fa-pencil"></i>
     <input type="submit" class="default-cursor">
   </form>
