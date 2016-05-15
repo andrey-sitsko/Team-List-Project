@@ -7,7 +7,9 @@
   <ul class="list-group">
     <li class="list-item" ng-repeat="list in lists" id="list-{{lists.indexOf(list)}}" ng-click="checkList(list)">
       <i class="delete-list-button sprite-main sprite-delete" ng-click="deleteList(list)"></i>
-      <span>{{list.title}}</span>
+      <div class="list-title-container">
+        <span>{{list.title}}</span>
+      </div>
     </li>
   </ul>
 </div>

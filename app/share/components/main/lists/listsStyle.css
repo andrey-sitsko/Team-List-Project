@@ -1,10 +1,11 @@
 .col-md-3.lists-container {
+	width: 320px;
 	overflow: auto;
   min-height: calc(100% - 90px);
   padding: 25px 0 50px 0;
   background-color: rgba(255, 255, 255, 0.25);
 	color: #fff;
-	letter-spacing: -1px;
+	letter-spacing: -2px;
 }
 
 .add-list-form {
@@ -70,14 +71,20 @@
 .lists-container .list-group li {
 	position: relative;
 	font-size: 21px;
-	margin-bottom: 10px;
+	margin-bottom: 4px;
 	cursor: pointer;
 }
 
 .lists-container .list-group li span {
-	text-overflow: ellipsis;
-	overflow: hidden;
 	border-bottom: 1px solid #fff;
+}
+
+.lists-container .list-group .list-title-container {
+	width: 250px;
+	height: 27px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
 }
 
 .sprite-delete {
