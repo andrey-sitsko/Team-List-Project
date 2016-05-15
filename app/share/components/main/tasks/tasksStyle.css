@@ -1,5 +1,5 @@
 .col-md-6.tasks-container {
-  min-height: 100%;
+  min-height: calc(100% - 90px);
   padding: 0;
   overflow: auto;
   position: relative;

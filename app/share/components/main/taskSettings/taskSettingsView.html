@@ -1,26 +1,24 @@
 <div class="task-settings-container col-md-3">
-  <form class="deadline-form task-settings-form" ng-submit="addDeadline(deadline)"
+  <form class="deadline-form" ng-submit="addDeadline(deadline)"
     ng-class="{ 'unavailable': disableTaskSettings }">
-    <i class="fa fa-trash-o delete-deadline-icon" id="deleteDeadlineIcon" ng-click="deleteDeadline()"></i>
-    <input placeholder="Add task deadline" type="text" id="deadlineDatepicker" readonly>
-    <i class="fa fa-calendar"></i>
+    <i class="sprite-main sprite-delete" id="deleteDeadlineIcon" ng-click="deleteDeadline()"></i>
+    <input class="input-deadline" placeholder="set deadline" type="text" id="deadlineDatepicker" readonly>
+    <i class="sprite-main sprite-deadline"></i>
   </form>
   <ul class="subtasks-list">
     <li ng-repeat="subTask in subTasks" id="subTask-{{subTasks.indexOf(subTask)}}">
-        {{subTask.title}}
-      <div class="trash-icon-container">
-        <i class="fa fa-trash-o" ng-click="deleteSubTask(subTask)"></i>
-      </div>
+      <p>{{subTask.title}}</p>
+      <i class="sprite-main sprite-delete-small" ng-click="deleteSubTask(subTask)"></i>
     </li>
   </ul>
-  <form class="task-settings-form add-subTask-form" ng-submit="addSubTask(newSubTaskTitle)"
+  <form class="add-subTask-form" ng-submit="addSubTask(newSubTaskTitle)"
     ng-class="{ 'unavailable': disableTaskSettings }">
-    <input type="text" placeholder="Add new subtask here..." ng-model="newSubTaskTitle" required>
+    <input type="text" placeholder="add subtask" ng-model="newSubTaskTitle" required>
     <i class="fa fa-plus-square-o"></i>
     <input type="submit">
   </form>
-  <form class="task-settings-form note-form" ng-class="{ 'unavailable': disableTaskSettings }" ng-submit="addNote(note)">
-    <input type="text" placeholder="Add note here..." ng-model="note" id="noteInput">
+  <form class="note-form" ng-class="{ 'unavailable': disableTaskSettings }" ng-submit="addNote(note)">
+    <input type="text" placeholder="add note" ng-model="note" id="noteInput">
     <i class="fa fa-pencil"></i>
     <input type="submit" class="default-cursor">
   </form>

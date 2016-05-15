@@ -56,10 +56,8 @@ function($http, idGeneratorService, currentUserService) {
     showDatepickerTrashIcon: function(state) {
       if(state) {
         $('#deleteDeadlineIcon').addClass('visible');
-        $('#deadlineDatepicker').addClass('datepicker-padding');
       } else {
         $('#deleteDeadlineIcon').removeClass('visible');
-        $('#deadlineDatepicker').removeClass('datepicker-padding');
       }
     }
   };

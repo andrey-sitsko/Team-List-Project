@@ -35,11 +35,7 @@ app.directive('taskSettings', function() {
           },
           onSelect: function(dateText, inst) {
             taskSettingsService.addDeadline({ year: inst.currentYear, month: inst.currentMonth, day: inst.currentDay });
-            $('.deadline-form').addClass('task-settings-form-blink');
             taskSettingsService.showDatepickerTrashIcon(true);
-            $('.deadline-form').on('animationend', function() {
-              $('.deadline-form').removeClass('task-settings-form-blink');
-            });
           }
         });
       });
@@ -49,10 +45,6 @@ app.directive('taskSettings', function() {
       $scope.addNote = function(noteContent) {
         taskSettingsService.addNote(noteContent);
         $scope.note = noteContent;
-        $('.note-form').addClass('task-settings-form-blink');
-        $('.note-form').on('animationend', function() {
-          $('.note-form').removeClass('task-settings-form-blink');
-        });
         $('#noteInput').off('blur').blur();
         $('#noteInput').on('blur',function () {
           $scope.addNote($('#noteInput').val());
