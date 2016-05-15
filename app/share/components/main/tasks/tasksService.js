@@ -31,7 +31,7 @@ function($http, idGeneratorService, currentUserService) {
     checkTask: function(task, index) {
       currentUserService.setCurrentTask(task);
       taskSettingsCallback(currentUserService.getCurrentTaskSettings());
-      $('.tasks-container .list-group-item').removeClass('checked-task');
+      $('.tasks-container .list-item').removeClass('checked-task');
       $('#task-' + index).addClass('checked-task');
     },
     setTaskSettingsCallback: function(callback) {
