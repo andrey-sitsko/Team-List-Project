@@ -34,10 +34,11 @@
 .ui-datepicker .ui-datepicker-header {
 	margin-bottom: 4px;
 	text-align: center;
+	padding: 0 5px;
 }
 
 .ui-datepicker .ui-datepicker-title {
-	font-weight: 700;
+	font-weight: 300;
 }
 
 .ui-datepicker .ui-datepicker-prev,
@@ -46,9 +47,9 @@
 	font-family: 'Glyphicons Halflings';
 	-webkit-font-smoothing: antialiased;
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 300;
 	height: 20px;
-	line-height: 1;
+	line-height: 14px;
 	margin-top: 2px;
 	width: 30px;
 }
@@ -65,13 +66,13 @@
 
 .ui-datepicker .ui-datepicker-prev:before {
 	color: #000;
-	content: "\e079";
+	content: "\2190";
 	cursor: pointer;
 }
 
 .ui-datepicker .ui-datepicker-next:before {
 	color: #000;
-	content: "\e080";
+	content: "\2192";
 	cursor: pointer;
 }
 
@@ -102,6 +103,8 @@
 
 .ui-datepicker th {
 	font-size: 18px;
+	font-weight: 300;
+	cursor: default;
 }
 
 .ui-datepicker td {
