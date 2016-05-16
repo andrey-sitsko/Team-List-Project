@@ -60,7 +60,7 @@ app.directive('tasks', function() {
           $scope.datepickerDeleteIconVisibility = false;
         }
         $('#noteInput').val($scope.currentTask.note);
-        $('.tasks-container .list-group-item').removeClass('checked-task');
+        $('.tasks-container .list-item').removeClass('checked-task');
         $('#task-' + $scope.currentTasks.indexOf(task)).addClass('checked-task');
       };
     }]

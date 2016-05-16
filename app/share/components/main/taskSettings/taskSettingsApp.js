@@ -73,7 +73,7 @@ app.directive('taskSettings', function() {
         $scope.currentSubTasks.splice($scope.currentSubTasks.map(function(val) {
           return val.id;
         }).indexOf(subTask.id), 1);
-        $scope.user.subTasks.splice($scope.subTasks.map(function(val) {
+        $scope.user.subTasks.splice($scope.user.subTasks.map(function(val) {
           return val.id;
         }).indexOf(subTask.id), 1);
         $http.post('/deleteSubTask', { id: subTask.id }).then(function(res, err) {
