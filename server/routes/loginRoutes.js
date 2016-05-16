@@ -85,10 +85,7 @@ module.exports = function(app) {
   app.get('/signIn/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/' }),
   function(req, res) {
-    res.send({
-      success: 'true',
-      user: req.user
-    });
+    res.redirect('/main');
   });
 
   app.get('/signIn/google', passport.authenticate('google'), function() {});
