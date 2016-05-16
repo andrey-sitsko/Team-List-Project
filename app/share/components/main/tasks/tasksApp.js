@@ -1,6 +1,3 @@
-require('../../../services/currentUserService.js');
-require('../lists/listsService.js');
-require('./tasksService');
 require('./tasksStyle.css');
 
 var app = angular.module('mainApp'),
@@ -11,8 +8,8 @@ app.directive('tasks', function() {
     restrict: 'E',
     templateUrl: 'tasksView.html',
     scope: false,
-    controller: ['$scope', '$http', 'idGeneratorService', 'tasksService', 'currentUserService', 'listsService',
-    function($scope, $http, idGeneratorService, tasksService, currentUserService, listsService) {
+    controller: ['$scope', '$http', 'idGeneratorService',
+    function($scope, $http, idGeneratorService) {
       $scope.deleteTask = function(task) {
         if($scope.currentTask.id == task.id) {
           $scope.currentTask = {};

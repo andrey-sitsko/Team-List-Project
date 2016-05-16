@@ -1,5 +1,3 @@
-require('../../../services/currentUserService.js');
-require('./listsService.js');
 require('./listsStyle.css');
 
 var app = angular.module('mainApp');
@@ -9,8 +7,8 @@ app.directive('lists', function() {
     restrict: 'E',
     templateUrl: 'listsView.html',
     scope: false,
-    controller: ['$scope', '$http','currentUserService','idGeneratorService',
-    function($scope, $http, currentUserService, idGeneratorService) {
+    controller: ['$scope', '$http','idGeneratorService',
+    function($scope, $http, idGeneratorService) {
       $scope.addList = function(title) {
         var id = idGeneratorService.getListId(title, $scope.user);
         $scope.user.lists.unshift({title: title, id: id});

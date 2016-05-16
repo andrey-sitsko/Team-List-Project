@@ -1,14 +1,13 @@
 require('angular');
 require('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
 require('../../node_modules/font-awesome/css/font-awesome.min.css');
-require('../share/services/currentUserService.js');
 require('../share/services/idGeneratorService.js');
 require('../share/assets/stylesheets/mainStyle.css');
 require('../share/assets/stylesheets/resetStyle.css');
 
-var app = angular.module('mainApp',  ['idGeneratorServiceApp', 'currentUserServiceApp']);
+var app = angular.module('mainApp',  ['idGeneratorServiceApp']);
 
-app.controller('mainPageController', ['$scope', '$http', 'currentUserService', function($scope, $http, currentUserService) {
+app.controller('mainPageController', ['$scope', '$http', function($scope, $http) {
   $scope.disableTaskSettings = true;
   $scope.disableTasks = true;
   $scope.currentList = {};

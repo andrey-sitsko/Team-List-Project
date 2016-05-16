@@ -1,6 +1,3 @@
-require('./taskSettingsService.js');
-require('../tasks/tasksService.js');
-require('../lists/listsService.js');
 require('./taskSettingsStyle.css');
 require('./datepickerStyle.css');
 require('jquery-ui');
@@ -11,8 +8,8 @@ app.directive('taskSettings', function() {
   return {
     restrict: 'E',
     templateUrl: 'taskSettingsView.html',
-    controller: (['$scope', '$http', 'idGeneratorService', 'taskSettingsService', 'tasksService', 'listsService',
-    function($scope, $http, idGeneratorService, tasksService, listsService) {
+    controller: (['$scope', '$http', 'idGeneratorService',
+    function($scope, $http, idGeneratorService) {
       $(function() {
         var dateToday = new Date();
         $("#deadlineDatepicker").datepicker({

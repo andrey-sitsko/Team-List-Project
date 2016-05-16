@@ -1,12 +1,9 @@
-require('../../../services/currentUserService.js');
-
 var app = angular.module('loginApp');
 
-app.service('signInService', ['$http', '$window', 'currentUserService', function($http, $window, currentUserService) {
+app.service('signInService', ['$http', '$window', function($http, $window) {
 
   function processLocalSignInResults(res) {
       if(res.data.success) {
-        currentUserService.setUser(res);
         $window.location.href = '/main';
       } else {
         showWrongCredetiansAlert();
@@ -15,7 +12,6 @@ app.service('signInService', ['$http', '$window', 'currentUserService', function
 
   function processSocialSignInResults(res) {
     if(res.success) {
-      currentUserService.setUser(res.user);
       $window.location.href = '/main';
     }
   }

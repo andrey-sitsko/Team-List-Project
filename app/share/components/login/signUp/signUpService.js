@@ -1,12 +1,9 @@
-require('../../../services/currentUserService.js');
-
 var app = angular.module('loginApp');
 
-app.service('signUpService', ['$http', '$window', 'currentUserService', function($http, $window, currentUserService) {
+app.service('signUpService', ['$http', '$window', function($http, $window) {
 
   function processSignUpResults(res) {
       if(res.data.success) {
-        currentUserService.setUser(res.data.user);
         $window.location.href = '/main';
       } else {
         $('.sign-up-modal .alert-danger').show();
