@@ -13,7 +13,7 @@ app.directive('userInfo', function() {
         });
       };
       $scope.showAvatarPicker = function() {
-        $('#avatarURL-input').toggleClass('avatarURL-input-show');        
+        $('#avatarURL-input').toggleClass('avatarURL-input-show');
       };
       $scope.setUserAvatar = function(url) {
         $scope.showAvatarPicker();
@@ -24,6 +24,13 @@ app.directive('userInfo', function() {
           }
         });
       };
+      $(document).on('click', function(event) {
+        if ((event.target !== $('#avatar-input').get(0)) &&
+            (event.target !== $('#new-user-avatar').get(0)) &&
+            (event.target !== $('#user-avatar').get(0))) {
+          $('#avatarURL-input').removeClass('avatarURL-input-show');
+        }
+      });
     }]
   };
 });

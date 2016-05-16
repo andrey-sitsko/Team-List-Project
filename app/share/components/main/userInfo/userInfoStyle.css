@@ -29,21 +29,26 @@
 }
 
 .user-avatar {
-  margin: 0 25px 0 15px;
+  width: 65px;
+  height: 65px;
+  margin: 0 5px 0 15px;
   border-radius: 100%;
   border: 1px solid #000;
   cursor: pointer;
 }
 
 .logout-button {
+  width: 67px;
   height: 100%;
+  display: inline-block;
   text-align: center;
-  padding: 9px 0;
+  padding: 15px 0;
   cursor: pointer;
 }
 
 .logout-button p {
   width: 63px;
+  font-size: 14px;
   letter-spacing: -2px;
 }
 
@@ -54,13 +59,11 @@
 .sprite-logout {
     width: 30px;
     height: 30px;
-    background-position: -153px -10px;
+    background-position: -149px -6px;
 }
 
 .logout-button:hover .sprite-logout {
-    width: 30px;
-    height: 30px;
-    background-position: -151px -60px;
+    background-position: -147px -56px;
 }
 
 .main-header .logo {
@@ -97,6 +100,7 @@ input:-ms-input-placeholder      {color:#5e5e5e;}
 	background: rgba(255, 255, 255, 0.5);
   z-index: -1;
   opacity: 0;
+  transition: opacity 1s;
 }
 
 .avatarURL-input-show {
