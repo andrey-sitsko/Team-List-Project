@@ -154,10 +154,6 @@
   height: 30px;
 }
 
-.task-settings-container input[type="submit"].default-cursor {
-  cursor: default;
-}
-
 .add-subTask-form {
   position: relative;
   padding: 0 65px 10px 48px;
