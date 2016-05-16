@@ -1,5 +1,4 @@
 require('./signUpService');
-require('../../../services/currentUserService.js');
 require('./assets/stylesheets/signUpStyle.css');
 
 var app = angular.module('loginApp');
@@ -8,8 +7,8 @@ app.directive('signUpModalDialog', function() {
   return {
     restrict: 'E',
     templateUrl: 'signUpView.html',
-    controller: ['$scope', '$window', 'signUpService', 'currentUserService',
-      function($scope, $window, signUpService, currentUserService) {
+    controller: ['$scope', '$window', 'signUpService',
+      function($scope, $window, signUpService) {
       $scope.signUpName = '';
       $scope.signUpPassword = '';
       $scope.signUpEmail = '';

@@ -1,24 +1,15 @@
-require('./taskSettingsService.js');
-require('../tasks/tasksService.js');
-require('../lists/listsService.js');
 require('./taskSettingsStyle.css');
 require('./datepickerStyle.css');
 require('jquery-ui');
 
-var app = angular.module('mainApp'),
-    months_en = require('../../../data/locales/months/months_en.js');
+var app = angular.module('mainApp');
 
 app.directive('taskSettings', function() {
   return {
     restrict: 'E',
     templateUrl: 'taskSettingsView.html',
-    controller: (['$scope', 'taskSettingsService', 'tasksService', 'listsService',
-    function($scope, taskSettingsService, tasksService, listsService) {
-      $scope.subTasks = [];
-      $scope.note = '';
-      $scope.disableTaskSettings = true;
-      tasksService.setTaskSettingsCallback(setTaskSettings);
-      listsService.setTaskSettingCallback(setTaskSettings);
+    controller: (['$scope', '$http', 'idGeneratorService',
+    function($scope, $http, idGeneratorService) {
       $(function() {
         var dateToday = new Date();
         $("#deadlineDatepicker").datepicker({
@@ -34,59 +25,74 @@ app.directive('taskSettings', function() {
             }, 0);
           },
           onSelect: function(dateText, inst) {
-            taskSettingsService.addDeadline({ year: inst.currentYear, month: inst.currentMonth, day: inst.currentDay });
-            $('.deadline-form').addClass('task-settings-form-blink');
-            taskSettingsService.showDatepickerTrashIcon(true);
-            $('.deadline-form').on('animationend', function() {
-              $('.deadline-form').removeClass('task-settings-form-blink');
+            $http.post('/addDeadline', { date: { year: inst.currentYear, month: inst.currentMonth, day: inst.currentDay },
+            taskId: $scope.currentTask.id }).then(function(res, err) {
+              if(err) {
+                throw err;
+              }
             });
+            $scope.datepickerDeleteIconVisibility = true;
           }
         });
       });
+
       $('#noteInput').on('blur',function () {
         $scope.addNote($('#noteInput').val());
       });
+
       $scope.addNote = function(noteContent) {
-        taskSettingsService.addNote(noteContent);
-        $scope.note = noteContent;
-        $('.note-form').addClass('task-settings-form-blink');
-        $('.note-form').on('animationend', function() {
-          $('.note-form').removeClass('task-settings-form-blink');
-        });
+        $scope.currentTask.note = noteContent;
+        $scope.user.tasks.filter(function(elem) {
+          return elem.id == $scope.currentTask.id;
+        })[0].note = noteContent;
         $('#noteInput').off('blur').blur();
         $('#noteInput').on('blur',function () {
           $scope.addNote($('#noteInput').val());
         });
+        $('#noteInput').val(noteContent);
+        $http.post('/addNote', { note: noteContent, taskId: $scope.currentTask.id }).then(function(res, err) {
+          if(err) {
+            throw err;
+          }
+        });
       };
+
       $scope.addSubTask = function(title) {
-        var id = taskSettingsService.createSubTask(title);
-        $scope.subTasks.push({title: title, id: id});
+        var id = idGeneratorService.getSubTaskId(title, $scope.user);
+        $http.post('/createSubTask', { title: title, id: id, taskId: $scope.currentTask.id, listId: $scope.currentList.id }).then(function(res, err) {
+          if(err) {
+            throw err;
+          }
+        });
+        $scope.currentSubTasks.push({ title: title, id: id, taskId: $scope.currentTask.id, listId: $scope.currentList.id });
+        $scope.user.subTasks.push({ title: title, id: id, taskId: $scope.currentTask.id, listId: $scope.currentList.id });
         $scope.newSubTaskTitle = '';
       };
+
       $scope.deleteSubTask = function(subTask) {
-        taskSettingsService.deleteSubTask(subTask);
-        $scope.subTasks.splice($scope.subTasks.map(function(val) {
+        $scope.currentSubTasks.splice($scope.currentSubTasks.map(function(val) {
           return val.id;
         }).indexOf(subTask.id), 1);
+        $scope.user.subTasks.splice($scope.subTasks.map(function(val) {
+          return val.id;
+        }).indexOf(subTask.id), 1);
+        $http.post('/deleteSubTask', { id: subTask.id }).then(function(res, err) {
+          if(err) {
+            throw err;
+          }
+        });
       };
+
       $scope.deleteDeadline = function() {
-        taskSettingsService.deleteDeadline();
-        taskSettingsService.showDatepickerTrashIcon(false);
+        $scope.currentTask.deadline = null;
+        $('#deadlineDatepicker').val('');
+        $scope.datepickerDeleteIconVisibility = false;
+        $http.post('/addDeadline', { date: null, taskId: $scope.currentTask.id }).then(function(res, err) {
+          if(err) {
+            throw err;
+          }
+        });
       };
-      function setTaskSettings(taskSettings) {
-        var deadline;
-        $scope.disableTaskSettings = taskSettings === undefined ? true : false;
-        deadline = taskSettings !== undefined ? taskSettings.deadline : '';
-        $scope.subTasks = taskSettings !== undefined ? taskSettings.subTasks : [];
-        $scope.note = taskSettings !== undefined ? taskSettings.note : '';
-        if(deadline) {
-          taskSettingsService.showDatepickerTrashIcon(true);
-          $('#deadlineDatepicker').datepicker( 'setDate', deadline && months_en[deadline.month] + ' ' + deadline.day + ', ' + deadline.year );
-        } else {
-          taskSettingsService.showDatepickerTrashIcon(false);
-          $('#deadlineDatepicker').val('');
-        }
-      }
     }])
   };
 });

@@ -5,7 +5,7 @@
     <input type="submit" class="submit-list-add">
   </form>
   <ul class="list-group">
-    <li class="list-group-item" ng-repeat="list in lists" id="list-{{lists.indexOf(list)}}" ng-click="checkList(list)">
+    <li class="list-group-item" ng-repeat="list in user.lists" id="list-{{user.lists.indexOf(list)}}" ng-click="checkList(list)">
       <div class="trash-icon-container">
         <i class="fa fa-trash-o" ng-click="deleteList(list)"></i>
       </div>

@@ -1,12 +1,13 @@
 <div class="task-settings-container col-md-3">
   <form class="deadline-form task-settings-form" ng-submit="addDeadline(deadline)"
     ng-class="{ 'unavailable': disableTaskSettings }">
-    <i class="fa fa-trash-o delete-deadline-icon" id="deleteDeadlineIcon" ng-click="deleteDeadline()"></i>
-    <input placeholder="Add task deadline" type="text" id="deadlineDatepicker" readonly>
+    <i class="fa fa-trash-o delete-deadline-icon" id="deleteDeadlineIcon" ng-click="deleteDeadline()"
+    ng-class="{'visible': datepickerDeleteIconVisibility }", ></i>
+    <input ng-class="{'datepicker-padding': datepickerDeleteIconVisibility }" placeholder="Add task deadline" type="text" id="deadlineDatepicker" ng-model="taskDeadline" readonly>
     <i class="fa fa-calendar"></i>
   </form>
   <ul class="subtasks-list">
-    <li ng-repeat="subTask in subTasks" id="subTask-{{subTasks.indexOf(subTask)}}">
+    <li ng-repeat="subTask in currentSubTasks" id="subTask-{{currentSubTasks.indexOf(subTask)}}">
         {{subTask.title}}
       <div class="trash-icon-container">
         <i class="fa fa-trash-o" ng-click="deleteSubTask(subTask)"></i>
@@ -19,8 +20,8 @@
     <i class="fa fa-plus-square-o"></i>
     <input type="submit">
   </form>
-  <form class="task-settings-form note-form" ng-class="{ 'unavailable': disableTaskSettings }" ng-submit="addNote(note)">
-    <input type="text" placeholder="Add note here..." ng-model="note" id="noteInput">
+  <form class="task-settings-form note-form" ng-class="{ 'unavailable': disableTaskSettings }" ng-submit="addNote(currentTask.note)">
+    <input type="text" placeholder="Add note here..." ng-model="currentTask.note" id="noteInput">
     <i class="fa fa-pencil"></i>
     <input type="submit" class="default-cursor">
   </form>
