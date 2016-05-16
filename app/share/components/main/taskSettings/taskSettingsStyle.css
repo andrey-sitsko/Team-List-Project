@@ -37,7 +37,7 @@
   pointer-events: none;
 }
 
-.task-settings-container .deadline-form:hover .sprite-deadline {
+.task-settings-container .input-deadline:hover + .sprite-deadline {
   background-position: -121px -10px;
 }
 
