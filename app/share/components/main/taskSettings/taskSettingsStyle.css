@@ -34,6 +34,7 @@
   position: absolute;
   top: 5px;
   right: 50px;
+  pointer-events: none;
 }
 
 .task-settings-container .deadline-form:hover .sprite-deadline {
@@ -45,6 +46,7 @@
   font-size: 21px;
   letter-spacing: -2px;
   word-spacing: -7px;
+  cursor: pointer;
 }
 
 .deadline-form .sprite-delete {
