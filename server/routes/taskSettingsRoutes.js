@@ -86,5 +86,25 @@ module.exports = function(app) {
     );
   });
 
+  app.post('/addUserAvatar', function(req, res) {
+    var email = req.user.email,
+        avatarURL = req.body.avatarURL;
+
+    User.update(
+      {
+        'email': email,
+      },
+      {
+        $set: {
+          'avatarURL': avatarURL
+        }
+      },
+      false,
+      function(response) {
+        res.send(response);
+      }
+    );
+  });
+
   return app;
-}
+};

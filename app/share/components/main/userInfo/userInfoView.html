@@ -7,11 +7,13 @@
   </div>
   <div class="user-info-container float-right">
     <div class="username">{{user.name}}</div>
-    <img class="user-avatar" src="" alt="avatar" ng-show="currentUserAvatar !== undefined"/>
-    <img class="user-avatar" src="share/components/main/userInfo/assets/images/avatar-placeholder.png" alt="new-avatar" ng-show="currentUserAvatar === undefined"/>
-    <div class="avatarURL-input">
-      <input type="text" name="avatarUrl" value="" placeholder="add avatar ref">
-    </div>
+    <img class="user-avatar" src="{{user.avatarURL}}" alt="avatar" ng-show="(user.avatarURL && user.avatarURL.length > 0)"
+    ng-click="showAvatarPicker()">
+    <img class="user-avatar" src="share/components/main/userInfo/assets/images/avatar-placeholder.png"
+    alt="new-avatar" ng-show="(!user.avatarURL || user.avatarURL.length == 0)"  ng-click="showAvatarPicker()"/>
+    <form id="avatarURL-input" class="avatarURL-input" ng-submit="setUserAvatar(newUserAvatar)">
+      <input type="text" name="avatarUrl" ng-model="newUserAvatar" placeholder="add avatar ref">
+    </form>
   </div>
   <img class="logo" src="../share/assets/images/logo.png" alt="logo" />
 </div>
