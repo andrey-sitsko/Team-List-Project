@@ -48,7 +48,7 @@ app.directive('lists', function() {
           $scope.taskDeadline = '';
           $('#deadlineDatepicker').val('');
           $scope.datepickerDeleteIconVisibility = false;
-          $('.lists-container .list-group-item').removeClass('checked-list');
+          $('.lists-container .list-item').removeClass('checked-list');
           $('#list-' + $scope.user.lists.indexOf(list)).addClass('checked-list');
         }
       };

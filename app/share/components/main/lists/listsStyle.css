@@ -1,103 +1,113 @@
 .col-md-3.lists-container {
 	overflow: auto;
-  min-height: 100%;
-  padding: 67px 0;
-  background-color: rgb(57, 158, 90);
-  margin: 0;
+  min-height: calc(100% - 90px);
+  padding: 25px 0 50px 0;
+  background-color: rgba(0, 0, 0, 0.25);
+	color: #fff;
+	letter-spacing: -2px;
+}
+
+.add-list-form {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .add-list-input {
   border: none;
   width: 100%;
-  color: white;
-  font-size: 17px;
-  padding: 0 30px 0 5px;
+  color: #fff;
+  padding: 0 35px 0 5px;
   height: 35px;
-  background-color: rgb(48, 105, 54);
+  background: none;
+	font-size: 18px;
+	text-overflow: ellipsis;
 }
+
+.add-list-input::-webkit-input-placeholder {color:#fff;}
+.add-list-input::-moz-placeholder          {color:#fff;}/* Firefox 19+ */
+.add-list-input:-moz-placeholder           {color:#fff;}/* Firefox 18- */
+.add-list-input:-ms-input-placeholder      {color:#fff;}
 
 .add-list-input:focus {
   outline: none;
 }
 
-.fa.new-list-plus-icon {
-  position: absolute;
-  top: 50%;
-  margin-top: -13px;
-  right: 5px;
-  color: white;
-  font-size: 30px;
-}
-
-.add-list-form {
-  position: absolute;;
-  bottom: 0;
-  width: 100%;
-}
-
 .submit-list-add {
   position: absolute;
   opacity: 0;
-  right: 5px;
+  right: 0;
   top: 50%;
-  margin-top: -13px;
-  width: 25px;
-  height: 30px;
+  margin-top: -20px;
+  width: 35px;
+  height: 37px;
+	cursor: pointer;
 }
 
-.add-list-form input::-webkit-input-placeholder {
-  color: rgb(209, 209, 224);
+.sprite-add {
+    width: 19px;
+    height: 23px;
+    background-position: -49px -43px;
+}
+
+.new-list-plus-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -13px;
+  right: 8px;
+	pointer-events: none;
+}
+
+.submit-list-add:hover + .sprite-add {
+	background-position: -151px -107px;
+}
+
+.lists-container .list-group {
+	padding: 0 20px;
+	font-size: 0;
+	list-style: none;
 }
 
 .lists-container .list-group li {
-  position: relative;
-  padding-left: 8px;
-  padding-right: 30px;
-  border-left: none;
-  border-right: none;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  word-wrap: break-word;
-  font-size: 20px;
-  color: white;
-  background-color: rgb(57, 158, 90);
-  transition: background-color 0.3s;
-  cursor: default;
+	position: relative;
+	font-size: 21px;
+	margin-bottom: 4px;
+	cursor: pointer;
 }
 
-.lists-container .list-group li:hover {
-  background-color: rgb(0, 204, 122);
+.lists-container .list-group li span {
+	border-bottom: 1px solid #fff;
 }
 
-.lists-container .list-group li:hover .trash-icon-container  {
-  visibility: visible;
+.lists-container .list-group .list-title-container {
+	width: 250px;
+	height: 27px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
 }
 
-.lists-container .list-group li:first-child {
-	border-radius: 0;
-  border-top: none;
+.sprite-delete {
+	display: none;
+  width: 26px;
+  height: 26px;
+  background-position: -38px -102px;
 }
 
-.lists-container .list-group li:last-child {
-	border-radius: 0;
+.lists-container .list-group li:hover .sprite-delete {
+	display: inline-block;
 }
 
-.lists-container .list-group  li.checked-list  {
-	background-color: rgb(128, 255, 0);
-  color: black;
+.lists-container .list-group li:hover .sprite-delete:hover {
+	background-position: -4px -76px;
 }
 
-.lists-container .trash-icon-container {
-  visibility: hidden;
-  font-size: 24px;
-  position: absolute;
-  top: 6px;
-  right: 0;
-  text-align: center;
-  width: 36px;
+.delete-list-button {
+	position: absolute;
+	right: 0;
 }
 
-.lists-container .trash-icon-container i:hover {
-  color: rgb(255, 51, 51);
-  cursor: pointer;
+.lists-container .list-group  li.checked-list span  {
+  color: #b5a929;
+	border-color: #b5a929;
 }

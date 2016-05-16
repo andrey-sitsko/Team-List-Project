@@ -1,11 +1,29 @@
 .ui-datepicker {
+	position: relative;
 	width: 300px;
-	color: rgb(48, 105, 54);
+	color: #000;
 	background-color: #fff;
 	border-radius: 4px;
 	display: none;
 	margin-top: 4px;
 	padding: 10px;
+	font-family: sans-serif;
+	letter-spacing: 1px;
+}
+
+.ui-datepicker:after {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #fff;
+	border-width: 15px;
+	margin-left: -15px;
 }
 
 .ui-datepicker a,
@@ -16,10 +34,11 @@
 .ui-datepicker .ui-datepicker-header {
 	margin-bottom: 4px;
 	text-align: center;
+	padding: 0 5px;
 }
 
 .ui-datepicker .ui-datepicker-title {
-	font-weight: 700;
+	font-weight: 300;
 }
 
 .ui-datepicker .ui-datepicker-prev,
@@ -28,9 +47,9 @@
 	font-family: 'Glyphicons Halflings';
 	-webkit-font-smoothing: antialiased;
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 300;
 	height: 20px;
-	line-height: 1;
+	line-height: 14px;
 	margin-top: 2px;
 	width: 30px;
 }
@@ -46,14 +65,14 @@
 }
 
 .ui-datepicker .ui-datepicker-prev:before {
-	color: rgb(48, 105, 54);
-	content: "\e079";
+	color: #000;
+	content: "\2190";
 	cursor: pointer;
 }
 
 .ui-datepicker .ui-datepicker-next:before {
-	color: rgb(48, 105, 54);
-	content: "\e080";
+	color: #000;
+	content: "\2192";
 	cursor: pointer;
 }
 
@@ -82,12 +101,19 @@
 	cursor: pointer;
 }
 
+.ui-datepicker th {
+	font-size: 18px;
+	font-weight: 300;
+	cursor: default;
+}
+
 .ui-datepicker td {
+	font-family: OratorStdMedium;
 	font-size: 17px;
 }
 
 .ui-datepicker td a {
-	color: rgb(48, 105, 54);
+	color: #000;
 	text-decoration: none;
 }
 
@@ -96,11 +122,11 @@
 }
 
 .ui-datepicker .ui-datepicker-current-day {
-	background-color: rgb(48, 105, 54);
+	background-color: #000;
 }
 
 .ui-datepicker .ui-datepicker-calendar .ui-datepicker-current-day:hover {
-	background-color: rgb(48, 105, 54);
+	background-color: #000;
 }
 
 .ui-datepicker .ui-datepicker-current-day a {

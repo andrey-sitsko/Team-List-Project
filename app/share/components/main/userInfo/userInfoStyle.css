@@ -1,32 +1,130 @@
+.float-right {
+  float: right;
+}
+
+.main-header {
+  position: relative;
+  padding: 0 15px;
+  height: 90px;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-size: 18px;
+}
+
 .user-info-container {
   position: relative;
-  padding-right: 120px;
-  height: 53px;
-  background-color: #aaa;
+  height: 100%;
+  width: auto;
 }
 
-.btn.logout-button {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  margin: -17.5px 15px 12px 0;
-  padding: 1px 12px 1px 12px;
-  font-size: 22px;
-  color: rgb(38, 83, 43);
-  background-color: white;
-  transition: background-color 0.3s;
-}
-
-.btn.logout-button:hover {
-  background-color: rgb(57, 158, 90);;
-  color: white;
-}
-
-.username {
-  left: 0;
-  height: 53px;
-  line-height: 53px;
+.user-info-container * {
   display: inline-block;
-  color: #000;
-  font-size: 30px;
+  vertical-align: middle;
+}
+
+.user-info-container:before {
+  content: '';
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.user-avatar {
+  margin: 0 25px 0 15px;
+  border-radius: 100%;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.logout-button {
+  height: 100%;
+  text-align: center;
+  padding: 9px 0;
+  cursor: pointer;
+}
+
+.logout-button p {
+  width: 63px;
+  letter-spacing: -2px;
+}
+
+.logout-button:hover p {
+  color: #fff;
+}
+
+.sprite-logout {
+    width: 30px;
+    height: 30px;
+    background-position: -153px -10px;
+}
+
+.logout-button:hover .sprite-logout {
+    width: 30px;
+    height: 30px;
+    background-position: -151px -60px;
+}
+
+.main-header .logo {
+  width: 111px;
+  height: 69px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -55px;
+  margin-top: -35px;
+}
+
+.avatarURL-input input {
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 0px 5px;
+}
+
+input::-webkit-input-placeholder {color:#5e5e5e;}
+input::-moz-placeholder          {color:#5e5e5e;}/* Firefox 19+ */
+input:-moz-placeholder           {color:#5e5e5e;}/* Firefox 18- */
+input:-ms-input-placeholder      {color:#5e5e5e;}
+
+.avatarURL-input {
+	position: absolute;
+  right: 27px;
+  bottom: -18px;
+  height: 23px;
+  width: 150px;
+	background: rgba(255, 255, 255, 0.5);
+  z-index: -1;
+  opacity: 0;
+}
+
+.avatarURL-input-show {
+  z-index: 1000;
+  opacity: 1;
+  animation: show-avatarURL-input 1s;
+}
+
+@keyframes show-avatarURL-input {
+    0%   {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.avatarURL-input:after {
+	bottom: 100%;
+	left: 80%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: rgba(255, 255, 255, 0.5);
+	border-width: 7px;
+	margin-left: -7px;
 }

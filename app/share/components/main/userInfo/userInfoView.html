@@ -1,4 +1,17 @@
-<div class="user-info-container pull-right">
-  <div class="username">{{user.name}}</div>
-  <button class="btn logout-button" ng-click="logout()">logout</button>
+<div class="main-header">
+  <div class="logout-button float-right" ng-click="logout()">
+    <i class="sprite-main sprite-logout"></i>
+    <p>
+      Leave my list
+    </p>
+  </div>
+  <div class="user-info-container float-right">
+    <div class="username">{{user.name}}</div>
+    <img class="user-avatar" src="" alt="avatar" ng-show="currentUserAvatar !== undefined"/>
+    <img class="user-avatar" src="share/components/main/userInfo/assets/images/avatar-placeholder.png" alt="new-avatar" ng-show="currentUserAvatar === undefined"/>
+    <div class="avatarURL-input">
+      <input type="text" name="avatarUrl" value="" placeholder="add avatar ref">
+    </div>
+  </div>
+  <img class="logo" src="../share/assets/images/logo.png" alt="logo" />
 </div>

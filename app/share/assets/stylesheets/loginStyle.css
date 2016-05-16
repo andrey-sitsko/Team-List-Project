@@ -6,6 +6,6 @@ body {
     height:100%;
     min-height: 100%;
     position:relative;
-    background-image: url("../../components/login/signIn/assets/images/background.png");
+    background-image: url("../images/background-login.png");
     background-size: cover;
 }
