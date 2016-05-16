@@ -39,13 +39,20 @@ app.directive('lists', function() {
         });
       };
       $scope.checkList = function(list) {
-        $scope.currentList = list;
-        $scope.currentTasks = $scope.user.tasks.filter(function(task) {
-          return task.listId == list.id;
-        });
-        $scope.disableTasks = false;
-        $('.lists-container .list-group-item').removeClass('checked-list');
-        $('#list-' + $scope.user.lists.indexOf(list)).addClass('checked-list');
+        if(!$scope.currentList.id || $scope.currentList.id != list.id) {
+          $scope.currentList = list;
+          $scope.currentTasks = $scope.user.tasks.filter(function(task) {
+            return task.listId == list.id;
+          });
+          $scope.disableTasks = false;
+          $scope.disableTaskSettings = true;
+          $scope.currentSubTasks = [];
+          $scope.taskDeadline = '';
+          $('#deadlineDatepicker').val('');
+          $scope.datepickerDeleteIconVisibility = false;
+          $('.lists-container .list-group-item').removeClass('checked-list');
+          $('#list-' + $scope.user.lists.indexOf(list)).addClass('checked-list');
+        }
       };
     }]
   };

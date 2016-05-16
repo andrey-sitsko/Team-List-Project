@@ -5,8 +5,7 @@ require('./taskSettingsStyle.css');
 require('./datepickerStyle.css');
 require('jquery-ui');
 
-var app = angular.module('mainApp'),
-    months_en = require('../../../data/locales/months/months_en.js');
+var app = angular.module('mainApp');
 
 app.directive('taskSettings', function() {
   return {
@@ -35,7 +34,7 @@ app.directive('taskSettings', function() {
                 throw err;
               }
             });
-            showDatepickerDeleteIcon(true);
+            $scope.datepickerDeleteIconVisibility = true;
           }
         });
       });
@@ -46,9 +45,18 @@ app.directive('taskSettings', function() {
 
       $scope.addNote = function(noteContent) {
         $scope.currentTask.note = noteContent;
+        $scope.user.tasks.filter(function(elem) {
+          return elem.id == $scope.currentTask.id;
+        })[0].note = noteContent;
         $('#noteInput').off('blur').blur();
         $('#noteInput').on('blur',function () {
           $scope.addNote($('#noteInput').val());
+        });
+        $('#noteInput').val(noteContent);
+        $http.post('/addNote', { note: noteContent, taskId: $scope.currentTask.id }).then(function(res, err) {
+          if(err) {
+            throw err;
+          }
         });
       };
 
@@ -60,6 +68,7 @@ app.directive('taskSettings', function() {
           }
         });
         $scope.currentSubTasks.push({ title: title, id: id, taskId: $scope.currentTask.id, listId: $scope.currentList.id });
+        $scope.user.subTasks.push({ title: title, id: id, taskId: $scope.currentTask.id, listId: $scope.currentList.id });
         $scope.newSubTaskTitle = '';
       };
 
@@ -67,7 +76,7 @@ app.directive('taskSettings', function() {
         $scope.currentSubTasks.splice($scope.currentSubTasks.map(function(val) {
           return val.id;
         }).indexOf(subTask.id), 1);
-        $scope.subTasks.splice($scope.subTasks.map(function(val) {
+        $scope.user.subTasks.splice($scope.subTasks.map(function(val) {
           return val.id;
         }).indexOf(subTask.id), 1);
         $http.post('/deleteSubTask', { id: subTask.id }).then(function(res, err) {
@@ -80,34 +89,13 @@ app.directive('taskSettings', function() {
       $scope.deleteDeadline = function() {
         $scope.currentTask.deadline = null;
         $('#deadlineDatepicker').val('');
-        showDatepickerDeleteIcon(false);
+        $scope.datepickerDeleteIconVisibility = false;
         $http.post('/addDeadline', { date: null, taskId: $scope.currentTask.id }).then(function(res, err) {
           if(err) {
             throw err;
           }
         });
       };
-
-      function setTaskSettings(taskSettings) {
-        deadline = taskSettings !== undefined ? taskSettings.deadline : '';
-        if(deadline) {
-          taskSettingsService.showDatepickerDeleteIcon(true);
-          $('#deadlineDatepicker').datepicker( 'setDate', deadline && months_en[deadline.month] + ' ' + deadline.day + ', ' + deadline.year );
-        } else {
-          taskSettingsService.showDatepickerDeleteIcon(false);
-          $('#deadlineDatepicker').val('');
-        }
-      }
-
-      function showDatepickerDeleteIcon(state) {
-        if(state) {
-          $('#deleteDeadlineIcon').addClass('visible');
-          $('#deadlineDatepicker').addClass('datepicker-padding');
-        } else {
-          $('#deleteDeadlineIcon').removeClass('visible');
-          $('#deadlineDatepicker').removeClass('datepicker-padding');
-        }
-      }
     }])
   };
 });

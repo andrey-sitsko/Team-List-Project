@@ -3,7 +3,8 @@ require('../lists/listsService.js');
 require('./tasksService');
 require('./tasksStyle.css');
 
-var app = angular.module('mainApp');
+var app = angular.module('mainApp'),
+    months_en = require('../../../data/locales/months/months_en.js');
 
 app.directive('tasks', function() {
   return {
@@ -14,8 +15,12 @@ app.directive('tasks', function() {
     function($scope, $http, idGeneratorService, tasksService, currentUserService, listsService) {
       $scope.deleteTask = function(task) {
         if($scope.currentTask.id == task.id) {
+          $scope.currentTask = {};
           $scope.currentSubTasks = [];
           $scope.disableTaskSettings = true;
+          $scope.datepickerDeleteIconVisibility = false;
+          $scope.taskDeadline = '';
+          $('#deadlineDatepicker').val('');
         }
         $scope.currentTasks.splice($scope.currentTasks.map(function(task) {
           return task.id;
@@ -48,6 +53,16 @@ app.directive('tasks', function() {
         $scope.currentSubTasks = $scope.user.subTasks.filter(function(subTask) {
           return subTask.taskId == task.id;
         });
+        if($scope.currentTask.deadline) {
+          $scope.taskDeadline = months_en[$scope.currentTask.deadline.month] + ' ' +
+          $scope.currentTask.deadline.day + ', ' + $scope.currentTask.deadline.year;
+          $scope.datepickerDeleteIconVisibility = true;
+        } else {
+          $('#deadlineDatepicker').val('');
+          $scope.taskDeadline = '';
+          $scope.datepickerDeleteIconVisibility = false;
+        }
+        $('#noteInput').val($scope.currentTask.note);
         $('.tasks-container .list-group-item').removeClass('checked-task');
         $('#task-' + $scope.currentTasks.indexOf(task)).addClass('checked-task');
       };

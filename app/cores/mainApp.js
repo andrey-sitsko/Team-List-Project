@@ -15,6 +15,8 @@ app.controller('mainPageController', ['$scope', '$http', 'currentUserService', f
   $scope.currentTasks = [];
   $scope.currentTask = {};
   $scope.currentSubTasks = [];
+  $scope.taskDeadline = "";
+  $scope.datepickerDeleteIconVisibility = false;
   $http.get('/currentUser').then(function(res) {
     $scope.user = res.data;
     $scope.user.lists.reverse();
