@@ -1,4 +1,4 @@
-# Team List©
+# Team ListÂ©
 Smart todo-manager based on Wunderlist project.
 > Our [documentation  link](https://justpaste.it/teamlist)
 
@@ -7,7 +7,6 @@ Smart todo-manager based on Wunderlist project.
 > Our development team:
   - [Andrew Sitsko](https://github.com/andrey-sitsko) (team-leader, js-development)
   - [Averin Vladislav](https://github.com/averin-vladislav) (html-, css-development)
-  - [Belmach Alex](https://github.com/alex-belmach) (QA-testing)
+  - [Belmach Alex](https://github.com/alex-belmach) (html-, css-development)
   - [Kravchenko Victor](https://github.com/K-Wr) (project-managment)
-  - [Kravchenko Alex](¹) (QA-testing)
   - [Tsarikovich Anton](https://github.com/Anton-Tsarikovich) (QA-testing)
